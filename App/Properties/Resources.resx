@@ -130,6 +130,9 @@
   <data name="Data_JA_JP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\data\ja-jp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Data_ZH_CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\data\zh-cn.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="Localization_EN_US" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\localization\en-us.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -141,5 +144,8 @@
   </data>
   <data name="Localization_JA_JP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\localization\ja-jp.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Localization_ZH_CN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\localization\zh-cn.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

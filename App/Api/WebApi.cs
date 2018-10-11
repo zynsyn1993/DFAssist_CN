@@ -44,9 +44,12 @@ namespace App
                 request.Timeout = 10000;
                 request.CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore);
 
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                ServicePointManager.DefaultConnectionLimit = 9999;
                 using (var response = (HttpWebResponse)request.GetResponse())
                 {
-                    var encoding = Encoding.GetEncoding(response.CharacterSet);
+                    var encoding = Encoding.GetEncoding(65001);
 
                     using (var responseStream = response.GetResponseStream())
                     using (var reader = new StreamReader(responseStream, encoding))
@@ -55,10 +58,50 @@ namespace App
             }
             catch (Exception ex)
             {
-                Log.Ex(ex, "web-failed");
+                Log.Ex(ex, "l-web-request-failed");
             }
 
             return null;
+        }
+
+        internal static bool Download(string url, string path)
+        {
+            string tempPath = System.IO.Path.GetDirectoryName(path) + @"\temp";
+            System.IO.Directory.CreateDirectory(tempPath);  //创建临时文件目录
+            string tempFile = tempPath + @"\" + System.IO.Path.GetFileName(path) + ".temp"; //临时文件
+            if (System.IO.File.Exists(tempFile))
+            {
+                System.IO.File.Delete(tempFile);    //存在则删除
+            }
+            try
+            {
+                FileStream fs = new FileStream(tempFile, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
+                // 设置参数
+                HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+                //发送请求并获取相应回应数据
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                //直到request.GetResponse()程序才开始向目标网页发送Post请求
+                Stream responseStream = response.GetResponseStream();
+                //创建本地文件写入流
+                //Stream stream = new FileStream(tempFile, FileMode.Create);
+                byte[] bArr = new byte[1024];
+                int size = responseStream.Read(bArr, 0, (int)bArr.Length);
+                while (size > 0)
+                {
+                    //stream.Write(bArr, 0, size);
+                    fs.Write(bArr, 0, size);
+                    size = responseStream.Read(bArr, 0, (int)bArr.Length);
+                }
+                //stream.Close();
+                fs.Close();
+                responseStream.Close();
+                System.IO.File.Move(tempFile, path);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         private static string GetMD5Hash(string text)

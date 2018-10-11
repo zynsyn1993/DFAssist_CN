@@ -48,6 +48,19 @@ namespace App
             Write(Color.Red, Localization.GetText(key, args));
         }
 
+        internal static void Echo(string key)
+        {
+            Write(Color.Black, key);
+        }
+
+        internal static void Debug(string key)
+        {
+            if (Settings.DevMode)
+            {
+                Write(Color.DarkOrange, key);
+            }
+        }
+
         internal static void Ex(Exception ex, string key, params object[] args)
         {
 #if DEBUG
@@ -60,7 +73,7 @@ namespace App
             message = Escape(message);
             E($"{format}: {message}", args);
 
-            Sentry.ReportAsync(ex, new { LogMessage = string.Format(format.ToString(), args) });
+            //Sentry.ReportAsync(ex, new { LogMessage = string.Format(format.ToString(), args) });
 #endif
         }
 

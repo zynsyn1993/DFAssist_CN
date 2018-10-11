@@ -69,13 +69,17 @@
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>
+    </TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpRaven, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpRaven.2.2.0\lib\net40\SharpRaven.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -88,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Util\Sound_Helper.cs" />
     <Compile Include="Component\LocalizableLabel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -128,7 +133,6 @@
     <Compile Include="Network\Network.cs" />
     <Compile Include="Network\Network.Analyser.cs" />
     <Compile Include="Network\Network.Packet.cs" />
-    <Compile Include="Util\Sentry.cs" />
     <Compile Include="Component\TriStateTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -175,12 +179,15 @@
     </None>
     <None Include="Resources\Data\en-us.json" />
     <None Include="Resources\Data\fr-fr.json" />
+    <None Include="Resources\Data\zh-cn.json" />
     <None Include="Resources\Data\ja-jp.json" />
     <None Include="Resources\Data\ko-kr.json" />
     <None Include="ILMerge.props">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -194,13 +201,11 @@
     <None Include="Resources\Localization\fr-fr.json" />
     <None Include="Resources\Localization\ja-jp.json" />
     <None Include="Resources\Localization\ko-kr.json" />
+    <None Include="Resources\Localization\zh-cn.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.ico" />
     <Content Include="ILMergeOrder.txt" />
-    <Content Include="Resources\ZoneList.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">

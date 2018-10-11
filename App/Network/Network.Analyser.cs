@@ -124,6 +124,7 @@ namespace App
         {
             try
             {
+                //Log.Echo(BitConverter.ToString(message));
                 if (message.Length < 32)
                 {
                     // type == 0x0000 이였던 메시지는 여기서 걸러짐
@@ -153,8 +154,6 @@ namespace App
                     var code = BitConverter.ToInt16(data, 4);
                     var type = data[8];
 
-                    Log.B(data);
-
                     if (type == 0x0B)
                     {
                         Log.I("l-field-instance-entered", Data.GetInstance(code).Name);
@@ -164,20 +163,20 @@ namespace App
                         Log.I("l-field-instance-left");
                     }
 
-                    if (Settings.ShowOverlay && Settings.AutoOverlayHide)
-                    {
-                        mainForm.overlayForm.Invoke(() =>
-                        {
-                            if (type == 0x0B)
-                            {
-                                mainForm.overlayForm.Hide();
-                            }
-                            else if (type == 0x0C)
-                            {
-                                mainForm.overlayForm.Show();
-                            }
-                        });
-                    }
+                    //if (Settings.ShowOverlay && Settings.AutoOverlayHide)
+                    //{
+                    //    mainForm.overlayForm.Invoke(() =>
+                    //    {
+                    //        if (type == 0x0B)
+                    //        {
+                    //            mainForm.overlayForm.Hide();
+                    //        }
+                    //        else if (type == 0x0C)
+                    //        {
+                    //            mainForm.overlayForm.Show();
+                    //        }
+                    //    });
+                    //}
                 }
                 else if (opcode == 0x0143)
                 {
@@ -223,6 +222,12 @@ namespace App
                             if (Settings.FlashWindow)
                             {
                                 WinApi.FlashWindow(mainForm.FFXIVProcess);
+                            }
+
+                            if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
+                            {
+                                System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
+                                player.Play();
                             }
 
                             if (Settings.TwitterEnabled)
@@ -322,11 +327,13 @@ namespace App
                         {
                             WinApi.FlashWindow(mainForm.FFXIVProcess);
                         }
+
                         if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
                         {
                             System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
                             player.Play();
                         }
+
                         if (!Settings.ShowOverlay)
                         {
                             mainForm.ShowNotification("notification-queue-matched", instance.Name);
@@ -438,6 +445,12 @@ namespace App
                     if (Settings.FlashWindow)
                     {
                         WinApi.FlashWindow(mainForm.FFXIVProcess);
+                    }
+
+                    if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
+                    {
+                        System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
+                        player.Play();
                     }
 
                     if (!Settings.ShowOverlay)

@@ -26,7 +26,7 @@ namespace App
                 }
                 Directory.CreateDirectory(tempdir);
 
-                var resp = WebApi.Request($"https://api.github.com/repos/{Global.GITHUB_REPO}/releases/latest");
+                var resp = WebApi.Request("http://ffxiv.diemoe.net/DFA/check_update.php");
                 if (resp == null)
                 {
                     Log.E("l-updater-error-check");
@@ -49,15 +49,7 @@ namespace App
                     {
                         Log.S("l-updater-new-version");
 
-                        string url = null;
-                        foreach (var asset in api.assets)
-                        {
-                            if (asset.name == string.Format("DFAssist.{0}.zip", latest))
-                            {
-                                url = asset.browser_download_url;
-                                break;
-                            }
-                        }
+                        string url = "http://ffxiv.diemoe.net/download/DFAssist?loc=cn";
 
                         if (url == null)
                         {
@@ -78,7 +70,7 @@ namespace App
                             updaterForm.ShowDialog();
                         });
 
-                        Sentry.Report("Update started");
+                        //Sentry.Report("Update started");
 
                         var exepath = Process.GetCurrentProcess().MainModule.FileName;
 
@@ -136,7 +128,7 @@ namespace App
 
                 try
                 {
-                    var json = WebApi.Request($"https://raw.githubusercontent.com/{Global.GITHUB_REPO}/master/App/Resources/Data/{Settings.Language}.json");
+                    var json = WebApi.Request($"http://ffxiv.diemoe.net/DFA/Data/{Settings.Language}.json");
                     Data.Fill(json);
                 }
                 catch (Exception ex)

@@ -125,6 +125,8 @@ namespace App
 
         internal void SetDutyCount(int dutyCount)
         {
+            isMatched = false;
+            tryHide();
             isRoulette = false;
             this.Invoke(() =>
             {
@@ -142,6 +144,7 @@ namespace App
         internal void SetDutyStatus(Instance instance, byte tank, byte dps, byte healer)
         {
             isMatched = false;
+            tryHide();
             memberCount = null;
             this.Invoke(() =>
             {
@@ -179,6 +182,7 @@ namespace App
         internal void SetRoulleteDuty(Roulette roulette)
         {
             isMatched = false;
+            tryHide();
             isRoulette = true;
             memberCount = null;
             this.Invoke(() =>
@@ -191,12 +195,17 @@ namespace App
 
         internal void SetDutyAsMatched(Instance instance)
         {
+            isMatched = false;
+            tryHide();
             this.Invoke(() =>
             {
                 label_DutyCount.SetLocalizedText("overlay-queue-waiting-confirm");
                 label_DutyName.Text = instance.Name;
                 label_DutyStatus.SetLocalizedText("overlay-queue-matched");
-
+                if (Settings.TTS)
+                {
+                    Sound_Helper.TTS($"{label_DutyName.Text} {label_DutyStatus.Text}", Localization.GetText("tts-langset"));
+                }
                 accentColor = Color.Red;
                 StartBlink();
             });
@@ -209,6 +218,7 @@ namespace App
 
         internal void SetConfirmStatus(Instance instance, byte tank, byte dps, byte healer)
         {
+            tryHide();
             if (isMatched) return;
             if (memberCount == null) // fallback
             {
@@ -218,18 +228,24 @@ namespace App
             this.Invoke(() =>
             {
                 label_DutyCount.SetLocalizedText("overlay-queue-confirming");
+                label_DutyName.Text = instance.Name;
                 label_DutyStatus.Text = $@"{tank}/{memberCount[0]}    {healer}/{memberCount[2]}    {dps}/{memberCount[1]}";
             });
         }
 
         internal void SetFATEAsOccured(FATE fate)
         {
+            isMatched = false;
+            tryHide();
             this.Invoke(() =>
             {
                 label_DutyCount.Text = fate.Area.Name;
                 label_DutyName.Text = fate.Name;
                 label_DutyStatus.SetLocalizedText("overlay-fate-occured");
-
+                if (Settings.TTS)
+                {
+                    Sound_Helper.TTS($"{label_DutyName.Text} {label_DutyStatus.Text}", Localization.GetText("tts-langset"));
+                }
                 accentColor = Color.DarkOrange;
                 StartBlink();
             });
@@ -245,9 +261,33 @@ namespace App
             isMatched = true;
             StopBlink();
 
-            label_DutyCount.Text = Settings.ShowAnnouncement ? Localization.GetText("overlay-announcement") : "";
+            label_DutyCount.Text = "";
             label_DutyName.SetLocalizedText("overlay-not-queuing");
             label_DutyStatus.Text = "";
+            tryHide();
+        }
+
+        internal void tryHide()
+        {
+            if (!Settings.ShowOverlay || (Settings.AutoOverlayHide && isMatched))
+            {
+                Hide();
+            }
+            else
+            {
+                Show();
+            }
+        }
+        internal void tryShow()
+        {
+            if (!Settings.ShowOverlay || Settings.AutoOverlayHide)
+            {
+                Hide();
+            }
+            else
+            {
+                Show();
+            }
         }
 
         internal void ResetFormLocation()
@@ -257,12 +297,14 @@ namespace App
 
         internal void StartBlink()
         {
+            tryHide();
             blinkCount = 0;
             timer.Start();
         }
 
         internal void StopBlink()
         {
+            tryHide();
             timer.Stop();
             BackColor = Color.Black;
 

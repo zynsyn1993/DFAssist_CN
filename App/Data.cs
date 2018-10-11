@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using App.Properties;
 using Newtonsoft.Json;
-using SharpRaven.Data;
+//using SharpRaven.Data;
 
 namespace App
 {
@@ -36,6 +36,10 @@ namespace App
 
                 case "ja-jp":
                     json = Resources.Data_JA_JP;
+                    break;
+
+                case "zh-cn":
+                    json = Resources.Data_ZH_CN;
                     break;
 
                 default:
@@ -93,17 +97,18 @@ namespace App
         {
             if (Instances.TryGetValue(code, out var instance))
             {
+                Log.Debug($"Debug：副本[ID.{code}:{instance.Name}, T:{instance.Tank} / H:{instance.Healer} / D:{instance.DPS}]");
                 return instance;
             }
 
             if (code != 0)
             {
-                var @event = new SentryEvent("Missing instance code");
-                @event.Level = ErrorLevel.Warning;
-                @event.Tags["code"] = code.ToString();
-                Sentry.ReportAsync(@event);
+                Log.Debug($"Debug：未知的副本[ID.{code}]");
+                //var @event = new SentryEvent("Missing instance code");
+                //@event.Level = ErrorLevel.Warning;
+                //@event.Tags["code"] = code.ToString();
+                //Sentry.ReportAsync(@event);
             }
-
             return new Instance { Name = Localization.GetText("unknown-instance", code) };
         }
 
@@ -111,15 +116,17 @@ namespace App
         {
             if (Roulettes.TryGetValue(code, out var roulette))
             {
+                Log.Debug($"Debug：随机任务[ID.{code}:{roulette.Name}]");
                 return roulette;
             }
 
             if (code != 0)
             {
-                var @event = new SentryEvent("Missing Roulette code");
-                @event.Level = ErrorLevel.Warning;
-                @event.Tags["code"] = code.ToString();
-                Sentry.ReportAsync(@event);
+                Log.Debug($"Debug：未知的随机任务[ID.{code}]");
+                //var @event = new SentryEvent("Missing Roulette code");
+                //@event.Level = ErrorLevel.Warning;
+                //@event.Tags["code"] = code.ToString();
+                //Sentry.ReportAsync(@event);
             }
 
             return new Roulette { Name = Localization.GetText("unknown-roulette", code) };
@@ -129,15 +136,17 @@ namespace App
         {
             if (Areas.TryGetValue(code, out var area))
             {
+                Log.Debug($"Debug：区域[ID.{code}:{area.Name}]");
                 return area;
             }
 
             if (code != 0)
             {
-                var @event = new SentryEvent("Missing area code");
-                @event.Level = ErrorLevel.Warning;
-                @event.Tags["code"] = code.ToString();
-                Sentry.ReportAsync(@event);
+                Log.Debug($"Debug：未知的区域[ID.{code}]");
+                //var @event = new SentryEvent("Missing area code");
+                //@event.Level = ErrorLevel.Warning;
+                //@event.Tags["code"] = code.ToString();
+                //Sentry.ReportAsync(@event);
             }
 
             return new Area { Name = Localization.GetText("unknown-area", code) };
@@ -147,15 +156,17 @@ namespace App
         {
             if (FATEs.ContainsKey(code))
             {
+                Log.Debug($"Debug：FATE[ID.{code}:{FATEs[code].Name}]");
                 return FATEs[code];
             }
 
             if (code != 0)
             {
-                var @event = new SentryEvent("Missing FATE code");
-                @event.Level = ErrorLevel.Warning;
-                @event.Tags["code"] = code.ToString();
-                Sentry.ReportAsync(@event);
+                Log.Debug($"Debug：未知的FATE[ID.{code}]");
+                //var @event = new SentryEvent("Missing FATE code");
+                //@event.Level = ErrorLevel.Warning;
+                //@event.Tags["code"] = code.ToString();
+                //Sentry.ReportAsync(@event);
             }
 
             return new FATE { Name = Localization.GetText("unknown-fate", code) };

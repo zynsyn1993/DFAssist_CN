@@ -253,9 +253,21 @@ namespace App
         {
             try
             {
+                Process p = new Process();
+                p.StartInfo.FileName = "cmd.exe"; //命令
+                p.StartInfo.UseShellExecute = false; //不启用shell启动进程
+                p.StartInfo.RedirectStandardInput = true; // 重定向输入
+                p.StartInfo.RedirectStandardOutput = true; // 重定向标准输出
+                p.StartInfo.RedirectStandardError = true; // 重定向错误输出 
+                p.StartInfo.CreateNoWindow = true; // 不创建新窗口
+                p.Start();
+                p.StandardInput.WriteLine("netsh advfirewall firewall add rule name=\"WinClient\" dir=in program=\""+exePath+"\" action=allow localip=any remoteip=any security=notrequired description=DFAssist"); //cmd执行的语句
+                //p.StandardOutput.ReadToEnd(); //读取命令执行信息
+                p.StandardInput.WriteLine("exit"); //退出
+
                 var netFwMgr = GetInstance<INetFwMgr>("HNetCfg.FwMgr");
                 var netAuthApps = netFwMgr.LocalPolicy.CurrentProfile.AuthorizedApplications;
-
+                
                 var isExists = false;
                 foreach (var netAuthAppObject in netAuthApps)
                 {
@@ -265,20 +277,20 @@ namespace App
                         isExists = true;
                     }
                 }
-
+                
                 if (!isExists)
                 {
                     var netAuthApp = GetInstance<INetFwAuthorizedApplication>("HNetCfg.FwAuthorizedApplication");
-
+                
                     netAuthApp.Enabled = true;
-                    netAuthApp.Name = Global.APPNAME;
+                    netAuthApp.Name = "任务/FATE助手 - DFA";
                     netAuthApp.ProcessImageFileName = exePath;
                     netAuthApp.Scope = NET_FW_SCOPE_.NET_FW_SCOPE_ALL;
-
+                
                     netAuthApps.Add(netAuthApp);
-
-                    Log.S("l-firewall-registered");
+                
                 }
+                Log.S("l-firewall-registered");
             }
             catch (Exception ex)
             {

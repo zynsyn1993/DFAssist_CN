@@ -30,7 +30,7 @@ namespace App
         private static void AppStart()
         {
 #if !DEBUG
-            Sentry.Initialise();
+            //Sentry.Initialise();
 #endif
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

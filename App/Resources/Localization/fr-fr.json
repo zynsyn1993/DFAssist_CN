@@ -1,6 +1,7 @@
-{
+﻿{
   "app-name": "Notificateur Mission/ALEA",
-
+  
+  "tts-langset": "fra",
 
   "unknown-instance": "Mission inconnue ({0})",
   "unknown-roulette": "Mission aléatoire inconnue ({0})",
@@ -25,6 +26,8 @@
   "fate-preset-animus-SkywindI": "Book of Skywind I",
   "fate-preset-animus-SkywindII": "Book of Skywind II",
   "fate-preset-animus-SkyearthI": "Book of Skyearth I",
+  "fate-preset-Ixion": "Ixion",
+  "fate-preset-Tamamo": "Tamamo",
 
 
   "ui-notifymenustrip-open": "Ouvrir",
@@ -43,10 +46,14 @@
   "ui-settings-overlay-use": "Utiliser l'overlay",
   "ui-settings-overlay-tooltip": "Bouger l'overlay avec la barre gauche",
   "ui-settings-overlay-reset": "Rétablir",
-  "ui-settings-overlay-announcement": "Show announcement on Overlay",
   "ui-settings-startupshow": "Afficher la fenêtre principale au démarrage",
   "ui-settings-autohide": "Cacher automatiquement l'overlay pendant les missions",
   "ui-settings-iconflash": "Faire clignorer l'icône de FFXIV en cas d'ALEA/Mission",
+  "ui-settings-cheatroulette": "Montrer la mission en cours d'attente lors des missions aléatoires",
+  "ui-settings-playsound": "Jouer le son",
+  "ui-settings-soundlocation": "Sélectionnez le fichier",
+  "ui-settings-tts": "Text-to-speech",
+  "ui-settings-devmode": "Le mode développeur",
   "ui-settings-tweet-title": "Rappel Twiter",
   "ui-settings-tweet-activate": "Activer",
   "ui-settings-tweet-about": "Lorsqu'un ALEA choisi se produir, \nenvoyer un tweet avec mention au compte sélectionné.\nEntrez le nom du compte Twitter sans @.",
@@ -60,7 +67,7 @@
   "ui-logs-copy": "Copier logs",
   "ui-logs-clear": "Vider",
 
-  "ui-info-about": "[Contributor]\n유채색\nLaiglinne\nHibiyasleep\nAlex00728\n\n[Copyright]\nAll company, product, system names are\n registered or unregistered trademarks of their respective owners.\n(C)2010 - 2017 SQUARE ENIX CO., LTD All Rights Reserved.\nKorea Published by EYEDENTITY Entertainment.",
+  "ui-info-about": "[Contributor]\n유채색\nLaiglinne\nHibiyasleep\nAlex00728\n\n[Copyright]\nAll company, product, system names are\n registered or unregistered trademarks of their respective owners.\n(C)2010 - 2018 SQUARE ENIX CO., LTD All Rights Reserved.\nKorea Published by EYEDENTITY Entertainment.",
 
   "ui-msgbox-title-info": "DFA Notice",
   "ui-msgbox-title-warning": "DFA Warning",
@@ -69,6 +76,9 @@
   "ui-language-changed": "Langue changée en Français.\nUn redémarrage est nécessaire.\nVeuillez redémarrer l'application.",
 
   "ui-clipboard-copied": "Copié dans le presse-papiers.",
+
+  "ui-cheat-roulette-confirm": "This function is disabled by default to prevent abuse.\nPlease refrain from deliberately rejecting a specific dislike duty.\n\nDo you still want to enable it?",
+  "ui-cheat-roulette-enabled": "Enabled.\nPlease DON'T deliberately reject a specific dislike duty.",
 
   "ui-clear-log-confirm": "Vider les logs?",
 
@@ -80,7 +90,6 @@
   "ui-app-crashed": "L'application a été fermée suite à une erreur inconnue.\n\nErreur: {0}",
 
 
-  "overlay-announcement": "",
   "overlay-waiting-connection": "En attente de connection au client",
   "overlay-not-queuing": "Aucune file d'attente",
   "overlay-duty-count-unknown": "Mission trouvée",

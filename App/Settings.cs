@@ -9,11 +9,10 @@ namespace App
     {
         private static INIFile iniFile;
 
-        public static string Language { get; set; } = "ko-kr";
+        public static string Language { get; set; } = "zh-cn";
         public static bool ShowOverlay { get; set; } = true;
         public static int OverlayX { get; set; } = Global.OVERLAY_XY_UNSET;
         public static int OverlayY { get; set; } = Global.OVERLAY_XY_UNSET;
-        public static bool ShowAnnouncement { get; set; } = true;
         public static bool StartupShowMainForm { get; set; } = true;
         public static bool TwitterEnabled { get; set; } = false;
         public static bool AutoOverlayHide { get; set; } = true;
@@ -22,6 +21,8 @@ namespace App
         public static string TwitterAccount { get; set; } = "";
         public static bool Updated { get; set; } = true;
         public static bool PlaySound { get; set; } = false;
+        public static bool TTS { get; set; } = false;
+        public static bool DevMode { get; set; } = false;
         public static string SoundLocation { get; set; } = "";
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
 
@@ -47,15 +48,15 @@ namespace App
                 AutoOverlayHide = iniFile.ReadValue("overlay", "autohide") != "0";
                 OverlayX = int.Parse(iniFile.ReadValue("overlay", "x") ?? "0");
                 OverlayY = int.Parse(iniFile.ReadValue("overlay", "y") ?? "0");
-                ShowAnnouncement = iniFile.ReadValue("overlay", "announcement") != "0";
                 TwitterEnabled = iniFile.ReadValue("notification", "twitter") == "1";
                 TwitterAccount = iniFile.ReadValue("notification", "twitteraccount") ?? "";
                 FlashWindow = iniFile.ReadValue("notification", "flashwindow") != "0";
-                // CheatRoulette = iniFile.ReadValue("misc", "cheatroulette") == "1";
-                CheatRoulette = false; // 악용 방지를 위한 강제 비활성화
-                Language = iniFile.ReadValue("misc", "language") ?? "ko-kr";
+                CheatRoulette = iniFile.ReadValue("misc", "cheatroulette") == "1";
+                Language = iniFile.ReadValue("misc", "language") ?? "zh-cn";
                 Updated = iniFile.ReadValue("internal", "updated") != "0";
-                PlaySound = iniFile.ReadValue("notification","playsound") != "0";
+                PlaySound = iniFile.ReadValue("notification", "playsound") == "1";
+                TTS = iniFile.ReadValue("notification", "tts") == "1";
+                DevMode = iniFile.ReadValue("debug", "devmode") == "1";
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
 
                 var fates = iniFile.ReadValue("fate", "fates");
@@ -73,7 +74,6 @@ namespace App
             iniFile.WriteValue("overlay", "autohide", AutoOverlayHide ? "1" : "0");
             iniFile.WriteValue("overlay", "x", OverlayX.ToString());
             iniFile.WriteValue("overlay", "y", OverlayY.ToString());
-            iniFile.WriteValue("overlay", "announcement", ShowAnnouncement ? "1" : "0");
             iniFile.WriteValue("notification", "twitter", TwitterEnabled ? "1" : "0");
             iniFile.WriteValue("notification", "twitteraccount", TwitterAccount);
             iniFile.WriteValue("notification", "flashwindow", FlashWindow ? "1" : "0");
@@ -82,6 +82,8 @@ namespace App
             iniFile.WriteValue("fate", "fates", string.Join(",", FATEs));
             iniFile.WriteValue("internal", "updated", Updated ? "1" : "0");
             iniFile.WriteValue("notification", "playsound", PlaySound ? "1" : "0");
+            iniFile.WriteValue("notification", "tts", TTS ? "1" : "0");
+            iniFile.WriteValue("debug", "devmode", DevMode ? "1" : "0");
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
         }
     }

@@ -42,20 +42,17 @@ namespace App
             Data.Initialize(Settings.Language);
 
             ApplyLanguage();
-
-            overlayForm.Show();
+            
             networkWorker = new Network(this);
 
-            label_AboutTitle.Text = $@"DFA {Global.VERSION}";
-
+            label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";
             FindFFXIVProcess();
 
             if (!Settings.ShowOverlay)
             {
-                overlayForm.Hide();
                 checkBox_Overlay.Checked = false;
             }
-
+            overlayForm.tryHide();
             Task.Factory.StartNew(() =>
             {
                 while (true)
@@ -71,6 +68,7 @@ namespace App
                 new Language { Name = "English", Code = "en-us" },
                 new Language { Name = "Français", Code = "fr-fr" },
                 new Language { Name = "日本語", Code = "ja-jp" },
+                new Language { Name = "简体中文", Code = "zh-cn" },
             };
 
             comboBox_Language.DisplayMember = "Name";
@@ -94,8 +92,10 @@ namespace App
                 label_SoundLocation.Text = System.IO.Path.GetFileName(Settings.SoundLocation);
             }
             if (checkBox_PlaySound.Checked == false) { button_SoundLocation.Enabled = false; }
-            checkBox_ShowAnnouncement.Checked = Settings.ShowAnnouncement;
+            SetCheatRoulleteCheckBox(Settings.CheatRoulette);
 
+            checkBox_TTS.Checked = Settings.TTS;
+            checkBox_DevMode.Checked = Settings.DevMode;
             checkBox_Twitter.Checked = Settings.TwitterEnabled;
             textBox_Twitter.Enabled = Settings.TwitterEnabled;
             textBox_Twitter.Text = Settings.TwitterAccount;
@@ -139,17 +139,17 @@ namespace App
                     }
                 }
             });
-
+            Log.Echo("DFAssist_CN 中文支持版，开发：<中国区> 呆萌@红玉海。");
+            Log.Echo("本程序永久免费，请勿用于商业用途。");
             if (Settings.Updated)
             {
                 Settings.Updated = false;
                 Settings.Save();
+                Log.S("notification-app-updated", Global.VERSION);
                 ShowNotification("notification-app-updated", Global.VERSION);
             }
-
-            Sentry.ReportAsync("App started");
+            //Sentry.ReportAsync("App started");
         }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -214,15 +214,7 @@ namespace App
         {
             Settings.ShowOverlay = checkBox_Overlay.Checked;
             Settings.Save();
-
-            if (Settings.ShowOverlay)
-            {
-                overlayForm.Show();
-            }
-            else
-            {
-                overlayForm.Hide();
-            }
+            overlayForm.tryHide();
         }
 
         private void button_ResetOverlayPosition_Click(object sender, EventArgs e)
@@ -247,6 +239,7 @@ namespace App
         {
             Settings.AutoOverlayHide = checkBox_AutoOverlayHide.Checked;
             Settings.Save();
+            overlayForm.tryHide();
         }
 
         private void checkBox_FlashWindow_CheckedChanged(object sender, EventArgs e)
@@ -255,9 +248,21 @@ namespace App
             Settings.Save();
         }
 
-        private void checkBox_ShowAnnouncement_CheckedChanged(object sender, EventArgs e)
+        private void checkBox_CheatRoullete_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.ShowAnnouncement = checkBox_ShowAnnouncement.Checked;
+            var @checked = checkBox_CheatRoullete.Checked;
+            SetCheatRoulleteCheckBox(false);
+            if (@checked)
+            {
+                var respond = LMessageBox.W("ui-cheat-roulette-confirm", MessageBoxButtons.YesNo, MessageBoxDefaultButton.Button2);
+                if (respond == DialogResult.Yes)
+                {
+                    LMessageBox.I("ui-cheat-roulette-enabled");
+                    SetCheatRoulleteCheckBox(true);
+                }
+            }
+
+            Settings.CheatRoulette = checkBox_CheatRoullete.Checked;
             Settings.Save();
         }
 
@@ -400,6 +405,25 @@ namespace App
             PresetAccept(arr);
         }
 
+        private void IxionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] arr = { 1103, 1104, 1105 };
+            PresetAccept(arr);
+        }
+
+        private void TamamoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] arr = { 1106, 1107, 1108, 1109, 1110, 1111 };
+            PresetAccept(arr);
+        }
+
+        private void SetCheatRoulleteCheckBox(bool @checked)
+        {
+            checkBox_CheatRoullete.CheckedChanged -= checkBox_CheatRoullete_CheckedChanged;
+            checkBox_CheatRoullete.Checked = @checked;
+            checkBox_CheatRoullete.CheckedChanged += checkBox_CheatRoullete_CheckedChanged;
+        }
+
         private void FindFFXIVProcess()
         {
             comboBox_Process.Items.Clear();
@@ -497,8 +521,10 @@ namespace App
             checkBox_AutoOverlayHide.Text = Localization.GetText("ui-settings-autohide");
             checkBox_FlashWindow.Text = Localization.GetText("ui-settings-iconflash");
             checkBox_PlaySound.Text = Localization.GetText("ui-settings-playsound");
+            checkBox_TTS.Text = Localization.GetText("ui-settings-tts");
+            checkBox_DevMode.Text = Localization.GetText("ui-settings-devmode");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
-            checkBox_ShowAnnouncement.Text = Localization.GetText("ui-settings-overlay-announcement");
+            checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
             groupBox_TwitterSet.Text = Localization.GetText("ui-settings-tweet-title");
             checkBox_Twitter.Text = Localization.GetText("ui-settings-tweet-activate");
             label_TwitterAbout.Text = Localization.GetText("ui-settings-tweet-about");
@@ -514,12 +540,13 @@ namespace App
             bookOfSkywindIToolStripMenuItem.Text = Localization.GetText("fate-preset-animus-SkywindI");
             bookOfSkywindIIToolStripMenuItem.Text = Localization.GetText("fate-preset-animus-SkywindII");
             bookOfSkyearthIToolStripMenuItem.Text = Localization.GetText("fate-preset-animus-SkyearthI");
+            IxionToolStripMenuItem.Text = Localization.GetText("fate-preset-Ixion");
+            TamamoToolStripMenuItem.Text = Localization.GetText("fate-preset-Tamamo");
             toolStripMenuItem_SelectApply.Text = Localization.GetText("ui-fate-apply");
             label_FATEAbout.Text = Localization.GetText("ui-fate-about");
             toolStripMenuItem_LogCopy.Text = Localization.GetText("ui-logs-copy");
             toolStripMenuItem_LogClear.Text = Localization.GetText("ui-logs-clear");
             label_About.Text = Localization.GetText("ui-info-about");
-
         }
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)
@@ -545,10 +572,18 @@ namespace App
                 Settings.Save();
             }
         }
+        
 
-        private void groupBox_DefaultSet_Enter(object sender, EventArgs e)
+        private void checkBox_TTS_CheckedChanged(object sender, EventArgs e)
         {
+            Settings.TTS = checkBox_TTS.Checked;
+            Settings.Save();
+        }
 
+        private void checkBox_DevMode_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.DevMode = checkBox_DevMode.Checked;
+            Settings.Save();
         }
     }
 }
