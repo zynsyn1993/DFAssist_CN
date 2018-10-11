@@ -228,17 +228,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>set DeployPath=$(TargetDir)Deploy
-set ZipPath=$(SolutionDir)$(TargetName).zip
-if $(ConfigurationName) == Release (
- echo Creating zip file...
- del "%25ZipPath%25" 1&gt;NULL
- mkdir "%25DeployPath%25"
- copy "$(TargetPath)" "%25DeployPath%25\$(TargetFileName)" 1&gt;NUL
- powershell.exe -nologo -noprofile -command "&amp; { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::CreateFromDirectory('%25DeployPath%25', '%25ZipPath%25'); }"
- rmdir "%25DeployPath%25" /s /q
- echo Output: %25ZipPath%25
-)</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

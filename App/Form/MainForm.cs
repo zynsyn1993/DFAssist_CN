@@ -42,7 +42,8 @@ namespace App
             Data.Initialize(Settings.Language);
 
             ApplyLanguage();
-            
+
+            overlayForm.Show();
             networkWorker = new Network(this);
 
             label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";

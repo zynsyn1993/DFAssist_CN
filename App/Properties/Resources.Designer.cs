@@ -217,7 +217,7 @@ namespace App.Properties {
         /// <summary>
         ///   查找类似 {
         ///  // Version
-        ///  &quot;version&quot;: &quot;20181010.1&quot;, 
+        ///  &quot;version&quot;: &quot;20181010.2&quot;, 
         ///
         ///  // Duty
         ///  &quot;instances&quot;: {
@@ -228,24 +228,25 @@ namespace App.Properties {
         ///      &quot;healer&quot;: &quot;0&quot;,
         ///      &quot;dps&quot;: &quot;0&quot;
         ///    },
+        ///    &quot;197&quot;: {
+        ///      &quot;name&quot;: &quot;萌宠之王：玩家对战（绩点赛）&quot;,
+        ///      &quot;tank&quot;: &quot;0&quot;,
+        ///      &quot;healer&quot;: &quot;0&quot;,
+        ///      &quot;dps&quot;: &quot;0&quot;
+        ///    },
         ///    &quot;199&quot;: {
         ///      &quot;name&quot;: &quot;萌宠之王：玩家对战（无绩点赛）&quot;,
         ///      &quot;tank&quot;: &quot;0&quot;,
         ///      &quot;healer&quot;: &quot;0&quot;,
         ///      &quot;dps&quot;: &quot;0&quot;
         ///    },
-        ///    // 2.0 A Realm Reborn
-        ///    // 2.0 Dungeons
-        ///    &quot;4&quot;: {
-        ///      &quot;name&quot;: &quot;天然要害沙斯塔夏溶洞&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
+        ///    &quot;576&quot;: {
+        ///      &quot;name&quot;: &quot;萌宠之王：讨伐级单人战&quot;,
+        ///      &quot;tank&quot;: &quot;0&quot;,
+        ///      &quot;healer&quot;: &quot;0&quot;,
+        ///      &quot;dps&quot;: &quot;0&quot;
         ///    },
-        ///    &quot;8&quot;: {
-        ///      &quot;name&quot;: &quot;休养胜地布雷福洛克斯野营地&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///       [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Data_ZH_CN {
             get {
