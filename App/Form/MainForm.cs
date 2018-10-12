@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FFXIVAPP.Memory;
+using FFXIVAPP.Memory.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -470,6 +472,15 @@ namespace App
             comboBox_Process.Items.Clear();
             comboBox_Process.Items.Add(name);
             comboBox_Process.SelectedIndex = 0;
+            
+            // supported: English, Chinese, Japanese, French, German, Korean
+            string gameLanguage = "Chinese";
+            ProcessModel processModel = new ProcessModel
+            {
+                Process = FFXIVProcess,
+                IsWin64 = true
+            };
+            MemoryHandler.Instance.SetProcess(processModel, gameLanguage);
 
             networkWorker.StartCapture(FFXIVProcess);
         }

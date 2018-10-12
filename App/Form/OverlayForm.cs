@@ -269,25 +269,18 @@ namespace App
 
         internal void tryHide()
         {
-            if (!Settings.ShowOverlay || (Settings.AutoOverlayHide && isMatched))
+            this.Invoke(() =>
             {
-                Hide();
+                if (!Settings.ShowOverlay || (Settings.AutoOverlayHide && isMatched))
+                {
+                    Hide();
+                }
+                else
+                {
+                    Show();
+                }
             }
-            else
-            {
-                Show();
-            }
-        }
-        internal void tryShow()
-        {
-            if (!Settings.ShowOverlay || Settings.AutoOverlayHide)
-            {
-                Hide();
-            }
-            else
-            {
-                Show();
-            }
+            );
         }
 
         internal void ResetFormLocation()
