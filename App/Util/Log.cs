@@ -55,7 +55,7 @@ namespace App
 
         internal static void Debug(string key)
         {
-            if (Settings.DevMode)
+            if (Settings.DebugLog)
             {
                 Write(Color.DarkOrange, key);
             }

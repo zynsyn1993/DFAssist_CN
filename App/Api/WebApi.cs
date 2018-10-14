@@ -66,12 +66,12 @@ namespace App
 
         internal static bool Download(string url, string path)
         {
-            string tempPath = System.IO.Path.GetDirectoryName(path) + @"\temp";
-            System.IO.Directory.CreateDirectory(tempPath);  //创建临时文件目录
-            string tempFile = tempPath + @"\" + System.IO.Path.GetFileName(path) + ".temp"; //临时文件
-            if (System.IO.File.Exists(tempFile))
+            string tempPath = Path.GetDirectoryName(path) + @"\temp";
+            Directory.CreateDirectory(tempPath);  //创建临时文件目录
+            string tempFile = tempPath + @"\" + Path.GetFileName(path) + ".temp"; //临时文件
+            if (File.Exists(tempFile))
             {
-                System.IO.File.Delete(tempFile);    //存在则删除
+                File.Delete(tempFile);    //存在则删除
             }
             try
             {
@@ -95,7 +95,7 @@ namespace App
                 //stream.Close();
                 fs.Close();
                 responseStream.Close();
-                System.IO.File.Move(tempFile, path);
+                File.Move(tempFile, path);
                 return true;
             }
             catch (Exception ex)

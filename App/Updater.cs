@@ -104,7 +104,7 @@ namespace App
                             "title DFAssist Updater\r\n" +
                             "echo Updating DFAssist...\r\n" +
                             "ping 127.0.0.1 -n 3 > nul\r\n" +
-                            $"move /y \"{tempdir}\\*\" \"{currentdir}\" > nul\r\n" +
+                            $"move /y \"{tempdir}*\" \"{currentdir}\" > nul\r\n" +
                             $"\"{exepath}\"\r\n" + 
                             "echo Running DFAssist...\r\n",
                         Encoding.Default);

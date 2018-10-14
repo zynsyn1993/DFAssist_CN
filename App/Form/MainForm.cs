@@ -22,7 +22,7 @@ namespace App
             InitializeComponent();
 
             Log.Form = this;
-            overlayForm = new OverlayForm();
+            overlayForm = new OverlayForm(this);
             nodes = new List<TreeNode>();
         }
 
@@ -96,7 +96,7 @@ namespace App
             SetCheatRoulleteCheckBox(Settings.CheatRoulette);
 
             checkBox_TTS.Checked = Settings.TTS;
-            checkBox_DevMode.Checked = Settings.DevMode;
+            checkBox_DevMode.Checked = Settings.DebugLog;
             checkBox_Twitter.Checked = Settings.TwitterEnabled;
             textBox_Twitter.Enabled = Settings.TwitterEnabled;
             textBox_Twitter.Text = Settings.TwitterAccount;
@@ -513,8 +513,10 @@ namespace App
             tabControl.TabPages[0].Text = Localization.GetText("ui-tabcontrol-settings");
             tabControl.TabPages[1].Text = Localization.GetText("ui-tabcontrol-fate");
             tabControl.TabPages[2].Text = Localization.GetText("ui-tabcontrol-logs");
-            tabControl.TabPages[3].Text = Localization.GetText("ui-tabcontrol-info");
+            tabControl.TabPages[3].Text = Localization.GetText("ui-tabcontrol-dev");
+            tabControl.TabPages[4].Text = Localization.GetText("ui-tabcontrol-info");
             groupBox_DefaultSet.Text = Localization.GetText("ui-settings-title");
+            groupBox_debug_settings.Text = Localization.GetText("ui-settings-debug");
             checkBox_Overlay.Text = Localization.GetText("ui-settings-overlay-use");
             toolTip.SetToolTip(checkBox_Overlay, Localization.GetText("ui-settings-overlay-tooltip"));
             button_ResetOverlayPosition.Text = Localization.GetText("ui-settings-overlay-reset");
@@ -523,7 +525,7 @@ namespace App
             checkBox_FlashWindow.Text = Localization.GetText("ui-settings-iconflash");
             checkBox_PlaySound.Text = Localization.GetText("ui-settings-playsound");
             checkBox_TTS.Text = Localization.GetText("ui-settings-tts");
-            checkBox_DevMode.Text = Localization.GetText("ui-settings-devmode");
+            checkBox_DevMode.Text = Localization.GetText("ui-settings-debuglog");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
             checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
             groupBox_TwitterSet.Text = Localization.GetText("ui-settings-tweet-title");
@@ -583,8 +585,9 @@ namespace App
 
         private void checkBox_DevMode_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.DevMode = checkBox_DevMode.Checked;
+            Settings.DebugLog = checkBox_DevMode.Checked;
             Settings.Save();
         }
+       
     }
 }
