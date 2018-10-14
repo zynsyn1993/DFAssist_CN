@@ -45,8 +45,9 @@ namespace App
         private byte[] memberCount = null;
         internal int currentZone = 0;
         private IntPtr m_eventHook;
+        private MainForm mainForm;
 
-        internal OverlayForm()
+        internal OverlayForm(MainForm mainForm)
         {
             InitializeComponent();
 
@@ -56,7 +57,8 @@ namespace App
             timer = new Timer();
             timer.Interval = Global.BLINK_INTERVAL;
             timer.Tick += Timer_Tick;
-       }
+            this.mainForm = mainForm;
+        }
 
         private void WinEventProc(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
         {
@@ -206,6 +208,29 @@ namespace App
                 {
                     Sound_Helper.TTS($"{label_DutyName.Text} {label_DutyStatus.Text}", Localization.GetText("tts-langset"));
                 }
+
+                if (Settings.FlashWindow)
+                {
+                    WinApi.FlashWindow(mainForm.FFXIVProcess);
+                }
+
+                if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
+                    player.Play();
+                }
+
+                if (!Settings.ShowOverlay)
+                {
+                    mainForm.ShowNotification("notification-queue-matched", instance.Name);
+                }
+
+                if (Settings.TwitterEnabled)
+                {
+                    WebApi.Tweet("tweet-queue-matched", instance.Name);
+                }
+
+                Log.S("l-queue-matched", instance.Name);
                 accentColor = Color.Red;
                 StartBlink();
             });
@@ -219,7 +244,11 @@ namespace App
         internal void SetConfirmStatus(Instance instance, byte tank, byte dps, byte healer)
         {
             tryHide();
-            if (isMatched) return;
+            if (isMatched)
+            {
+                SetDutyAsMatched(instance);
+                return;
+            }
             if (memberCount == null) // fallback
             {
                 memberCount = new byte[] { instance.Tank, instance.DPS, instance.Healer };
@@ -246,8 +275,30 @@ namespace App
                 {
                     Sound_Helper.TTS($"{label_DutyName.Text} {label_DutyStatus.Text}", Localization.GetText("tts-langset"));
                 }
+
+                if (Settings.FlashWindow)
+                {
+                    WinApi.FlashWindow(mainForm.FFXIVProcess);
+                }
+
+                if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
+                {
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
+                    player.Play();
+                }
+
+                if (!Settings.ShowOverlay)
+                {
+                    mainForm.ShowNotification("tweet-fate-occured", fate.Name);
+                }
+
+                if (Settings.TwitterEnabled)
+                {
+                    WebApi.Tweet("tweet-fate-occured", fate.Name);
+                }
                 accentColor = Color.DarkOrange;
                 StartBlink();
+                Log.I("l-fate-occured-info", fate.Name);
             });
         }
 
