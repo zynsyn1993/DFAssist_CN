@@ -22,7 +22,7 @@ namespace App
         public static bool Updated { get; set; } = true;
         public static bool PlaySound { get; set; } = false;
         public static bool TTS { get; set; } = false;
-        public static bool DevMode { get; set; } = false;
+        public static bool DebugLog { get; set; } = false;
         public static string SoundLocation { get; set; } = "";
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
 
@@ -56,7 +56,7 @@ namespace App
                 Updated = iniFile.ReadValue("internal", "updated") != "0";
                 PlaySound = iniFile.ReadValue("notification", "playsound") == "1";
                 TTS = iniFile.ReadValue("notification", "tts") == "1";
-                DevMode = iniFile.ReadValue("debug", "devmode") == "1";
+                DebugLog = iniFile.ReadValue("dev", "debuglog") == "1";
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
 
                 var fates = iniFile.ReadValue("fate", "fates");
@@ -83,7 +83,7 @@ namespace App
             iniFile.WriteValue("internal", "updated", Updated ? "1" : "0");
             iniFile.WriteValue("notification", "playsound", PlaySound ? "1" : "0");
             iniFile.WriteValue("notification", "tts", TTS ? "1" : "0");
-            iniFile.WriteValue("debug", "devmode", DevMode ? "1" : "0");
+            iniFile.WriteValue("dev", "debuglog", DebugLog ? "1" : "0");
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
         }
     }

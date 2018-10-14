@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.label_AboutTitle = new App.LocalizableLabel();
             this.button_ResetProcess = new System.Windows.Forms.Button();
             this.comboBox_Process = new System.Windows.Forms.ComboBox();
             this.button_SelectProcess = new System.Windows.Forms.Button();
@@ -52,7 +51,6 @@
             this.label_TwitterAbout = new App.LocalizableLabel();
             this.checkBox_Twitter = new System.Windows.Forms.CheckBox();
             this.groupBox_DefaultSet = new System.Windows.Forms.GroupBox();
-            this.checkBox_DevMode = new System.Windows.Forms.CheckBox();
             this.checkBox_TTS = new System.Windows.Forms.CheckBox();
             this.label_SoundLocation = new App.LocalizableLabel();
             this.button_SoundLocation = new System.Windows.Forms.Button();
@@ -91,9 +89,14 @@
             this.menuStrip_LogTab = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem_LogCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_LogClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage_devmode = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox_debug_settings = new System.Windows.Forms.GroupBox();
+            this.checkBox_DevMode = new System.Windows.Forms.CheckBox();
             this.tabPage_Info = new System.Windows.Forms.TabPage();
             this.label_About = new App.LocalizableLabel();
             this.linkLabel_GitHub = new System.Windows.Forms.LinkLabel();
+            this.label_AboutTitle = new App.LocalizableLabel();
             this.contextMenuStrip.SuspendLayout();
             this.panel_TopSetting.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -105,21 +108,11 @@
             this.tabPage_Log.SuspendLayout();
             this.panel_LogCover.SuspendLayout();
             this.menuStrip_LogTab.SuspendLayout();
+            this.tabPage_devmode.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox_debug_settings.SuspendLayout();
             this.tabPage_Info.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label_AboutTitle
-            // 
-            this.label_AboutTitle.BackColor = System.Drawing.Color.Silver;
-            this.label_AboutTitle.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label_AboutTitle.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label_AboutTitle.ForeColor = System.Drawing.Color.Gray;
-            this.label_AboutTitle.Location = new System.Drawing.Point(0, 297);
-            this.label_AboutTitle.Name = "label_AboutTitle";
-            this.label_AboutTitle.Size = new System.Drawing.Size(544, 24);
-            this.label_AboutTitle.TabIndex = 0;
-            this.label_AboutTitle.Text = "VERSION STRING";
-            this.label_AboutTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // button_ResetProcess
             // 
@@ -250,6 +243,7 @@
             this.tabControl.Controls.Add(this.tabPage_Settings);
             this.tabControl.Controls.Add(this.tabPage_FATE);
             this.tabControl.Controls.Add(this.tabPage_Log);
+            this.tabControl.Controls.Add(this.tabPage_devmode);
             this.tabControl.Controls.Add(this.tabPage_Info);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.ItemSize = new System.Drawing.Size(30, 110);
@@ -328,7 +322,6 @@
             // 
             // groupBox_DefaultSet
             // 
-            this.groupBox_DefaultSet.Controls.Add(this.checkBox_DevMode);
             this.groupBox_DefaultSet.Controls.Add(this.checkBox_TTS);
             this.groupBox_DefaultSet.Controls.Add(this.label_SoundLocation);
             this.groupBox_DefaultSet.Controls.Add(this.button_SoundLocation);
@@ -346,18 +339,6 @@
             this.groupBox_DefaultSet.TabIndex = 0;
             this.groupBox_DefaultSet.TabStop = false;
             this.groupBox_DefaultSet.Text = "기본설정";
-            // 
-            // checkBox_DevMode
-            // 
-            this.checkBox_DevMode.AutoSize = true;
-            this.checkBox_DevMode.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_DevMode.Location = new System.Drawing.Point(199, 43);
-            this.checkBox_DevMode.Name = "checkBox_DevMode";
-            this.checkBox_DevMode.Size = new System.Drawing.Size(91, 21);
-            this.checkBox_DevMode.TabIndex = 7;
-            this.checkBox_DevMode.Text = "개발자 모드";
-            this.checkBox_DevMode.UseVisualStyleBackColor = true;
-            this.checkBox_DevMode.CheckedChanged += new System.EventHandler(this.checkBox_DevMode_CheckedChanged);
             // 
             // checkBox_TTS
             // 
@@ -712,6 +693,50 @@
             this.toolStripMenuItem_LogClear.Text = "로그 삭제";
             this.toolStripMenuItem_LogClear.Click += new System.EventHandler(this.toolStripMenuItem_LogClear_Click);
             // 
+            // tabPage_devmode
+            // 
+            this.tabPage_devmode.AutoScroll = true;
+            this.tabPage_devmode.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage_devmode.Controls.Add(this.panel1);
+            this.tabPage_devmode.Location = new System.Drawing.Point(114, 4);
+            this.tabPage_devmode.Name = "tabPage_devmode";
+            this.tabPage_devmode.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_devmode.Size = new System.Drawing.Size(426, 262);
+            this.tabPage_devmode.TabIndex = 4;
+            this.tabPage_devmode.Text = "개발자 모드";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox_debug_settings);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(420, 259);
+            this.panel1.TabIndex = 10;
+            // 
+            // groupBox_debug_settings
+            // 
+            this.groupBox_debug_settings.Controls.Add(this.checkBox_DevMode);
+            this.groupBox_debug_settings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox_debug_settings.Location = new System.Drawing.Point(0, 0);
+            this.groupBox_debug_settings.Name = "groupBox_debug_settings";
+            this.groupBox_debug_settings.Size = new System.Drawing.Size(420, 121);
+            this.groupBox_debug_settings.TabIndex = 9;
+            this.groupBox_debug_settings.TabStop = false;
+            this.groupBox_debug_settings.Text = "调试";
+            // 
+            // checkBox_DevMode
+            // 
+            this.checkBox_DevMode.AutoSize = true;
+            this.checkBox_DevMode.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.checkBox_DevMode.Location = new System.Drawing.Point(19, 24);
+            this.checkBox_DevMode.Name = "checkBox_DevMode";
+            this.checkBox_DevMode.Size = new System.Drawing.Size(91, 21);
+            this.checkBox_DevMode.TabIndex = 8;
+            this.checkBox_DevMode.Text = "개발자 모드";
+            this.checkBox_DevMode.UseVisualStyleBackColor = true;
+            this.checkBox_DevMode.CheckedChanged += new System.EventHandler(this.checkBox_DevMode_CheckedChanged);
+            // 
             // tabPage_Info
             // 
             this.tabPage_Info.BackColor = System.Drawing.SystemColors.Control;
@@ -747,6 +772,19 @@
             this.linkLabel_GitHub.Text = "Original Author: GitHub";
             this.linkLabel_GitHub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkLabel_GitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_GitHub_LinkClicked);
+            // 
+            // label_AboutTitle
+            // 
+            this.label_AboutTitle.BackColor = System.Drawing.Color.Silver;
+            this.label_AboutTitle.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label_AboutTitle.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_AboutTitle.ForeColor = System.Drawing.Color.Gray;
+            this.label_AboutTitle.Location = new System.Drawing.Point(0, 297);
+            this.label_AboutTitle.Name = "label_AboutTitle";
+            this.label_AboutTitle.Size = new System.Drawing.Size(544, 24);
+            this.label_AboutTitle.TabIndex = 0;
+            this.label_AboutTitle.Text = "VERSION STRING";
+            this.label_AboutTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 
@@ -787,6 +825,10 @@
             this.panel_LogCover.ResumeLayout(false);
             this.menuStrip_LogTab.ResumeLayout(false);
             this.menuStrip_LogTab.PerformLayout();
+            this.tabPage_devmode.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.groupBox_debug_settings.ResumeLayout(false);
+            this.groupBox_debug_settings.PerformLayout();
             this.tabPage_Info.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -856,7 +898,10 @@
         private LocalizableLabel label_SoundLocation;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckBox checkBox_TTS;
+        private System.Windows.Forms.TabPage tabPage_devmode;
         private System.Windows.Forms.CheckBox checkBox_DevMode;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox_debug_settings;
     }
 }
 
