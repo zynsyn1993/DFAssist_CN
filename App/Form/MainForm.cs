@@ -46,7 +46,6 @@ namespace App
 
             overlayForm.Show();
             networkWorker = new Network(this);
-            Global.mainForm = this;
             memoryWorker = new Memory(Settings.Language);
 
             label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";
