@@ -11,6 +11,9 @@
 
   "notification-app-updated": "バージョン {0} に更新されました",
   "notification-queue-matched": "< {0} > 突入準備完了!",
+  "notification-update-enabled": "Updateable to {0}",
+  "notification-uptodate": "Updating to {0}",
+  "notification-update-latest": "Already the latest version",
 
 
   "tweet-fate-occured": "< {0} > FATE発生!",
@@ -44,7 +47,7 @@
   "ui-tabcontrol-dev": "開発者モード",
 
   "ui-settings-title": "基本設定",
-  "ui-settings-debug": "调试选项",
+  "ui-settings-debug": "デバッグ",
   "ui-settings-overlay-use": "オーバーレイ",
   "ui-settings-overlay-tooltip": "オーバーレイ左側のバーをドラッグすると移動できます。",
   "ui-settings-overlay-reset": "初期化",
@@ -55,10 +58,20 @@
   "ui-settings-playsound": "サウンドを再生",
   "ui-settings-soundlocation": "ファイルを選択",
   "ui-settings-tts": "TTSを使用",
-  "ui-settings-debuglog": "Display Debug Logs",
+  "ui-settings-debuglog": "デバッグログの表示",
   "ui-settings-tweet-title": "Twitterアラーム",
   "ui-settings-tweet-activate": "有効化",
   "ui-settings-tweet-about": "突入準備完了時、FATEが発生した際指定したアカウントに\nツイートを送信します。\nTwitterアカウント名の@以降を入力してください。",
+  
+  "ui-settings-update": "更新設定",
+  "ui-settings-update-about": "アップデートが見つかりました場合",
+  "ui-settings-update-setting-auto": "自動更新",
+  "ui-settings-update-setting-notification": "私に通知を送る",
+  "ui-settings-update-setting-no": "何もしない",
+  "ui-settings-update-data-about": "データ更新バージョンが存在する場合",
+  "ui-settings-update-data-setting-auto": "サーバデータの使用",
+  "ui-settings-update-data-setting-no": "ローカルデータの使用",
+  "ui-settings-update-manual": "手動更新",
 
   "ui-fate-selectall": "すべて選択",
   "ui-fate-unselectall": "すべて選択解除",

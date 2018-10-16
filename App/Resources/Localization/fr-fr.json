@@ -11,6 +11,9 @@
 
   "notification-app-updated": "Mise à jour version {0}",
   "notification-queue-matched": "< {0} > disponible!",
+  "notification-update-enabled": "mises à la {0}",
+  "notification-uptodate": "la mise à jour de la {0}",
+  "notification-update-latest": "Vous utilisez la dernière version",
 
 
   "tweet-fate-occured": "ALEA < {0} > en cours!",
@@ -44,7 +47,7 @@
   "ui-tabcontrol-dev": "Le mode développeur",
 
   "ui-settings-title": "Paramètres de base",
-  "ui-settings-debug": "调试选项",
+  "ui-settings-debug": "Options de débogage",
   "ui-settings-overlay-use": "Utiliser l'overlay",
   "ui-settings-overlay-tooltip": "Bouger l'overlay avec la barre gauche",
   "ui-settings-overlay-reset": "Rétablir",
@@ -59,6 +62,16 @@
   "ui-settings-tweet-title": "Rappel Twiter",
   "ui-settings-tweet-activate": "Activer",
   "ui-settings-tweet-about": "Lorsqu'un ALEA choisi se produir, \nenvoyer un tweet avec mention au compte sélectionné.\nEntrez le nom du compte Twitter sans @.",
+
+  "ui-settings-update": "mettre à jour la mise",
+  "ui-settings-update-about": "lorsqu'il existe une version app update...",
+  "ui-settings-update-setting-auto": "mise à jour automatique.",
+  "ui-settings-update-setting-notification": "m'envoyer une notification.",
+  "ui-settings-update-setting-no": "Ne rien faire ",
+  "ui-settings-update-data-about": "lorsque la mise à jour des données il existe une version...",
+  "ui-settings-update-data-setting-auto": "en utilisant des données du serveur.",
+  "ui-settings-update-data-setting-no": "en utilisant des données locales.",
+  "ui-settings-update-manual": "mise à jour du guide",
 
   "ui-fate-selectall": "Selectionner tout",
   "ui-fate-unselectall": "Déselectionner tout",

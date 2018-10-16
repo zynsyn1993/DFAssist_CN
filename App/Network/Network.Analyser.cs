@@ -88,7 +88,7 @@ namespace App
 
                         if (length < payload.Length)
                         {
-                            // 더 처리해야 할 패킷이 남아 있음
+                            // 더 처리해야 할 패킷이 남아 있음 数据包仍然需要处理
                             payload = payload.Skip(length).ToArray();
                             continue;
                         }
@@ -246,6 +246,7 @@ namespace App
                         {
                             var roulette = Data.GetRoulette(rouletteCode);
                             mainForm.overlayForm.SetRoulleteDuty(roulette);
+                            mainForm.overlayForm.queueCode = rouletteCode;
                             Log.I("l-queue-started-roulette", roulette.Name);
                         }
                         else //특정 임무 신청
@@ -268,7 +269,7 @@ namespace App
                             }
 
                             mainForm.overlayForm.SetDutyCount(instances.Count);
-
+                            mainForm.overlayForm.queueCount = instances.Count;
                             Log.I("l-queue-started-general",
                                 string.Join(", ", instances.Select(x => x.Name).ToArray()));
                         }
@@ -276,9 +277,16 @@ namespace App
                     else if (status == 3)
                     {
                         state = reason == 8 ? State.QUEUED : State.IDLE;
-                        mainForm.overlayForm.CancelDutyFinder();
+                        if (reason == 8)
+                        {
+                            mainForm.overlayForm.CancelDuty();
+                        }
+                        else
+                        {
+                            mainForm.overlayForm.CancelDutyFinder();
+                            Log.E("l-queue-stopped");
+                        }
 
-                        Log.E("l-queue-stopped");
                     }
                     else if (status == 6)
                     {
@@ -314,11 +322,13 @@ namespace App
 
                     if (status == 0)
                     {
+                        // 取消或确认超时
                         // 플레이어가 매칭 참가 확인 창에서 취소를 누르거나 참가 확인 제한 시간이 초과됨
                         // 매칭 중단을 알리기 위해 상단 2DB status 3 패킷이 연이어 옴
                     }
                     if (status == 1)
                     {
+                        // 确认
                         // 플레이어가 매칭 참가 확인 창에서 확인을 누름
                         // 다른 매칭 인원들도 전부 확인을 눌렀을 경우 입장을 위해 상단 2DB status 6 패킷이 옴
                         mainForm.overlayForm.StopBlink();
@@ -351,9 +361,10 @@ namespace App
 
                         if (state == State.MATCHED && lastMember != member)
                         {
+                            // 队友取消
                             // 매칭도중일 때 인원 현황 패킷이 오고 마지막 인원 정보와 다른 경우에 누군가에 의해 큐가 취소된 경우.
                             state = State.QUEUED;
-                            mainForm.overlayForm.CancelDutyFinder();
+                            mainForm.overlayForm.CancelDuty();
                         }
                         else if (state == State.IDLE)
                         {

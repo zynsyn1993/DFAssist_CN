@@ -67,11 +67,11 @@ namespace App
 
             comboBox_Language.DataSource = new[]
             {
-                new Language { Name = "한국어", Code = "ko-kr" },
-                new Language { Name = "English", Code = "en-us" },
-                new Language { Name = "Français", Code = "fr-fr" },
-                new Language { Name = "日本語", Code = "ja-jp" },
-                new Language { Name = "简体中文", Code = "zh-cn" },
+                new SelectedItem { Name = "한국어", Code = "ko-kr" },
+                new SelectedItem { Name = "English", Code = "en-us" },
+                new SelectedItem { Name = "Français", Code = "fr-fr" },
+                new SelectedItem { Name = "日本語", Code = "ja-jp" },
+                new SelectedItem { Name = "简体中文", Code = "zh-cn" },
             };
 
             comboBox_Language.DisplayMember = "Name";
@@ -513,12 +513,12 @@ namespace App
             label_Process.Text = Localization.GetText("ui-topsetting-process");
             button_SelectProcess.Text = Localization.GetText("ui-topsetting-select");
             button_ResetProcess.Text = Localization.GetText("ui-topsetting-reset");
-            tabControl.TabPages[0].Text = Localization.GetText("ui-tabcontrol-settings");
-            tabControl.TabPages[1].Text = Localization.GetText("ui-tabcontrol-fate");
-            tabControl.TabPages[2].Text = Localization.GetText("ui-tabcontrol-logs");
-            tabControl.TabPages[3].Text = Localization.GetText("ui-tabcontrol-dev");
-            tabControl.TabPages[4].Text = Localization.GetText("ui-tabcontrol-info");
-            groupBox_DefaultSet.Text = Localization.GetText("ui-settings-title");
+            tabPage_Settings.Text = Localization.GetText("ui-tabcontrol-settings");
+            tabPage_FATE.Text = Localization.GetText("ui-tabcontrol-fate");
+            tabPage_Log.Text = Localization.GetText("ui-tabcontrol-logs");
+            tabPage_devmode.Text = Localization.GetText("ui-tabcontrol-dev");
+            tabPage_Info.Text = Localization.GetText("ui-tabcontrol-info");
+            settings_basic.Text = Localization.GetText("ui-settings-title");
             groupBox_debug_settings.Text = Localization.GetText("ui-settings-debug");
             checkBox_Overlay.Text = Localization.GetText("ui-settings-overlay-use");
             toolTip.SetToolTip(checkBox_Overlay, Localization.GetText("ui-settings-overlay-tooltip"));
@@ -531,7 +531,7 @@ namespace App
             checkBox_DevMode.Text = Localization.GetText("ui-settings-debuglog");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
             checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
-            groupBox_TwitterSet.Text = Localization.GetText("ui-settings-tweet-title");
+            settings_tweet.Text = Localization.GetText("ui-settings-tweet-title");
             checkBox_Twitter.Text = Localization.GetText("ui-settings-tweet-activate");
             label_TwitterAbout.Text = Localization.GetText("ui-settings-tweet-about");
             toolStripMenuItem_SelectAll.Text = Localization.GetText("ui-fate-selectall");
@@ -553,6 +553,30 @@ namespace App
             toolStripMenuItem_LogCopy.Text = Localization.GetText("ui-logs-copy");
             toolStripMenuItem_LogClear.Text = Localization.GetText("ui-logs-clear");
             label_About.Text = Localization.GetText("ui-info-about");
+            settings_update.Text = Localization.GetText("ui-settings-update");
+            update_about.SetLocalizedText("ui-settings-update-about");
+            comboBox_dfaUpdate.SelectedValueChanged -= comboBox_dfaUpdate_SelectedValueChanged;
+            comboBox_dfaUpdate.DataSource = new[]
+            {
+                new SelectedItem { Name = Localization.GetText("ui-settings-update-setting-auto"), Code = "1" },
+                new SelectedItem { Name = Localization.GetText("ui-settings-update-setting-notification"), Code = "2" },
+                new SelectedItem { Name = Localization.GetText("ui-settings-update-setting-no"), Code = "0" },
+            };
+            comboBox_dfaUpdate.DisplayMember = "Name";
+            comboBox_dfaUpdate.ValueMember = "Code";
+            comboBox_dfaUpdate.SelectedValue = Settings.dfaUpdate;
+            update_data_about.SetLocalizedText("ui-settings-update-data-about");
+            comboBox_dfaUpdate.SelectedValueChanged += comboBox_dfaUpdate_SelectedValueChanged;
+            comboBox_dataUpdate.SelectedValueChanged -= comboBox_dataUpdate_SelectedValueChanged;
+            comboBox_dataUpdate.DataSource = new[]
+            {
+                new SelectedItem { Name = Localization.GetText("ui-settings-update-data-setting-auto"), Code = "1" },
+                new SelectedItem { Name = Localization.GetText("ui-settings-update-data-setting-no"), Code = "0" },
+            };
+            comboBox_dataUpdate.DisplayMember = "Name";
+            comboBox_dataUpdate.ValueMember = "Code";
+            comboBox_dataUpdate.SelectedValue = Settings.dataUpdate;
+            comboBox_dataUpdate.SelectedValueChanged += comboBox_dataUpdate_SelectedValueChanged;
         }
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)
@@ -591,6 +615,31 @@ namespace App
             Settings.DebugLog = checkBox_DevMode.Checked;
             Settings.Save();
         }
-       
+
+        private void comboBox_dfaUpdate_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Settings.dfaUpdate = comboBox_dfaUpdate.SelectedValue.ToString();
+            Settings.Save();
+        }
+
+        private void button_update_Click(object sender, EventArgs e)
+        {
+            button_update.Enabled = false;
+            Updater.manual_update(this);
+        }
+
+        internal void button_update_enabled()
+        {
+            this.Invoke(() => 
+            {
+                button_update.Enabled = true;
+            });
+        }
+
+        private void comboBox_dataUpdate_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Settings.dataUpdate = comboBox_dataUpdate.SelectedValue.ToString();
+            Settings.Save();
+        }
     }
 }

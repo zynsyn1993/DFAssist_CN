@@ -9,6 +9,8 @@ namespace App
     {
         private static INIFile iniFile;
 
+        public static string dfaUpdate { get; set; } = "1";
+        public static string dataUpdate { get; set; } = "1";
         public static string Language { get; set; } = "zh-cn";
         public static bool ShowOverlay { get; set; } = true;
         public static int OverlayX { get; set; } = Global.OVERLAY_XY_UNSET;
@@ -53,6 +55,8 @@ namespace App
                 FlashWindow = iniFile.ReadValue("notification", "flashwindow") != "0";
                 CheatRoulette = iniFile.ReadValue("misc", "cheatroulette") == "1";
                 Language = iniFile.ReadValue("misc", "language") ?? "zh-cn";
+                dfaUpdate = iniFile.ReadValue("update", "dfaupdate") ?? "1";
+                dataUpdate = iniFile.ReadValue("update", "dataupdate") ?? "1";
                 Updated = iniFile.ReadValue("internal", "updated") != "0";
                 PlaySound = iniFile.ReadValue("notification", "playsound") == "1";
                 TTS = iniFile.ReadValue("notification", "tts") == "1";
@@ -79,6 +83,8 @@ namespace App
             iniFile.WriteValue("notification", "flashwindow", FlashWindow ? "1" : "0");
             iniFile.WriteValue("misc", "cheatroulette", CheatRoulette ? "1" : "0");
             iniFile.WriteValue("misc", "language", Language);
+            iniFile.WriteValue("update", "dfaupdate", dfaUpdate);
+            iniFile.WriteValue("update", "dataupdate", dataUpdate);
             iniFile.WriteValue("fate", "fates", string.Join(",", FATEs));
             iniFile.WriteValue("internal", "updated", Updated ? "1" : "0");
             iniFile.WriteValue("notification", "playsound", PlaySound ? "1" : "0");
