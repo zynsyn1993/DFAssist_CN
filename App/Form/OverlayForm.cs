@@ -46,6 +46,8 @@ namespace App
         internal int currentZone = 0;
         private IntPtr m_eventHook;
         private MainForm mainForm;
+        internal byte queueCode;
+        internal int queueCount;
 
         internal OverlayForm(MainForm mainForm)
         {
@@ -206,7 +208,7 @@ namespace App
                 label_DutyStatus.SetLocalizedText("overlay-queue-matched");
                 if (Settings.TTS)
                 {
-                    Sound_Helper.TTS($"{label_DutyName.Text} {label_DutyStatus.Text}", Localization.GetText("tts-langset"));
+                    Sound_Helper.TTS($"{instance.Name} {Localization.GetText("overlay-queue-matched")}", Localization.GetText("tts-langset"));
                 }
 
                 if (Settings.FlashWindow)
@@ -273,7 +275,7 @@ namespace App
                 label_DutyStatus.SetLocalizedText("overlay-fate-occured");
                 if (Settings.TTS)
                 {
-                    Sound_Helper.TTS($"{label_DutyName.Text} {label_DutyStatus.Text}", Localization.GetText("tts-langset"));
+                    Sound_Helper.TTS($"{fate.Name} {Localization.GetText("overlay-fate-occured")}", Localization.GetText("tts-langset"));
                 }
 
                 if (Settings.FlashWindow)
@@ -300,6 +302,26 @@ namespace App
                 StartBlink();
                 Log.I("l-fate-occured-info", fate.Name);
             });
+        }
+
+        internal void CancelDuty()
+        {
+            this.Invoke(CancelDutySync);
+        }
+
+        internal void CancelDutySync() //队友取消匹配事件
+        {
+            StopBlink();
+            if (isRoulette)
+            {
+                SetRoulleteDuty(Data.GetRoulette(queueCode));
+            }
+            else
+            {
+                label_DutyName.Text = "";
+                SetDutyCount(queueCount);
+            }
+            tryHide();
         }
 
         internal void CancelDutyFinder()

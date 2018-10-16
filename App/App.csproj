@@ -102,7 +102,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Struct\GameData.cs" />
-    <Compile Include="Struct\Language.cs" />
+    <Compile Include="Struct\SelectedItem.cs" />
     <Compile Include="Struct\Roulette.cs" />
     <Compile Include="Api\WebApi.cs" />
     <Compile Include="Struct\Area.cs" />

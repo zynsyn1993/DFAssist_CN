@@ -11,6 +11,9 @@
 
   "notification-app-updated": "Version {0} Updated",
   "notification-queue-matched": "< {0} > Matched!",
+  "notification-update-enabled": "Updateable to {0}",
+  "notification-uptodate": "Updating to {0}",
+  "notification-update-latest": "Already the latest version",
 
 
   "tweet-fate-occured": "< {0} > FATE Occured!",
@@ -44,7 +47,7 @@
   "ui-tabcontrol-dev": "Developer Mode",
 
   "ui-settings-title": "Basic Setting",
-  "ui-settings-debug": "调试选项",
+  "ui-settings-debug": "Debug",
   "ui-settings-overlay-use": "Use Overlay",
   "ui-settings-overlay-tooltip": "Move Overlay by Draging Left bar.",
   "ui-settings-overlay-reset": "Reset",
@@ -59,6 +62,16 @@
   "ui-settings-tweet-title": "Twitter Alarm",
   "ui-settings-tweet-activate": "Activate",
   "ui-settings-tweet-about": "When matched or FATE occurs, \nsend a Tweet with mention to the entered Twitter account.\nEnter the Twitter Account except the preceding symbol @.",
+  
+  "ui-settings-update": "Update Setting",
+  "ui-settings-update-about": "When App update version exists...",
+  "ui-settings-update-setting-auto": "Automatic update.",
+  "ui-settings-update-setting-notification": "Send me a notification.",
+  "ui-settings-update-setting-no": "Nothing.(Not recommended)",
+  "ui-settings-update-data-about": "When D/F Data update version exists...",
+  "ui-settings-update-data-setting-auto": "Using server data.",
+  "ui-settings-update-data-setting-no": "Using local data.(Not recommended)",
+  "ui-settings-update-manual": "Manual Update",
 
   "ui-fate-selectall": "Select All",
   "ui-fate-unselectall": "Unselect All",

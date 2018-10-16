@@ -11,6 +11,9 @@
 
   "notification-app-updated": "버전 {0} 업데이트됨",
   "notification-queue-matched": "< {0} > 매칭!",
+  "notification-update-enabled": "{0} 까지 업데이트할 수 있어요",
+  "notification-uptodate": "{0} 를 업데이트하고 있습니다",
+  "notification-update-latest": "최신 버전을 이용중입니다",
 
 
   "tweet-fate-occured": "< {0} > 돌발 발생!",
@@ -43,7 +46,7 @@
   "ui-tabcontrol-dev": "개발자 모드",
 
   "ui-settings-title": "기본설정",
-  "ui-settings-debug": "调试选项",
+  "ui-settings-debug": "디버그 옵션",
   "ui-settings-overlay-use": "오버레이 사용",
   "ui-settings-overlay-tooltip": "오버레이 UI의 좌측 막대를 이용해 드래그 할 수 있습니다.",
   "ui-settings-overlay-reset": "위치 초기화",
@@ -58,6 +61,16 @@
   "ui-settings-tweet-title": "트위터 알림",
   "ui-settings-tweet-activate": "활성화",
   "ui-settings-tweet-about": "매칭이 됐을 시 입력된 트위터 계정으로 멘션을 보내 해당 사실을 알립니다.\n원하는 돌발이 발생했을 시에도 멘션을 보내 해당 사실을 알립니다.\n계정명 입력시 앞의 @ 표시는 제외하고 순수 계정명만 입력해주세요.",
+  
+  "ui-settings-update": "업데이트 설정",
+  "ui-settings-update-about": "업데이트할 때 프로그램 버전 존재...",
+  "ui-settings-update-setting-auto": "자동 업데이트.",
+  "ui-settings-update-setting-notification": "나한테 보낸 통지.",
+  "ui-settings-update-setting-no": "아무것도 안 해요.",
+  "ui-settings-update-data-about": "최신 버전 때 존재하는 데이터...",
+  "ui-settings-update-data-setting-auto": "서버 정보 사용.",
+  "ui-settings-update-data-setting-no": "현지 데이터 사용. ",
+  "ui-settings-update-manual": "수동 업데이트",
 
   "ui-fate-selectall": "모두 선택",
   "ui-fate-unselectall": "모두 해제",
