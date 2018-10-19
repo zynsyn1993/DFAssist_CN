@@ -38,14 +38,15 @@
             this.toolStripMenuItem_Open = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_Close = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_TopSetting = new System.Windows.Forms.Panel();
+            this.label_Process = new App.LocalizableLabel();
             this.comboBox_Language = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBox_Overlay = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl = new App.TabControlBlack();
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.tabControl_Settings = new System.Windows.Forms.TabControl();
             this.settings_basic = new System.Windows.Forms.TabPage();
-            this.checkBox_Overlay = new System.Windows.Forms.CheckBox();
             this.checkBox_TTS = new System.Windows.Forms.CheckBox();
             this.checkBox_StartupShow = new System.Windows.Forms.CheckBox();
             this.label_SoundLocation = new App.LocalizableLabel();
@@ -106,7 +107,6 @@
             this.label_About = new App.LocalizableLabel();
             this.linkLabel_GitHub = new System.Windows.Forms.LinkLabel();
             this.label_AboutTitle = new App.LocalizableLabel();
-            this.label_Process = new App.LocalizableLabel();
             this.contextMenuStrip.SuspendLayout();
             this.panel_TopSetting.SuspendLayout();
             this.tabControl.SuspendLayout();
@@ -204,6 +204,18 @@
             this.panel_TopSetting.Size = new System.Drawing.Size(554, 27);
             this.panel_TopSetting.TabIndex = 1;
             // 
+            // label_Process
+            // 
+            this.label_Process.AutoSize = true;
+            this.label_Process.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label_Process.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_Process.ForeColor = System.Drawing.Color.Gray;
+            this.label_Process.Location = new System.Drawing.Point(5, 5);
+            this.label_Process.Name = "label_Process";
+            this.label_Process.Size = new System.Drawing.Size(101, 19);
+            this.label_Process.TabIndex = 0;
+            this.label_Process.Text = "FFXIV 프로세스";
+            // 
             // comboBox_Language
             // 
             this.comboBox_Language.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -217,6 +229,21 @@
             this.comboBox_Language.Size = new System.Drawing.Size(91, 25);
             this.comboBox_Language.TabIndex = 4;
             this.comboBox_Language.ValueMember = "Code";
+            // 
+            // checkBox_Overlay
+            // 
+            this.checkBox_Overlay.AutoSize = true;
+            this.checkBox_Overlay.Checked = true;
+            this.checkBox_Overlay.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_Overlay.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.checkBox_Overlay.Location = new System.Drawing.Point(6, 6);
+            this.checkBox_Overlay.Name = "checkBox_Overlay";
+            this.checkBox_Overlay.Size = new System.Drawing.Size(103, 21);
+            this.checkBox_Overlay.TabIndex = 0;
+            this.checkBox_Overlay.Text = "오버레이 사용";
+            this.toolTip.SetToolTip(this.checkBox_Overlay, "오버레이 UI의 좌측 막대를 이용해 드래그 할 수 있습니다.");
+            this.checkBox_Overlay.UseVisualStyleBackColor = true;
+            this.checkBox_Overlay.CheckedChanged += new System.EventHandler(this.checkBox_Overlay_CheckedChanged);
             // 
             // openFileDialog1
             // 
@@ -283,21 +310,6 @@
             this.settings_basic.Size = new System.Drawing.Size(428, 230);
             this.settings_basic.TabIndex = 0;
             this.settings_basic.Text = "基础设置";
-            // 
-            // checkBox_Overlay
-            // 
-            this.checkBox_Overlay.AutoSize = true;
-            this.checkBox_Overlay.Checked = true;
-            this.checkBox_Overlay.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_Overlay.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_Overlay.Location = new System.Drawing.Point(6, 6);
-            this.checkBox_Overlay.Name = "checkBox_Overlay";
-            this.checkBox_Overlay.Size = new System.Drawing.Size(103, 21);
-            this.checkBox_Overlay.TabIndex = 0;
-            this.checkBox_Overlay.Text = "오버레이 사용";
-            this.toolTip.SetToolTip(this.checkBox_Overlay, "오버레이 UI의 좌측 막대를 이용해 드래그 할 수 있습니다.");
-            this.checkBox_Overlay.UseVisualStyleBackColor = true;
-            this.checkBox_Overlay.CheckedChanged += new System.EventHandler(this.checkBox_Overlay_CheckedChanged);
             // 
             // checkBox_TTS
             // 
@@ -457,10 +469,10 @@
             this.settings_tweet.Controls.Add(this.label_TwitterAbout);
             this.settings_tweet.Controls.Add(this.label_TwitterAt);
             this.settings_tweet.Controls.Add(this.checkBox_Twitter);
-            this.settings_tweet.Location = new System.Drawing.Point(4, 22);
+            this.settings_tweet.Location = new System.Drawing.Point(4, 28);
             this.settings_tweet.Name = "settings_tweet";
             this.settings_tweet.Padding = new System.Windows.Forms.Padding(3);
-            this.settings_tweet.Size = new System.Drawing.Size(428, 236);
+            this.settings_tweet.Size = new System.Drawing.Size(428, 230);
             this.settings_tweet.TabIndex = 1;
             this.settings_tweet.Text = "Twitter提醒";
             // 
@@ -512,10 +524,10 @@
             this.settings_update.Controls.Add(this.update_data_about);
             this.settings_update.Controls.Add(this.update_about);
             this.settings_update.Controls.Add(this.comboBox_dfaUpdate);
-            this.settings_update.Location = new System.Drawing.Point(4, 22);
+            this.settings_update.Location = new System.Drawing.Point(4, 28);
             this.settings_update.Name = "settings_update";
             this.settings_update.Padding = new System.Windows.Forms.Padding(3);
-            this.settings_update.Size = new System.Drawing.Size(428, 236);
+            this.settings_update.Size = new System.Drawing.Size(428, 230);
             this.settings_update.TabIndex = 2;
             this.settings_update.Text = "更新选项";
             // 
@@ -523,7 +535,7 @@
             // 
             this.button_update.AutoSize = true;
             this.button_update.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button_update.Location = new System.Drawing.Point(3, 204);
+            this.button_update.Location = new System.Drawing.Point(3, 198);
             this.button_update.Name = "button_update";
             this.button_update.Size = new System.Drawing.Size(422, 29);
             this.button_update.TabIndex = 5;
@@ -905,18 +917,6 @@
             this.label_AboutTitle.TabIndex = 0;
             this.label_AboutTitle.Text = "VERSION STRING";
             this.label_AboutTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label_Process
-            // 
-            this.label_Process.AutoSize = true;
-            this.label_Process.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_Process.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label_Process.ForeColor = System.Drawing.Color.Gray;
-            this.label_Process.Location = new System.Drawing.Point(5, 5);
-            this.label_Process.Name = "label_Process";
-            this.label_Process.Size = new System.Drawing.Size(101, 19);
-            this.label_Process.TabIndex = 0;
-            this.label_Process.Text = "FFXIV 프로세스";
             // 
             // MainForm
             // 

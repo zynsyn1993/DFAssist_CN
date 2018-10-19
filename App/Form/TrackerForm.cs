@@ -321,15 +321,17 @@ namespace App
         private void TrackerForm_Shown(object sender, EventArgs e)
         {
             Hide();
-            ShowInTaskbar = true;
             Opacity = 1;
         }
 
         internal void Display()
         {
-            Show();
-            TopMost = true;
-            TopMost = false;
+            this.Invoke(() =>
+            {
+                Show();
+                TopMost = true;
+                TopMost = false;
+            });
         }
     }
 }

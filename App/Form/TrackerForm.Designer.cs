@@ -137,7 +137,6 @@
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "TrackerForm";
             this.Opacity = 0D;
-            this.ShowInTaskbar = false;
             this.Text = "DFAssist-Eureka-Tracker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrackerForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TrackerForm_FormClosed);
