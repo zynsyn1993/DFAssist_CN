@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace App
 {
@@ -23,6 +24,30 @@ namespace App
             MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
         {
             return Show(bodyKey, "ui-msgbox-title-error", buttons, MessageBoxIcon.Error, defaultButton);
+        }
+
+        internal static DialogResult Alert(string body,
+            MessageBoxButtons buttons = MessageBoxButtons.OK,
+            MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
+        {
+            return Dialog(body, "Alert", buttons, MessageBoxIcon.Warning, defaultButton);
+        }
+
+        internal static DialogResult Confirm(string body,
+            MessageBoxButtons buttons = MessageBoxButtons.OK,
+            MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
+        {
+            return Dialog(body, "Confirm", buttons, MessageBoxIcon.Warning, defaultButton);
+        }
+
+        private static DialogResult Dialog(
+            string body, string title,
+            MessageBoxButtons buttons = MessageBoxButtons.OK,
+            MessageBoxIcon icon = MessageBoxIcon.None,
+            MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
+        {
+
+            return MessageBox.Show(body, title, buttons, icon, defaultButton);
         }
 
         private static DialogResult Show(

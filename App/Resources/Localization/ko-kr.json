@@ -71,6 +71,18 @@
   "ui-settings-update-data-setting-auto": "서버 정보 사용.",
   "ui-settings-update-data-setting-no": "현지 데이터 사용. ",
   "ui-settings-update-manual": "수동 업데이트",
+  
+  "ui-settings-tracker": "Eureka-Tracker",
+  "ui-settings-tracker-enabled": "Enable Eureka-Tracker",
+  "ui-settings-tracker-open": "Open Tracker",
+  "ui-settings-tracker-auto": "Auto Tracker when in Eureka",
+
+  "tracker-title": "DFAssist-Eureka-Tracker",
+  "tracker-new-tracker": "New Tracker",
+  "tracker-anemos": "Anemos",
+  "tracker-pagos": "Pagos",
+  
+  "ui-new-tracker-error": "An error occurred while creating a new tracker. Please try again later.",
 
   "ui-fate-selectall": "모두 선택",
   "ui-fate-unselectall": "모두 해제",

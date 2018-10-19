@@ -42,13 +42,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>App.ico</ApplicationIcon>
@@ -92,6 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form\TrackerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TrackerForm.Designer.cs">
+      <DependentUpon>TrackerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\Sound_Helper.cs" />
     <Compile Include="Component\LocalizableLabel.cs">
       <SubType>Component</SubType>
@@ -154,6 +161,9 @@
     <Compile Include="Updater.cs" />
     <Compile Include="Api\WinApi.cs" />
     <Compile Include="Util\ZipStorer.cs" />
+    <EmbeddedResource Include="Form\TrackerForm.resx">
+      <DependentUpon>TrackerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,7 +235,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MiniblinkNet\MiniblinkNet.csproj">
+      <Project>{42294472-ec90-4c05-9f06-c68edce6310d}</Project>
+      <Name>MiniblinkNet</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

@@ -11,6 +11,7 @@ namespace App
     {
         private State state = State.IDLE;
         private int lastMember = 0;
+        private ushort lastCode = 0;
         
         private void AnalyseFFXIVPacket(byte[] payload)
         {
@@ -216,6 +217,7 @@ namespace App
 
                         if (Settings.FATEs.Contains(code))
                         {
+                            mainForm.TrackerForm.set_nm_killed(code);
                             mainForm.overlayForm.SetFATEAsOccured(fate);
                         }
                     }
@@ -292,8 +294,26 @@ namespace App
                     {
                         state = State.IDLE;
                         mainForm.overlayForm.CancelDutyFinder();
-
                         Log.I("l-queue-entered");
+                        switch (lastCode)
+                        {
+                            case 283:
+                                if (Settings.TrackerEnabled && Settings.AutoTracker)
+                                {
+                                    mainForm.TrackerForm.new_tracker(1);
+                                }
+                                break;
+
+                            case 581:
+                                if (Settings.TrackerEnabled && Settings.AutoTracker)
+                                {
+                                    mainForm.TrackerForm.new_tracker(2);
+                                }
+                                break;
+
+                            default:
+                                return;
+                        }
                     }
                     else if (status == 4) //글섭에서 매칭 잡혔을 때 출력
                     {
@@ -392,6 +412,7 @@ namespace App
                         // 매칭 뒤 참가자 확인 현황 패킷
                         mainForm.overlayForm.SetConfirmStatus(instance, tank, dps, healer);
                     }
+                    lastCode = code;
                     Log.I("l-queue-updated", instance.Name, status, tank, instance.Tank, healer, instance.Healer, dps,
                         instance.DPS);
                 }

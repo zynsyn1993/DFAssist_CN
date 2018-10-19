@@ -13,6 +13,7 @@ namespace App
         internal Network networkWorker;
         internal Process FFXIVProcess;
         internal OverlayForm overlayForm;
+        internal TrackerForm TrackerForm;
         internal List<TreeNode> nodes;
 
         public MainForm()
@@ -23,6 +24,7 @@ namespace App
 
             Log.Form = this;
             overlayForm = new OverlayForm(this);
+            TrackerForm = new TrackerForm();
             nodes = new List<TreeNode>();
         }
 
@@ -40,10 +42,9 @@ namespace App
         {
             Localization.Initialize(Settings.Language);
             Data.Initialize(Settings.Language);
-
             ApplyLanguage();
-
             overlayForm.Show();
+            TrackerForm.Show();
             networkWorker = new Network(this);
 
             label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";
@@ -100,6 +101,9 @@ namespace App
             checkBox_Twitter.Checked = Settings.TwitterEnabled;
             textBox_Twitter.Enabled = Settings.TwitterEnabled;
             textBox_Twitter.Text = Settings.TwitterAccount;
+            checkBox_tracker_enabled.Checked = Settings.TrackerEnabled;
+            button_tracker_open.Enabled = Settings.TrackerEnabled;
+            checkBox_tracker_auto.Checked = Settings.AutoTracker;
 
             foreach (var area in Data.Areas)
             {
@@ -552,6 +556,10 @@ namespace App
             label_About.Text = Localization.GetText("ui-info-about");
             settings_update.Text = Localization.GetText("ui-settings-update");
             update_about.SetLocalizedText("ui-settings-update-about");
+            settings_eureka_tracker.Text = Localization.GetText("ui-settings-tracker");
+            checkBox_tracker_enabled.Text = Localization.GetText("ui-settings-tracker-enabled");
+            checkBox_tracker_auto.Text = Localization.GetText("ui-settings-tracker-auto");
+            button_tracker_open.Text = Localization.GetText("ui-settings-tracker-open");
             comboBox_dfaUpdate.SelectedValueChanged -= comboBox_dfaUpdate_SelectedValueChanged;
             comboBox_dfaUpdate.DataSource = new[]
             {
@@ -574,6 +582,7 @@ namespace App
             comboBox_dataUpdate.ValueMember = "Code";
             comboBox_dataUpdate.SelectedValue = Settings.dataUpdate;
             comboBox_dataUpdate.SelectedValueChanged += comboBox_dataUpdate_SelectedValueChanged;
+            TrackerForm.ApplyLanguage();
         }
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)
@@ -636,6 +645,24 @@ namespace App
         private void comboBox_dataUpdate_SelectedValueChanged(object sender, EventArgs e)
         {
             Settings.dataUpdate = comboBox_dataUpdate.SelectedValue.ToString();
+            Settings.Save();
+        }
+
+        private void button_tracker_open_Click(object sender, EventArgs e)
+        {
+            TrackerForm.Display();
+        }
+
+        private void checkBox_tracker_enabled_CheckedChanged(object sender, EventArgs e)
+        {
+            button_tracker_open.Enabled = checkBox_tracker_enabled.Checked;
+            Settings.TrackerEnabled = checkBox_tracker_enabled.Checked;
+            Settings.Save();
+        }
+
+        private void checkBox_tracker_auto_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.AutoTracker = checkBox_tracker_auto.Checked;
             Settings.Save();
         }
     }

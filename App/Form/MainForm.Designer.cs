@@ -55,6 +55,10 @@
             this.checkBox_PlaySound = new System.Windows.Forms.CheckBox();
             this.checkBox_CheatRoullete = new System.Windows.Forms.CheckBox();
             this.button_ResetOverlayPosition = new System.Windows.Forms.Button();
+            this.settings_eureka_tracker = new System.Windows.Forms.TabPage();
+            this.checkBox_tracker_auto = new System.Windows.Forms.CheckBox();
+            this.button_tracker_open = new System.Windows.Forms.Button();
+            this.checkBox_tracker_enabled = new System.Windows.Forms.CheckBox();
             this.settings_tweet = new System.Windows.Forms.TabPage();
             this.textBox_Twitter = new System.Windows.Forms.TextBox();
             this.label_TwitterAbout = new App.LocalizableLabel();
@@ -109,6 +113,7 @@
             this.tabPage_Settings.SuspendLayout();
             this.tabControl_Settings.SuspendLayout();
             this.settings_basic.SuspendLayout();
+            this.settings_eureka_tracker.SuspendLayout();
             this.settings_tweet.SuspendLayout();
             this.settings_update.SuspendLayout();
             this.tabPage_FATE.SuspendLayout();
@@ -248,6 +253,7 @@
             // tabControl_Settings
             // 
             this.tabControl_Settings.Controls.Add(this.settings_basic);
+            this.tabControl_Settings.Controls.Add(this.settings_eureka_tracker);
             this.tabControl_Settings.Controls.Add(this.settings_tweet);
             this.tabControl_Settings.Controls.Add(this.settings_update);
             this.tabControl_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -397,6 +403,53 @@
             this.button_ResetOverlayPosition.UseVisualStyleBackColor = true;
             this.button_ResetOverlayPosition.Click += new System.EventHandler(this.button_ResetOverlayPosition_Click);
             // 
+            // settings_eureka_tracker
+            // 
+            this.settings_eureka_tracker.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_eureka_tracker.Controls.Add(this.checkBox_tracker_auto);
+            this.settings_eureka_tracker.Controls.Add(this.button_tracker_open);
+            this.settings_eureka_tracker.Controls.Add(this.checkBox_tracker_enabled);
+            this.settings_eureka_tracker.Location = new System.Drawing.Point(4, 28);
+            this.settings_eureka_tracker.Name = "settings_eureka_tracker";
+            this.settings_eureka_tracker.Padding = new System.Windows.Forms.Padding(3);
+            this.settings_eureka_tracker.Size = new System.Drawing.Size(428, 230);
+            this.settings_eureka_tracker.TabIndex = 3;
+            this.settings_eureka_tracker.Text = "优雷卡追踪器";
+            // 
+            // checkBox_tracker_auto
+            // 
+            this.checkBox_tracker_auto.AutoSize = true;
+            this.checkBox_tracker_auto.Location = new System.Drawing.Point(6, 35);
+            this.checkBox_tracker_auto.Name = "checkBox_tracker_auto";
+            this.checkBox_tracker_auto.Size = new System.Drawing.Size(249, 23);
+            this.checkBox_tracker_auto.TabIndex = 2;
+            this.checkBox_tracker_auto.Text = "进入禁地优雷卡区域时自动记录追踪器";
+            this.checkBox_tracker_auto.UseVisualStyleBackColor = true;
+            this.checkBox_tracker_auto.CheckedChanged += new System.EventHandler(this.checkBox_tracker_auto_CheckedChanged);
+            // 
+            // button_tracker_open
+            // 
+            this.button_tracker_open.AutoSize = true;
+            this.button_tracker_open.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.button_tracker_open.Location = new System.Drawing.Point(346, 3);
+            this.button_tracker_open.Name = "button_tracker_open";
+            this.button_tracker_open.Size = new System.Drawing.Size(76, 26);
+            this.button_tracker_open.TabIndex = 1;
+            this.button_tracker_open.Text = "打开追踪器";
+            this.button_tracker_open.UseVisualStyleBackColor = true;
+            this.button_tracker_open.Click += new System.EventHandler(this.button_tracker_open_Click);
+            // 
+            // checkBox_tracker_enabled
+            // 
+            this.checkBox_tracker_enabled.AutoSize = true;
+            this.checkBox_tracker_enabled.Location = new System.Drawing.Point(6, 6);
+            this.checkBox_tracker_enabled.Name = "checkBox_tracker_enabled";
+            this.checkBox_tracker_enabled.Size = new System.Drawing.Size(132, 23);
+            this.checkBox_tracker_enabled.TabIndex = 0;
+            this.checkBox_tracker_enabled.Text = "启用优雷卡追踪器";
+            this.checkBox_tracker_enabled.UseVisualStyleBackColor = true;
+            this.checkBox_tracker_enabled.CheckedChanged += new System.EventHandler(this.checkBox_tracker_enabled_CheckedChanged);
+            // 
             // settings_tweet
             // 
             this.settings_tweet.BackColor = System.Drawing.SystemColors.Control;
@@ -404,10 +457,10 @@
             this.settings_tweet.Controls.Add(this.label_TwitterAbout);
             this.settings_tweet.Controls.Add(this.label_TwitterAt);
             this.settings_tweet.Controls.Add(this.checkBox_Twitter);
-            this.settings_tweet.Location = new System.Drawing.Point(4, 28);
+            this.settings_tweet.Location = new System.Drawing.Point(4, 22);
             this.settings_tweet.Name = "settings_tweet";
             this.settings_tweet.Padding = new System.Windows.Forms.Padding(3);
-            this.settings_tweet.Size = new System.Drawing.Size(429, 230);
+            this.settings_tweet.Size = new System.Drawing.Size(428, 236);
             this.settings_tweet.TabIndex = 1;
             this.settings_tweet.Text = "Twitter提醒";
             // 
@@ -459,10 +512,10 @@
             this.settings_update.Controls.Add(this.update_data_about);
             this.settings_update.Controls.Add(this.update_about);
             this.settings_update.Controls.Add(this.comboBox_dfaUpdate);
-            this.settings_update.Location = new System.Drawing.Point(4, 28);
+            this.settings_update.Location = new System.Drawing.Point(4, 22);
             this.settings_update.Name = "settings_update";
             this.settings_update.Padding = new System.Windows.Forms.Padding(3);
-            this.settings_update.Size = new System.Drawing.Size(429, 230);
+            this.settings_update.Size = new System.Drawing.Size(428, 236);
             this.settings_update.TabIndex = 2;
             this.settings_update.Text = "更新选项";
             // 
@@ -470,9 +523,9 @@
             // 
             this.button_update.AutoSize = true;
             this.button_update.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button_update.Location = new System.Drawing.Point(3, 198);
+            this.button_update.Location = new System.Drawing.Point(3, 204);
             this.button_update.Name = "button_update";
-            this.button_update.Size = new System.Drawing.Size(423, 29);
+            this.button_update.Size = new System.Drawing.Size(422, 29);
             this.button_update.TabIndex = 5;
             this.button_update.Text = "手动更新";
             this.button_update.UseVisualStyleBackColor = true;
@@ -526,7 +579,7 @@
             this.tabPage_FATE.Controls.Add(this.menuStrip_FATETab);
             this.tabPage_FATE.Location = new System.Drawing.Point(114, 4);
             this.tabPage_FATE.Name = "tabPage_FATE";
-            this.tabPage_FATE.Size = new System.Drawing.Size(437, 262);
+            this.tabPage_FATE.Size = new System.Drawing.Size(436, 262);
             this.tabPage_FATE.TabIndex = 0;
             this.tabPage_FATE.Text = "돌발";
             // 
@@ -536,7 +589,7 @@
             this.label_FATEAbout.Font = new System.Drawing.Font("微软雅黑", 8F);
             this.label_FATEAbout.Location = new System.Drawing.Point(0, 230);
             this.label_FATEAbout.Name = "label_FATEAbout";
-            this.label_FATEAbout.Size = new System.Drawing.Size(437, 32);
+            this.label_FATEAbout.Size = new System.Drawing.Size(436, 32);
             this.label_FATEAbout.TabIndex = 2;
             this.label_FATEAbout.Text = "알림을 받고자 하는 돌발을 선택하신 뒤 상단 적용하기 버튼을 눌러주세요.\r\n돌발 알림은 캐릭터가 해당 지역에 있을 때에만 동작합니다.";
             // 
@@ -548,7 +601,7 @@
             this.triStateTreeView_FATEs.HotTracking = true;
             this.triStateTreeView_FATEs.Location = new System.Drawing.Point(0, 25);
             this.triStateTreeView_FATEs.Name = "triStateTreeView_FATEs";
-            this.triStateTreeView_FATEs.Size = new System.Drawing.Size(437, 203);
+            this.triStateTreeView_FATEs.Size = new System.Drawing.Size(436, 203);
             this.triStateTreeView_FATEs.TabIndex = 0;
             this.triStateTreeView_FATEs.TriStateStyleProperty = RikTheVeggie.TriStateTreeView.TriStateStyles.Installer;
             // 
@@ -562,7 +615,7 @@
             this.toolStripMenuItem_SelectApply});
             this.menuStrip_FATETab.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_FATETab.Name = "menuStrip_FATETab";
-            this.menuStrip_FATETab.Size = new System.Drawing.Size(437, 25);
+            this.menuStrip_FATETab.Size = new System.Drawing.Size(436, 25);
             this.menuStrip_FATETab.TabIndex = 0;
             this.menuStrip_FATETab.Text = "menuStrip1";
             // 
@@ -714,7 +767,7 @@
             this.tabPage_Log.Controls.Add(this.menuStrip_LogTab);
             this.tabPage_Log.Location = new System.Drawing.Point(114, 4);
             this.tabPage_Log.Name = "tabPage_Log";
-            this.tabPage_Log.Size = new System.Drawing.Size(437, 262);
+            this.tabPage_Log.Size = new System.Drawing.Size(436, 262);
             this.tabPage_Log.TabIndex = 2;
             this.tabPage_Log.Text = "로그";
             // 
@@ -725,7 +778,7 @@
             this.panel_LogCover.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_LogCover.Location = new System.Drawing.Point(0, 25);
             this.panel_LogCover.Name = "panel_LogCover";
-            this.panel_LogCover.Size = new System.Drawing.Size(437, 237);
+            this.panel_LogCover.Size = new System.Drawing.Size(436, 237);
             this.panel_LogCover.TabIndex = 1;
             // 
             // richTextBox_Log
@@ -738,7 +791,7 @@
             this.richTextBox_Log.Name = "richTextBox_Log";
             this.richTextBox_Log.ReadOnly = true;
             this.richTextBox_Log.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBox_Log.Size = new System.Drawing.Size(435, 235);
+            this.richTextBox_Log.Size = new System.Drawing.Size(434, 235);
             this.richTextBox_Log.TabIndex = 0;
             this.richTextBox_Log.Text = "";
             this.richTextBox_Log.TextChanged += new System.EventHandler(this.richTextBox_Log_TextChanged);
@@ -751,7 +804,7 @@
             this.toolStripMenuItem_LogClear});
             this.menuStrip_LogTab.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_LogTab.Name = "menuStrip_LogTab";
-            this.menuStrip_LogTab.Size = new System.Drawing.Size(437, 25);
+            this.menuStrip_LogTab.Size = new System.Drawing.Size(436, 25);
             this.menuStrip_LogTab.TabIndex = 0;
             this.menuStrip_LogTab.Text = "menuStrip2";
             // 
@@ -777,7 +830,7 @@
             this.tabPage_devmode.Location = new System.Drawing.Point(114, 4);
             this.tabPage_devmode.Name = "tabPage_devmode";
             this.tabPage_devmode.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_devmode.Size = new System.Drawing.Size(437, 262);
+            this.tabPage_devmode.Size = new System.Drawing.Size(436, 262);
             this.tabPage_devmode.TabIndex = 4;
             this.tabPage_devmode.Text = "개발자 모드";
             // 
@@ -787,7 +840,7 @@
             this.groupBox_debug_settings.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox_debug_settings.Location = new System.Drawing.Point(3, 3);
             this.groupBox_debug_settings.Name = "groupBox_debug_settings";
-            this.groupBox_debug_settings.Size = new System.Drawing.Size(431, 71);
+            this.groupBox_debug_settings.Size = new System.Drawing.Size(430, 71);
             this.groupBox_debug_settings.TabIndex = 9;
             this.groupBox_debug_settings.TabStop = false;
             this.groupBox_debug_settings.Text = "调试";
@@ -811,7 +864,7 @@
             this.tabPage_Info.Controls.Add(this.linkLabel_GitHub);
             this.tabPage_Info.Location = new System.Drawing.Point(114, 4);
             this.tabPage_Info.Name = "tabPage_Info";
-            this.tabPage_Info.Size = new System.Drawing.Size(437, 262);
+            this.tabPage_Info.Size = new System.Drawing.Size(436, 262);
             this.tabPage_Info.TabIndex = 3;
             this.tabPage_Info.Text = "정보";
             // 
@@ -821,7 +874,7 @@
             this.label_About.Font = new System.Drawing.Font("微软雅黑", 10F);
             this.label_About.Location = new System.Drawing.Point(0, 0);
             this.label_About.Name = "label_About";
-            this.label_About.Size = new System.Drawing.Size(437, 210);
+            this.label_About.Size = new System.Drawing.Size(436, 210);
             this.label_About.TabIndex = 0;
             this.label_About.Text = "[제작 및 문의]\r\n유채색\r\n라그린네\r\n히비야\r\n\r\n[저작권]\r\n기재되어있는 회사명 · 제품명 · 시스템 이름은\r\n해당 소유자의 상표 또는 등록 " +
     "상표입니다.\r\n(C) 2010 - 2017 SQUARE ENIX CO., LTD All Rights Reserved.\r\nKorea Publish" +
@@ -833,7 +886,7 @@
             this.linkLabel_GitHub.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.linkLabel_GitHub.Location = new System.Drawing.Point(0, 210);
             this.linkLabel_GitHub.Name = "linkLabel_GitHub";
-            this.linkLabel_GitHub.Size = new System.Drawing.Size(437, 52);
+            this.linkLabel_GitHub.Size = new System.Drawing.Size(436, 52);
             this.linkLabel_GitHub.TabIndex = 0;
             this.linkLabel_GitHub.TabStop = true;
             this.linkLabel_GitHub.Text = "Original Author: GitHub";
@@ -894,6 +947,8 @@
             this.tabControl_Settings.ResumeLayout(false);
             this.settings_basic.ResumeLayout(false);
             this.settings_basic.PerformLayout();
+            this.settings_eureka_tracker.ResumeLayout(false);
+            this.settings_eureka_tracker.PerformLayout();
             this.settings_tweet.ResumeLayout(false);
             this.settings_tweet.PerformLayout();
             this.settings_update.ResumeLayout(false);
@@ -989,6 +1044,10 @@
         private System.Windows.Forms.ComboBox comboBox_dataUpdate;
         private LocalizableLabel update_data_about;
         private System.Windows.Forms.Button button_update;
+        private System.Windows.Forms.TabPage settings_eureka_tracker;
+        private System.Windows.Forms.CheckBox checkBox_tracker_auto;
+        private System.Windows.Forms.Button button_tracker_open;
+        private System.Windows.Forms.CheckBox checkBox_tracker_enabled;
     }
 }
 
