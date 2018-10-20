@@ -72,6 +72,18 @@
   "ui-settings-update-data-setting-auto": "使用服务器数据（推荐）",
   "ui-settings-update-data-setting-no": "使用本地数据（脱机）",
   "ui-settings-update-manual": "手动更新",
+  
+  "ui-settings-tracker": "优雷卡追踪器",
+  "ui-settings-tracker-enabled": "启用优雷卡追踪器",
+  "ui-settings-tracker-open": "打开追踪器",
+  "ui-settings-tracker-auto": "进入禁地优雷卡区域时自动记录追踪器",
+
+  "tracker-title": "DFA：优雷卡追踪器",
+  "tracker-new-tracker": "新建追踪器",
+  "tracker-anemos": "常风之地",
+  "tracker-pagos": "恒冰之地",
+  
+  "ui-new-tracker-error": "新建追踪器时发生了错误，请稍后重试。",
 
   "ui-fate-selectall": "选择全部",
   "ui-fate-unselectall": "取消选择",

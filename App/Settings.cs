@@ -27,6 +27,8 @@ namespace App
         public static bool DebugLog { get; set; } = false;
         public static string SoundLocation { get; set; } = "";
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
+        public static bool AutoTracker { get; set; } = true;
+        public static bool TrackerEnabled { get; set; } = true;
 
         private static void Init()
         {
@@ -62,6 +64,8 @@ namespace App
                 TTS = iniFile.ReadValue("notification", "tts") == "1";
                 DebugLog = iniFile.ReadValue("dev", "debuglog") == "1";
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
+                TrackerEnabled = iniFile.ReadValue("tracker", "trackerenabled") != "0";
+                AutoTracker = iniFile.ReadValue("tracker", "autotracker") != "0";
 
                 var fates = iniFile.ReadValue("fate", "fates");
                 if (!string.IsNullOrEmpty(fates))
@@ -91,6 +95,8 @@ namespace App
             iniFile.WriteValue("notification", "tts", TTS ? "1" : "0");
             iniFile.WriteValue("dev", "debuglog", DebugLog ? "1" : "0");
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
+            iniFile.WriteValue("tracker", "trackerenabled", TrackerEnabled ? "1" : "0");
+            iniFile.WriteValue("tracker", "autotracker", AutoTracker ? "1" : "0");
         }
     }
 }

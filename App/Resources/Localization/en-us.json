@@ -72,6 +72,18 @@
   "ui-settings-update-data-setting-auto": "Using server data.",
   "ui-settings-update-data-setting-no": "Using local data.(Not recommended)",
   "ui-settings-update-manual": "Manual Update",
+  
+  "ui-settings-tracker": "Eureka-Tracker",
+  "ui-settings-tracker-enabled": "Enable Eureka-Tracker",
+  "ui-settings-tracker-open": "Open Tracker",
+  "ui-settings-tracker-auto": "Auto Tracker when in Eureka",
+
+  "tracker-title": "DFAssist-Eureka-Tracker",
+  "tracker-new-tracker": "New Tracker",
+  "tracker-anemos": "Anemos",
+  "tracker-pagos": "Pagos",
+  
+  "ui-new-tracker-error": "An error occurred while creating a new tracker. Please try again later.",
 
   "ui-fate-selectall": "Select All",
   "ui-fate-unselectall": "Unselect All",
