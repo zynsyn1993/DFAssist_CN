@@ -243,6 +243,7 @@
     <ProjectReference Include="..\FFXIVAPP.Memory\FFXIVAPP.Memory.csproj">
       <Project>{9510d5ef-208a-4897-a582-8eae5c6e9406}</Project>
       <Name>FFXIVAPP.Memory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MiniblinkNet\MiniblinkNet.csproj">
       <Project>{42294472-ec90-4c05-9f06-c68edce6310d}</Project>
       <Name>MiniblinkNet</Name>
