@@ -100,7 +100,7 @@ namespace App
             return ret.Result;
         }
 
-        internal static bool Download(string url, string path)
+        internal static bool Download(string url, string path, Action callback = null)
         {
             string tempPath = Path.GetDirectoryName(path) + @"\temp";
             Directory.CreateDirectory(tempPath);  //创建临时文件目录
@@ -132,6 +132,7 @@ namespace App
                 fs.Close();
                 responseStream.Close();
                 File.Move(tempFile, path);
+                callback?.Invoke();
                 return true;
             }
             catch (Exception ex)

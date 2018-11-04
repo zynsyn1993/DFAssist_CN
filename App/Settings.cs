@@ -29,6 +29,7 @@ namespace App
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
         public static bool AutoTracker { get; set; } = true;
         public static bool TrackerEnabled { get; set; } = true;
+        public static bool CheckBeta { get; set; } = false;
 
         private static void Init()
         {
@@ -59,6 +60,7 @@ namespace App
                 Language = iniFile.ReadValue("misc", "language") ?? "zh-cn";
                 dfaUpdate = iniFile.ReadValue("update", "dfaupdate") ?? "1";
                 dataUpdate = iniFile.ReadValue("update", "dataupdate") ?? "1";
+                CheckBeta = iniFile.ReadValue("update", "checkbeta") == "1";
                 Updated = iniFile.ReadValue("internal", "updated") != "0";
                 PlaySound = iniFile.ReadValue("notification", "playsound") == "1";
                 TTS = iniFile.ReadValue("notification", "tts") == "1";
@@ -89,6 +91,7 @@ namespace App
             iniFile.WriteValue("misc", "language", Language);
             iniFile.WriteValue("update", "dfaupdate", dfaUpdate);
             iniFile.WriteValue("update", "dataupdate", dataUpdate);
+            iniFile.WriteValue("update", "checkbeta", CheckBeta ? "1" : "0");
             iniFile.WriteValue("fate", "fates", string.Join(",", FATEs));
             iniFile.WriteValue("internal", "updated", Updated ? "1" : "0");
             iniFile.WriteValue("notification", "playsound", PlaySound ? "1" : "0");

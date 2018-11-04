@@ -217,7 +217,10 @@ namespace App
 
                         if (Settings.FATEs.Contains(code))
                         {
-                            mainForm.TrackerForm.set_nm_killed(code);
+                            if (Settings.AutoTracker && mainForm.TrackerFormLoaded)
+                            {
+                                mainForm.TrackerForm.set_nm_killed(code);
+                            }
                             mainForm.overlayForm.SetFATEAsOccured(fate);
                         }
                     }
@@ -298,14 +301,14 @@ namespace App
                         switch (lastCode)
                         {
                             case 283:
-                                if (Settings.TrackerEnabled && Settings.AutoTracker)
+                                if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
                                 {
                                     mainForm.TrackerForm.new_tracker(1);
                                 }
                                 break;
-
+    
                             case 581:
-                                if (Settings.TrackerEnabled && Settings.AutoTracker)
+                                if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
                                 {
                                     mainForm.TrackerForm.new_tracker(2);
                                 }

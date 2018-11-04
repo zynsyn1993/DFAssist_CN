@@ -14,6 +14,7 @@
   "notification-update-enabled": "Updateable to {0}",
   "notification-uptodate": "Updating to {0}",
   "notification-update-latest": "Already the latest version",
+  "notification-dll-missing": "Missing components[{0}],downloading",
 
 
   "tweet-fate-occured": "< {0} > FATE Occured!",
@@ -72,6 +73,7 @@
   "ui-settings-update-data-setting-auto": "Using server data.",
   "ui-settings-update-data-setting-no": "Using local data.(Not recommended)",
   "ui-settings-update-manual": "Manual Update",
+  "ui-settings-update-check-beta": "Check Beta version update",
   
   "ui-settings-tracker": "Eureka-Tracker",
   "ui-settings-tracker-enabled": "Enable Eureka-Tracker",

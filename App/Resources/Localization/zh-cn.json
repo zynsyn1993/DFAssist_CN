@@ -14,6 +14,7 @@
   "notification-update-enabled": "可更新至新版本 {0}",
   "notification-uptodate": "正在更新至版本 {0}",
   "notification-update-latest": "更新检查完成，暂无更新",
+  "notification-dll-missing": "缺失组件[{0}]，正在联网获取",
 
 
   "tweet-fate-occured": "FATE < {0} > 出现！",
@@ -72,6 +73,7 @@
   "ui-settings-update-data-setting-auto": "使用服务器数据（推荐）",
   "ui-settings-update-data-setting-no": "使用本地数据（脱机）",
   "ui-settings-update-manual": "手动更新",
+  "ui-settings-update-check-beta": "接受Beta版本推送",
   
   "ui-settings-tracker": "优雷卡追踪器",
   "ui-settings-tracker-enabled": "启用优雷卡追踪器",

@@ -66,6 +66,7 @@
             this.label_TwitterAt = new App.LocalizableLabel();
             this.checkBox_Twitter = new System.Windows.Forms.CheckBox();
             this.settings_update = new System.Windows.Forms.TabPage();
+            this.checkBox_UpdateCheckBeta = new System.Windows.Forms.CheckBox();
             this.button_update = new System.Windows.Forms.Button();
             this.comboBox_dataUpdate = new System.Windows.Forms.ComboBox();
             this.update_data_about = new App.LocalizableLabel();
@@ -442,6 +443,7 @@
             // button_tracker_open
             // 
             this.button_tracker_open.AutoSize = true;
+            this.button_tracker_open.Enabled = false;
             this.button_tracker_open.Font = new System.Drawing.Font("微软雅黑", 8F);
             this.button_tracker_open.Location = new System.Drawing.Point(346, 3);
             this.button_tracker_open.Name = "button_tracker_open";
@@ -519,6 +521,7 @@
             // settings_update
             // 
             this.settings_update.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_update.Controls.Add(this.checkBox_UpdateCheckBeta);
             this.settings_update.Controls.Add(this.button_update);
             this.settings_update.Controls.Add(this.comboBox_dataUpdate);
             this.settings_update.Controls.Add(this.update_data_about);
@@ -530,6 +533,17 @@
             this.settings_update.Size = new System.Drawing.Size(428, 230);
             this.settings_update.TabIndex = 2;
             this.settings_update.Text = "更新选项";
+            // 
+            // checkBox_UpdateCheckBeta
+            // 
+            this.checkBox_UpdateCheckBeta.AutoSize = true;
+            this.checkBox_UpdateCheckBeta.Location = new System.Drawing.Point(10, 110);
+            this.checkBox_UpdateCheckBeta.Name = "checkBox_UpdateCheckBeta";
+            this.checkBox_UpdateCheckBeta.Size = new System.Drawing.Size(133, 23);
+            this.checkBox_UpdateCheckBeta.TabIndex = 6;
+            this.checkBox_UpdateCheckBeta.Text = "接受Beta版本推送";
+            this.checkBox_UpdateCheckBeta.UseVisualStyleBackColor = true;
+            this.checkBox_UpdateCheckBeta.CheckedChanged += new System.EventHandler(this.checkBox_UpdateCheckBeta_CheckedChanged);
             // 
             // button_update
             // 
@@ -1048,6 +1062,7 @@
         private System.Windows.Forms.CheckBox checkBox_tracker_auto;
         private System.Windows.Forms.Button button_tracker_open;
         private System.Windows.Forms.CheckBox checkBox_tracker_enabled;
+        private System.Windows.Forms.CheckBox checkBox_UpdateCheckBeta;
     }
 }
 

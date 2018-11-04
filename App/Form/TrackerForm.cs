@@ -17,11 +17,13 @@ namespace App
         private WebView WebView;
         private string ext_js = "";
         private string Tracker_Id = "";
+        private MainForm mainForm;
 
         internal bool Loaded { get; set; } = false;
 
-        public TrackerForm()
+        public TrackerForm(MainForm mainForm)
         {
+            this.mainForm = mainForm;
             WebView = new WebView();
             InitializeComponent();
         }
@@ -278,7 +280,7 @@ namespace App
 
         private void TrackerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && mainForm.TrackerFormLoaded) 
             {
                 e.Cancel = true;
                 Hide();

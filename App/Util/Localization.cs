@@ -45,7 +45,7 @@ namespace App
         {
             if (!LocalizedMap.TryGetValue(key, out var value))
             {
-                return $"<{key}>";
+                return $"{key}";
             }
 
             return string.Format(value, args);

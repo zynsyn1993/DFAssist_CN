@@ -14,6 +14,7 @@
   "notification-update-enabled": "{0} 까지 업데이트할 수 있어요",
   "notification-uptodate": "{0} 를 업데이트하고 있습니다",
   "notification-update-latest": "최신 버전을 이용중입니다",
+  "notification-dll-missing": "Missing components[{0}],downloading",
 
 
   "tweet-fate-occured": "< {0} > 돌발 발생!",
@@ -71,6 +72,7 @@
   "ui-settings-update-data-setting-auto": "서버 정보 사용.",
   "ui-settings-update-data-setting-no": "현지 데이터 사용. ",
   "ui-settings-update-manual": "수동 업데이트",
+  "ui-settings-update-check-beta": "Check Beta version update",
   
   "ui-settings-tracker": "Eureka-Tracker",
   "ui-settings-tracker-enabled": "Enable Eureka-Tracker",

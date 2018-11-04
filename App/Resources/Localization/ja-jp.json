@@ -14,6 +14,7 @@
   "notification-update-enabled": "Updateable to {0}",
   "notification-uptodate": "Updating to {0}",
   "notification-update-latest": "Already the latest version",
+  "notification-dll-missing": "Missing components[{0}],downloading",
 
 
   "tweet-fate-occured": "< {0} > FATE発生!",
@@ -72,6 +73,7 @@
   "ui-settings-update-data-setting-auto": "サーバデータの使用",
   "ui-settings-update-data-setting-no": "ローカルデータの使用",
   "ui-settings-update-manual": "手動更新",
+  "ui-settings-update-check-beta": "Check Beta version update",
   
   "ui-settings-tracker": "Eureka-Tracker",
   "ui-settings-tracker-enabled": "Enable Eureka-Tracker",

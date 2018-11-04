@@ -14,6 +14,7 @@
   "notification-update-enabled": "mises à la {0}",
   "notification-uptodate": "la mise à jour de la {0}",
   "notification-update-latest": "Vous utilisez la dernière version",
+  "notification-dll-missing": "Missing components[{0}],downloading",
 
 
   "tweet-fate-occured": "ALEA < {0} > en cours!",
@@ -72,6 +73,7 @@
   "ui-settings-update-data-setting-auto": "en utilisant des données du serveur.",
   "ui-settings-update-data-setting-no": "en utilisant des données locales.",
   "ui-settings-update-manual": "mise à jour du guide",
+  "ui-settings-update-check-beta": "Check Beta version update",
   
   "ui-settings-tracker": "Eureka-Tracker",
   "ui-settings-tracker-enabled": "Enable Eureka-Tracker",

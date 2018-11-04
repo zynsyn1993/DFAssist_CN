@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace App
         internal OverlayForm overlayForm;
         internal TrackerForm TrackerForm;
         internal List<TreeNode> nodes;
+        internal bool TrackerFormLoaded = false;
 
         public MainForm()
         {
@@ -24,7 +26,6 @@ namespace App
 
             Log.Form = this;
             overlayForm = new OverlayForm(this);
-            TrackerForm = new TrackerForm();
             nodes = new List<TreeNode>();
         }
 
@@ -44,7 +45,6 @@ namespace App
             Data.Initialize(Settings.Language);
             ApplyLanguage();
             overlayForm.Show();
-            TrackerForm.Show();
             networkWorker = new Network(this);
 
             label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";
@@ -102,8 +102,8 @@ namespace App
             textBox_Twitter.Enabled = Settings.TwitterEnabled;
             textBox_Twitter.Text = Settings.TwitterAccount;
             checkBox_tracker_enabled.Checked = Settings.TrackerEnabled;
-            button_tracker_open.Enabled = Settings.TrackerEnabled;
             checkBox_tracker_auto.Checked = Settings.AutoTracker;
+            checkBox_UpdateCheckBeta.Checked = Settings.CheckBeta;
 
             foreach (var area in Data.Areas)
             {
@@ -582,7 +582,11 @@ namespace App
             comboBox_dataUpdate.ValueMember = "Code";
             comboBox_dataUpdate.SelectedValue = Settings.dataUpdate;
             comboBox_dataUpdate.SelectedValueChanged += comboBox_dataUpdate_SelectedValueChanged;
-            TrackerForm.ApplyLanguage();
+            checkBox_UpdateCheckBeta.Text = Localization.GetText("ui-settings-update-check-beta");
+            if (TrackerFormLoaded)
+            {
+                TrackerForm.ApplyLanguage();
+            }
         }
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)
@@ -631,7 +635,7 @@ namespace App
         private void button_update_Click(object sender, EventArgs e)
         {
             button_update.Enabled = false;
-            Updater.manual_update(this);
+            Updater.CheckNewVersion(this,true);
         }
 
         internal void button_update_enabled()
@@ -655,15 +659,69 @@ namespace App
 
         private void checkBox_tracker_enabled_CheckedChanged(object sender, EventArgs e)
         {
-            button_tracker_open.Enabled = checkBox_tracker_enabled.Checked;
             Settings.TrackerEnabled = checkBox_tracker_enabled.Checked;
             Settings.Save();
+            if (Settings.TrackerEnabled)
+            {
+                if (File.Exists("node.dll") || File.Exists($@"{Environment.GetEnvironmentVariable("windir")}\node.dll"))
+                {
+                    TrackerForm = new TrackerForm(this);
+                    TrackerFormLoaded = true;
+                    TrackerForm.Show();
+                }
+                else
+                {
+                    TrackerFormLoaded = false;
+                    checkBox_tracker_enabled.Enabled = false;
+                    ShowNotification("notification-dll-missing","node.dll");
+                    Task.Factory.StartNew(() =>
+                    {
+                        WebApi.Download($"http://svn.diemoe.net/ff14_diemoe/tags/DFAssist_CN/dll/node.dll",$@"{Environment.GetEnvironmentVariable("windir")}\node.dll",nodedll_callback);
+                    });
+                }
+            }
+            else
+            {
+                tracker_close();
+            }
+            button_tracker_open.Enabled = TrackerFormLoaded;
+        }
+
+        internal void tracker_close()
+        {
+            this.Invoke(() =>
+            {
+                TrackerFormLoaded = false;
+                TrackerForm.Close();
+            });
+        }
+
+        private void nodedll_callback()
+        {
+            this.Invoke(() =>
+            {
+                TrackerForm = new TrackerForm(this);
+                TrackerFormLoaded = true;
+                TrackerForm.Show();
+                checkBox_tracker_enabled.Enabled = true;
+                button_tracker_open.Enabled = TrackerFormLoaded;
+            });
         }
 
         private void checkBox_tracker_auto_CheckedChanged(object sender, EventArgs e)
         {
             Settings.AutoTracker = checkBox_tracker_auto.Checked;
             Settings.Save();
+        }
+
+        private void checkBox_UpdateCheckBeta_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.CheckBeta = checkBox_UpdateCheckBeta.Checked;
+            Settings.Save();
+            if (!Settings.CheckBeta)
+            {
+                Updater.CheckNewVersion(this, true, true);
+            }
         }
     }
 }
