@@ -53,9 +53,9 @@ namespace App
         /// <returns></returns>
         public string ReadValue(string Section, string Key)
         {
-            var temp = new StringBuilder(4096);
+            var temp = new StringBuilder(8192); // 修复INIFile缓冲区溢出问题 感谢：獭爹 @Bluefissure
             var i = NativeMethods.GetPrivateProfileString(Section, Key, "", temp,
-                                            4096, this.path);
+                                            8192, this.path);
             if (i == 0)
             {
                 return null;
