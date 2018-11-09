@@ -49,7 +49,19 @@ namespace App
 
             label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";
             FindFFXIVProcess();
-
+            
+            if (Settings.NodeVersion < Global.NODE_NEED)
+            {
+                if (File.Exists("node.dll"))
+                {
+                    File.Delete("node.dll");
+                }
+                if (File.Exists($@"{Environment.GetEnvironmentVariable("windir")}\node.dll"))
+                {
+                    File.Delete($@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
+                }
+                Log.Debug("Debug：删除已过期组件 node.dll");
+            }
             if (!Settings.ShowOverlay)
             {
                 checkBox_Overlay.Checked = false;
@@ -698,6 +710,8 @@ namespace App
 
         private void nodedll_callback()
         {
+            Settings.NodeVersion = Global.NODE_NEED;
+            Settings.Save();
             this.Invoke(() =>
             {
                 TrackerForm = new TrackerForm(this);

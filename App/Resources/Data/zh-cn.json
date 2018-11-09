@@ -1,6 +1,6 @@
 ﻿{
   // Version
-  "version": "20181017.1", 
+  "version": "20181110.1", 
 
   // Duty
   "instances": {
@@ -2336,6 +2336,12 @@
       "healer": "0",
       "dps": "0"
     },
+    "598": {
+      "name": "禁地优雷卡 永火之地（暂译）",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
 
 
     // Other things...
@@ -3135,6 +3141,31 @@
         "1367": "Down the Rabbit Hole",
         "1368": "Curiouser and Curiouser",
         "1369": "Cairn Blight 451"
+      }
+    },
+
+	"997": {
+      "name": "优雷卡永火之地（暂译）",
+      "fates": {
+        "1388": "Medias Res",
+        "1389": "High Voltage",
+        "1390": "On the Non-existent",
+        "1391": "Creepy Doll",
+        "1392": "Quiet, Please",
+        "1393": "Up and Batym",
+        "1394": "Rondo Aetolus",
+        "1395": "Scorchpion King",
+        "1396": "Burning Hunger",
+        "1397": "Dry Iris",
+        "1398": "Thirty Whacks",
+        "1399": "Put Up Your Dux",
+        "1400": "You Do Know Jack",
+        "1401": "Mister Bright-eyes",
+        "1402": "Haunter of the Dark",
+        "1403": "Heavens' Warg",
+        "1404": "Lost Epic",
+        "1407": "We're All Mad Here",
+        "1408": "Uncommon Nonsense"
       }
     },
 

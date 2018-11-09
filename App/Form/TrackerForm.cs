@@ -249,6 +249,75 @@ namespace App
                     nmid = "16";
                     break;
 
+                //Pyros
+                case 1388:
+                    nmid = "0";
+                    break;
+
+                case 1389:
+                    nmid = "1";
+                    break;
+
+                case 1390:
+                    nmid = "2";
+                    break;
+
+                case 1391:
+                    nmid = "3";
+                    break;
+
+                case 1392:
+                    nmid = "4";
+                    break;
+
+                case 1393:
+                    nmid = "5";
+                    break;
+
+                case 1394:
+                    nmid = "6";
+                    break;
+
+                case 1395:
+                    nmid = "7";
+                    break;
+
+                case 1396:
+                    nmid = "8";
+                    break;
+
+                case 1397:
+                    nmid = "9";
+                    break;
+
+                case 1398:
+                    nmid = "10";
+                    break;
+
+                case 1399:
+                    nmid = "11";
+                    break;
+
+                case 1400:
+                    nmid = "12";
+                    break;
+
+                case 1401:
+                    nmid = "13";
+                    break;
+
+                case 1402:
+                    nmid = "14";
+                    break;
+
+                case 1403:
+                    nmid = "15";
+                    break;
+
+                case 1404:
+                    nmid = "16";
+                    break;
+
                 default:
                     return;
             }
@@ -270,6 +339,7 @@ namespace App
                 toolStripButton_NT.Text = Localization.GetText("tracker-new-tracker");
                 anemosToolStripMenuItem.Text = Localization.GetText("tracker-anemos");
                 pagosToolStripMenuItem.Text = Localization.GetText("tracker-pagos");
+                pyrosToolStripMenuItem.Text = Localization.GetText("tracker-pyros");
             });
         }
 
@@ -295,6 +365,11 @@ namespace App
         private void pagosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new_tracker(2);
+        }
+
+        private void pyrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new_tracker(3);
         }
 
         internal void new_tracker(int type)

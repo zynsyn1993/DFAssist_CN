@@ -34,6 +34,7 @@
             this.toolStripButton_NT = new System.Windows.Forms.ToolStripDropDownButton();
             this.anemosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pyrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnMain = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox_Tracker_Id = new System.Windows.Forms.ToolStripTextBox();
@@ -71,7 +72,8 @@
             this.toolStripButton_NT.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton_NT.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.anemosToolStripMenuItem,
-            this.pagosToolStripMenuItem});
+            this.pagosToolStripMenuItem,
+            this.pyrosToolStripMenuItem});
             this.toolStripButton_NT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_NT.Image")));
             this.toolStripButton_NT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_NT.Name = "toolStripButton_NT";
@@ -82,16 +84,23 @@
             // anemosToolStripMenuItem
             // 
             this.anemosToolStripMenuItem.Name = "anemosToolStripMenuItem";
-            this.anemosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.anemosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.anemosToolStripMenuItem.Text = "Anemos";
             this.anemosToolStripMenuItem.Click += new System.EventHandler(this.anemosToolStripMenuItem_Click);
             // 
             // pagosToolStripMenuItem
             // 
             this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
-            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pagosToolStripMenuItem.Text = "Pagos";
             this.pagosToolStripMenuItem.Click += new System.EventHandler(this.pagosToolStripMenuItem_Click);
+            // 
+            // pyrosToolStripMenuItem
+            // 
+            this.pyrosToolStripMenuItem.Name = "pyrosToolStripMenuItem";
+            this.pyrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pyrosToolStripMenuItem.Text = "Pyros";
+            this.pyrosToolStripMenuItem.Click += new System.EventHandler(this.pyrosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -161,5 +170,6 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripButton_NT;
         private System.Windows.Forms.ToolStripMenuItem anemosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pyrosToolStripMenuItem;
     }
 }

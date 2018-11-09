@@ -30,6 +30,7 @@ namespace App
         public static bool AutoTracker { get; set; } = true;
         public static bool TrackerEnabled { get; set; } = true;
         public static bool CheckBeta { get; set; } = false;
+        public static int NodeVersion = 0;
 
         private static void Init()
         {
@@ -68,6 +69,7 @@ namespace App
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
                 TrackerEnabled = iniFile.ReadValue("tracker", "trackerenabled") != "0";
                 AutoTracker = iniFile.ReadValue("tracker", "autotracker") != "0";
+                NodeVersion= int.Parse(iniFile.ReadValue("dll", "node") ?? "0");
 
                 var fates = iniFile.ReadValue("fate", "fates");
                 if (!string.IsNullOrEmpty(fates))
@@ -100,6 +102,7 @@ namespace App
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
             iniFile.WriteValue("tracker", "trackerenabled", TrackerEnabled ? "1" : "0");
             iniFile.WriteValue("tracker", "autotracker", AutoTracker ? "1" : "0");
+            iniFile.WriteValue("dll", "node", NodeVersion.ToString());
         }
     }
 }

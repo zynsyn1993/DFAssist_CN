@@ -1,6 +1,6 @@
 ﻿{
   // Version
-  "version": "20181017.1",
+  "version": "20181110.1",
 
   // Duty
   "instances": {
@@ -2476,7 +2476,13 @@
 	 "tank": "0",
 	 "healer": "0",
 	 "dps": "0"
-	}
+	},
+	"598": {
+     "name": "The Forbidden Land, Eureka Pyros",
+     "tank": "0",
+     "healer": "0",
+     "dps": "0"
+    }
   },
 
   // Duty Roulette

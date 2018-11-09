@@ -314,6 +314,13 @@ namespace App
                                 }
                                 break;
 
+                            case 598:
+                                if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
+                                {
+                                    mainForm.TrackerForm.new_tracker(3);
+                                }
+                                break;
+
                             default:
                                 return;
                         }
