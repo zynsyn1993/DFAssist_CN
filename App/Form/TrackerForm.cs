@@ -323,7 +323,7 @@ namespace App
             }
             this.Invoke(() =>
             {
-                WebView.RunJS($@"if(document.querySelectorAll('.nm-table div.ember-view')[{nmid}].classList.contains('killed'))document.querySelectorAll('.nm-table div.ember-view')[{nmid}].querySelector('input.btn').click();document.querySelectorAll('.nm-table div.ember-view')[{nmid}].querySelector('input.btn').click();");
+                WebView.RunJS($@"if(document.querySelectorAll('.nm-table > div.ember-view')[{nmid}].classList.contains('killed'))document.querySelectorAll('.nm-table > div.ember-view')[{nmid}].querySelector('input.btn').click();document.querySelectorAll('.nm-table > div.ember-view')[{nmid}].querySelector('input.btn').click();");
             });
         }
 
