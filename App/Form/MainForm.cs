@@ -61,6 +61,18 @@ namespace App
                     File.Delete($@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
                 }
                 Log.Debug("Debug：删除已过期组件 node.dll");
+                if (File.Exists($"node_{Global.NODE_NEED}.dll"))
+                {
+                    File.Move($"node_{Global.NODE_NEED}.dll", $@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
+                    Settings.NodeVersion = Global.NODE_NEED;
+                    Settings.Save();
+                }
+                else if (File.Exists($@"{Environment.GetEnvironmentVariable("windir")}\node_{Global.NODE_NEED}.dll"))
+                {
+                    File.Move($@"{Environment.GetEnvironmentVariable("windir")}\node_{Global.NODE_NEED}.dll", $@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
+                    Settings.NodeVersion = Global.NODE_NEED;
+                    Settings.Save();
+                }
             }
             if (!Settings.ShowOverlay)
             {
@@ -96,6 +108,7 @@ namespace App
             checkBox_AutoOverlayHide.Checked = Settings.AutoOverlayHide;
             checkBox_FlashWindow.Checked = Settings.FlashWindow;
             checkBox_PlaySound.Checked = Settings.PlaySound;
+            trackBar_tts_speed.Value = int.Parse(Settings.TTSSpeed);
             if (System.IO.File.Exists(Settings.SoundLocation) == false)
             {
                 checkBox_PlaySound.Checked = false;
@@ -107,12 +120,10 @@ namespace App
             }
             if (checkBox_PlaySound.Checked == false) { button_SoundLocation.Enabled = false; }
             SetCheatRoulleteCheckBox(Settings.CheatRoulette);
+            checkBox_RoulleteTips.Checked = Settings.RouletteTips;
 
             checkBox_TTS.Checked = Settings.TTS;
             checkBox_DevMode.Checked = Settings.DebugLog;
-            checkBox_Twitter.Checked = Settings.TwitterEnabled;
-            textBox_Twitter.Enabled = Settings.TwitterEnabled;
-            textBox_Twitter.Text = Settings.TwitterAccount;
             checkBox_tracker_enabled.Checked = Settings.TrackerEnabled;
             checkBox_tracker_auto.Checked = Settings.AutoTracker;
             checkBox_UpdateCheckBeta.Checked = Settings.CheckBeta;
@@ -165,7 +176,6 @@ namespace App
                 Log.S("notification-app-updated", Global.VERSION);
                 ShowNotification("notification-app-updated", Global.VERSION);
             }
-            //Sentry.ReportAsync("App started");
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -244,13 +254,7 @@ namespace App
             Settings.StartupShowMainForm = checkBox_StartupShow.Checked;
             Settings.Save();
         }
-
-        private void checkBox_Twitter_CheckedChanged(object sender, EventArgs e)
-        {
-            textBox_Twitter.Enabled = checkBox_Twitter.Checked;
-            Settings.TwitterEnabled = checkBox_Twitter.Checked;
-            Settings.Save();
-        }
+        
 
         private void checkBox_AutoOverlayHide_CheckedChanged(object sender, EventArgs e)
         {
@@ -280,12 +284,6 @@ namespace App
             }
 
             Settings.CheatRoulette = checkBox_CheatRoullete.Checked;
-            Settings.Save();
-        }
-
-        private void textBox_Twitter_TextChanged(object sender, EventArgs e)
-        {
-            Settings.TwitterAccount = textBox_Twitter.Text;
             Settings.Save();
         }
 
@@ -544,9 +542,12 @@ namespace App
             checkBox_DevMode.Text = Localization.GetText("ui-settings-debuglog");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
             checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
-            settings_tweet.Text = Localization.GetText("ui-settings-tweet-title");
-            checkBox_Twitter.Text = Localization.GetText("ui-settings-tweet-activate");
-            label_TwitterAbout.Text = Localization.GetText("ui-settings-tweet-about");
+            checkBox_RoulleteTips.Text = Localization.GetText("ui-settings-roulettetips");
+            tts_speed.SetLocalizedText("ui-settings-tts-speed");
+            tts_cache.SetLocalizedText("ui-settings-tts-cache");
+            button_tts_clear_cache.Text = Localization.GetText("ui-settings-tts-cache-clear");
+            button_tts_test.Text = Localization.GetText("ui-settings-tts-test");
+            settings_tts.Text = Localization.GetText("ui-settings-tts-title");
             toolStripMenuItem_SelectAll.Text = Localization.GetText("ui-fate-selectall");
             toolStripMenuItem_UnSelectAll.Text = Localization.GetText("ui-fate-unselectall");
             presetToolStripMenuItem.Text = Localization.GetText("ui-fate-preset");
@@ -594,6 +595,17 @@ namespace App
             comboBox_dataUpdate.ValueMember = "Code";
             comboBox_dataUpdate.SelectedValue = Settings.dataUpdate;
             comboBox_dataUpdate.SelectedValueChanged += comboBox_dataUpdate_SelectedValueChanged;
+            comboBox_tts_cache.SelectedValueChanged -= comboBox_tts_cache_SelectedValueChanged;
+            comboBox_tts_cache.DataSource = new[]
+            {
+                new SelectedItem { Name = Localization.GetText("ui-settings-tts-cache-use"), Code = "1" },
+                new SelectedItem { Name = Localization.GetText("ui-settings-tts-cache-force"), Code = "2" },
+                new SelectedItem { Name = Localization.GetText("ui-settings-tts-cache-nouse"), Code = "0" },
+            };
+            comboBox_tts_cache.DisplayMember = "Name";
+            comboBox_tts_cache.ValueMember = "Code";
+            comboBox_tts_cache.SelectedValue = Settings.TTSCache;
+            comboBox_tts_cache.SelectedValueChanged += comboBox_tts_cache_SelectedValueChanged;
             checkBox_UpdateCheckBeta.Text = Localization.GetText("ui-settings-update-check-beta");
             if (TrackerFormLoaded)
             {
@@ -664,6 +676,12 @@ namespace App
             Settings.Save();
         }
 
+        private void comboBox_tts_cache_SelectedValueChanged(object sender, EventArgs e)
+        {
+            Settings.TTSCache = comboBox_tts_cache.SelectedValue.ToString();
+            Settings.Save();
+        }
+
         private void button_tracker_open_Click(object sender, EventArgs e)
         {
             TrackerForm.Display();
@@ -688,7 +706,7 @@ namespace App
                     ShowNotification("notification-dll-missing","node.dll");
                     Task.Factory.StartNew(() =>
                     {
-                        WebApi.Download($"http://svn.diemoe.net/ff14_diemoe/tags/DFAssist_CN/dll/node.dll",$@"{Environment.GetEnvironmentVariable("windir")}\node.dll",nodedll_callback);
+                        WebApi.Download($"http://svn.diemoe.net/ff14_diemoe/tags/DFAssist_CN/dll/node.dll", $@"{Environment.GetEnvironmentVariable("windir")}\node.dll", true, nodedll_callback);
                     });
                 }
             }
@@ -736,6 +754,38 @@ namespace App
             {
                 Updater.CheckNewVersion(this, true, true);
             }
+        }
+
+        private void trackBar_tts_speed_Scroll(object sender, EventArgs e)
+        {
+            var ttsspeed = trackBar_tts_speed.Value.ToString();
+            if (Settings.TTSSpeed == ttsspeed)
+            {
+                return;
+            }
+            Settings.TTSSpeed = ttsspeed;
+            Settings.Save();
+            textBox_tts_speed.Text = Settings.TTSSpeed;
+            if (Settings.TTSCache != "2")
+            {
+                Sound_Helper.TTS_ClearCache();
+            }
+        }
+
+        private void button_tts_clear_cache_Click(object sender, EventArgs e)
+        {
+            Sound_Helper.TTS_ClearCache();
+        }
+
+        private void button_tts_test_Click(object sender, EventArgs e)
+        {
+            Sound_Helper.TTS("hello world", Localization.GetText("tts-langset"));
+        }
+
+        private void checkBox_RoulleteTips_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.RouletteTips = checkBox_RoulleteTips.Checked;
+            Settings.Save();
         }
     }
 }

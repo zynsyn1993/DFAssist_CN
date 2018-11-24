@@ -40,7 +40,7 @@ namespace App
             return Dialog(body, "Confirm", buttons, MessageBoxIcon.Warning, defaultButton);
         }
 
-        private static DialogResult Dialog(
+        internal static DialogResult Dialog(
             string body, string title,
             MessageBoxButtons buttons = MessageBoxButtons.OK,
             MessageBoxIcon icon = MessageBoxIcon.None,

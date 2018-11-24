@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace App
 {
@@ -226,12 +227,6 @@ namespace App
                 {
                     mainForm.ShowNotification("notification-queue-matched", instance.Name);
                 }
-
-                if (Settings.TwitterEnabled)
-                {
-                    WebApi.Tweet("tweet-queue-matched", instance.Name);
-                }
-
                 Log.S("l-queue-matched", instance.Name);
                 accentColor = Color.Red;
                 StartBlink();
@@ -292,11 +287,6 @@ namespace App
                 if (!Settings.ShowOverlay)
                 {
                     mainForm.ShowNotification("tweet-fate-occured", fate.Name);
-                }
-
-                if (Settings.TwitterEnabled)
-                {
-                    WebApi.Tweet("tweet-fate-occured", fate.Name);
                 }
                 accentColor = Color.DarkOrange;
                 StartBlink();
@@ -380,6 +370,65 @@ namespace App
 
                 // 내용을 비움
                 CancelDutyFinder();
+            }
+        }
+
+        internal void instances_callback(int code)
+        {
+            switch (code)
+            {
+                case 283:
+                    if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
+                    {
+                        mainForm.TrackerForm.new_tracker(1);
+                    }
+                    return;
+
+                case 581:
+                    if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
+                    {
+                        mainForm.TrackerForm.new_tracker(2);
+                    }
+                    return;
+
+                case 598:
+                    if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
+                    {
+                        mainForm.TrackerForm.new_tracker(3);
+                    }
+                    return;
+
+                default:
+                    break;
+            }
+            if (isRoulette && Settings.RouletteTips)
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var instance = Data.GetInstance(code);
+                    var roulette = Data.GetRoulette(queueCode);
+                    if (instance.Tips != null && instance.Macro != null)
+                    {
+                        var respond = LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，现在展示该副本简易攻略。\n{instance.Tips}\n--------\n该副本有可用的宏，是否复制到剪切板？", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+                        //Clipboard.SetData(DataFormats.UnicodeText, instance.Macro);
+                        if (respond == DialogResult.Yes)
+                        {
+                            this.Invoke(() => { Clipboard.SetDataObject(instance.Macro, true); });
+                        }
+                    }
+                    else if (instance.Tips != null)
+                    {
+                        LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，现在展示该副本简易攻略。\n{instance.Tips}", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+                    }
+                    else if (instance.Macro != null)
+                    {
+                        var respond = LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，是否复制该副本可用的宏？", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+                        if (respond == DialogResult.Yes)
+                        {
+                            this.Invoke(() => { Clipboard.SetDataObject(instance.Macro, true); });
+                        }
+                    }
+                });
             }
         }
 

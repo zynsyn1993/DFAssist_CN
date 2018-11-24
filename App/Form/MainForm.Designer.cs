@@ -47,6 +47,7 @@
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.tabControl_Settings = new System.Windows.Forms.TabControl();
             this.settings_basic = new System.Windows.Forms.TabPage();
+            this.checkBox_RoulleteTips = new System.Windows.Forms.CheckBox();
             this.checkBox_TTS = new System.Windows.Forms.CheckBox();
             this.checkBox_StartupShow = new System.Windows.Forms.CheckBox();
             this.label_SoundLocation = new App.LocalizableLabel();
@@ -60,11 +61,14 @@
             this.checkBox_tracker_auto = new System.Windows.Forms.CheckBox();
             this.button_tracker_open = new System.Windows.Forms.Button();
             this.checkBox_tracker_enabled = new System.Windows.Forms.CheckBox();
-            this.settings_tweet = new System.Windows.Forms.TabPage();
-            this.textBox_Twitter = new System.Windows.Forms.TextBox();
-            this.label_TwitterAbout = new App.LocalizableLabel();
-            this.label_TwitterAt = new App.LocalizableLabel();
-            this.checkBox_Twitter = new System.Windows.Forms.CheckBox();
+            this.settings_tts = new System.Windows.Forms.TabPage();
+            this.button_tts_test = new System.Windows.Forms.Button();
+            this.comboBox_tts_cache = new System.Windows.Forms.ComboBox();
+            this.button_tts_clear_cache = new System.Windows.Forms.Button();
+            this.tts_cache = new App.LocalizableLabel();
+            this.textBox_tts_speed = new System.Windows.Forms.TextBox();
+            this.tts_speed = new App.LocalizableLabel();
+            this.trackBar_tts_speed = new System.Windows.Forms.TrackBar();
             this.settings_update = new System.Windows.Forms.TabPage();
             this.checkBox_UpdateCheckBeta = new System.Windows.Forms.CheckBox();
             this.button_update = new System.Windows.Forms.Button();
@@ -115,7 +119,8 @@
             this.tabControl_Settings.SuspendLayout();
             this.settings_basic.SuspendLayout();
             this.settings_eureka_tracker.SuspendLayout();
-            this.settings_tweet.SuspendLayout();
+            this.settings_tts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_speed)).BeginInit();
             this.settings_update.SuspendLayout();
             this.tabPage_FATE.SuspendLayout();
             this.menuStrip_FATETab.SuspendLayout();
@@ -282,7 +287,7 @@
             // 
             this.tabControl_Settings.Controls.Add(this.settings_basic);
             this.tabControl_Settings.Controls.Add(this.settings_eureka_tracker);
-            this.tabControl_Settings.Controls.Add(this.settings_tweet);
+            this.tabControl_Settings.Controls.Add(this.settings_tts);
             this.tabControl_Settings.Controls.Add(this.settings_update);
             this.tabControl_Settings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl_Settings.Location = new System.Drawing.Point(0, 0);
@@ -295,6 +300,7 @@
             // settings_basic
             // 
             this.settings_basic.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_basic.Controls.Add(this.checkBox_RoulleteTips);
             this.settings_basic.Controls.Add(this.checkBox_Overlay);
             this.settings_basic.Controls.Add(this.checkBox_TTS);
             this.settings_basic.Controls.Add(this.checkBox_StartupShow);
@@ -312,11 +318,23 @@
             this.settings_basic.TabIndex = 0;
             this.settings_basic.Text = "基础设置";
             // 
+            // checkBox_RoulleteTips
+            // 
+            this.checkBox_RoulleteTips.AutoSize = true;
+            this.checkBox_RoulleteTips.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.checkBox_RoulleteTips.Location = new System.Drawing.Point(6, 136);
+            this.checkBox_RoulleteTips.Name = "checkBox_RoulleteTips";
+            this.checkBox_RoulleteTips.Size = new System.Drawing.Size(351, 21);
+            this.checkBox_RoulleteTips.TabIndex = 7;
+            this.checkBox_RoulleteTips.Text = "通过随机任务匹配进入副本时显示简易副本攻略（如果支持）";
+            this.checkBox_RoulleteTips.UseVisualStyleBackColor = true;
+            this.checkBox_RoulleteTips.CheckedChanged += new System.EventHandler(this.checkBox_RoulleteTips_CheckedChanged);
+            // 
             // checkBox_TTS
             // 
             this.checkBox_TTS.AutoSize = true;
             this.checkBox_TTS.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_TTS.Location = new System.Drawing.Point(6, 136);
+            this.checkBox_TTS.Location = new System.Drawing.Point(6, 163);
             this.checkBox_TTS.Name = "checkBox_TTS";
             this.checkBox_TTS.Size = new System.Drawing.Size(91, 21);
             this.checkBox_TTS.TabIndex = 6;
@@ -339,7 +357,7 @@
             // label_SoundLocation
             // 
             this.label_SoundLocation.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.label_SoundLocation.Location = new System.Drawing.Point(6, 187);
+            this.label_SoundLocation.Location = new System.Drawing.Point(6, 214);
             this.label_SoundLocation.Name = "label_SoundLocation";
             this.label_SoundLocation.Size = new System.Drawing.Size(225, 13);
             this.label_SoundLocation.TabIndex = 1;
@@ -360,7 +378,7 @@
             // 
             this.button_SoundLocation.AutoSize = true;
             this.button_SoundLocation.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.button_SoundLocation.Location = new System.Drawing.Point(340, 160);
+            this.button_SoundLocation.Location = new System.Drawing.Point(340, 187);
             this.button_SoundLocation.Name = "button_SoundLocation";
             this.button_SoundLocation.Size = new System.Drawing.Size(82, 26);
             this.button_SoundLocation.TabIndex = 5;
@@ -384,7 +402,7 @@
             // 
             this.checkBox_PlaySound.AutoSize = true;
             this.checkBox_PlaySound.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_PlaySound.Location = new System.Drawing.Point(6, 163);
+            this.checkBox_PlaySound.Location = new System.Drawing.Point(6, 190);
             this.checkBox_PlaySound.Name = "checkBox_PlaySound";
             this.checkBox_PlaySound.Size = new System.Drawing.Size(91, 21);
             this.checkBox_PlaySound.TabIndex = 4;
@@ -410,7 +428,7 @@
             this.button_ResetOverlayPosition.Font = new System.Drawing.Font("微软雅黑", 8F);
             this.button_ResetOverlayPosition.Location = new System.Drawing.Point(346, 3);
             this.button_ResetOverlayPosition.Name = "button_ResetOverlayPosition";
-            this.button_ResetOverlayPosition.Size = new System.Drawing.Size(76, 26);
+            this.button_ResetOverlayPosition.Size = new System.Drawing.Size(77, 26);
             this.button_ResetOverlayPosition.TabIndex = 0;
             this.button_ResetOverlayPosition.Text = "위치 초기화";
             this.button_ResetOverlayPosition.UseVisualStyleBackColor = true;
@@ -464,59 +482,99 @@
             this.checkBox_tracker_enabled.UseVisualStyleBackColor = true;
             this.checkBox_tracker_enabled.CheckedChanged += new System.EventHandler(this.checkBox_tracker_enabled_CheckedChanged);
             // 
-            // settings_tweet
+            // settings_tts
             // 
-            this.settings_tweet.BackColor = System.Drawing.SystemColors.Control;
-            this.settings_tweet.Controls.Add(this.textBox_Twitter);
-            this.settings_tweet.Controls.Add(this.label_TwitterAbout);
-            this.settings_tweet.Controls.Add(this.label_TwitterAt);
-            this.settings_tweet.Controls.Add(this.checkBox_Twitter);
-            this.settings_tweet.Location = new System.Drawing.Point(4, 28);
-            this.settings_tweet.Name = "settings_tweet";
-            this.settings_tweet.Padding = new System.Windows.Forms.Padding(3);
-            this.settings_tweet.Size = new System.Drawing.Size(428, 230);
-            this.settings_tweet.TabIndex = 1;
-            this.settings_tweet.Text = "Twitter提醒";
+            this.settings_tts.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_tts.Controls.Add(this.button_tts_test);
+            this.settings_tts.Controls.Add(this.comboBox_tts_cache);
+            this.settings_tts.Controls.Add(this.button_tts_clear_cache);
+            this.settings_tts.Controls.Add(this.tts_cache);
+            this.settings_tts.Controls.Add(this.textBox_tts_speed);
+            this.settings_tts.Controls.Add(this.tts_speed);
+            this.settings_tts.Controls.Add(this.trackBar_tts_speed);
+            this.settings_tts.Location = new System.Drawing.Point(4, 28);
+            this.settings_tts.Name = "settings_tts";
+            this.settings_tts.Padding = new System.Windows.Forms.Padding(3);
+            this.settings_tts.Size = new System.Drawing.Size(428, 230);
+            this.settings_tts.TabIndex = 1;
+            this.settings_tts.Text = "TTS设置";
             // 
-            // textBox_Twitter
+            // button_tts_test
             // 
-            this.textBox_Twitter.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.textBox_Twitter.Location = new System.Drawing.Point(30, 9);
-            this.textBox_Twitter.MaxLength = 16;
-            this.textBox_Twitter.Name = "textBox_Twitter";
-            this.textBox_Twitter.Size = new System.Drawing.Size(156, 25);
-            this.textBox_Twitter.TabIndex = 0;
-            this.textBox_Twitter.TextChanged += new System.EventHandler(this.textBox_Twitter_TextChanged);
+            this.button_tts_test.AutoSize = true;
+            this.button_tts_test.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button_tts_test.Location = new System.Drawing.Point(3, 169);
+            this.button_tts_test.Name = "button_tts_test";
+            this.button_tts_test.Size = new System.Drawing.Size(422, 29);
+            this.button_tts_test.TabIndex = 11;
+            this.button_tts_test.Text = "朗读测试";
+            this.button_tts_test.UseVisualStyleBackColor = true;
+            this.button_tts_test.Click += new System.EventHandler(this.button_tts_test_Click);
             // 
-            // label_TwitterAbout
+            // comboBox_tts_cache
             // 
-            this.label_TwitterAbout.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.label_TwitterAbout.Location = new System.Drawing.Point(6, 45);
-            this.label_TwitterAbout.Name = "label_TwitterAbout";
-            this.label_TwitterAbout.Size = new System.Drawing.Size(407, 48);
-            this.label_TwitterAbout.TabIndex = 0;
-            this.label_TwitterAbout.Text = "매칭이 됐을 시 입력된 트위터 계정으로 멘션을 보내 해당 사실을 알립니다.\r\n원하는 돌발이 발생했을 시에도 멘션을 보내 해당 사실을 알립니다.\r\n" +
-    "계정명 입력시 앞의 @ 표시는 제외하고 순수 계정명만 입력해주세요.";
+            this.comboBox_tts_cache.DisplayMember = "Code";
+            this.comboBox_tts_cache.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_tts_cache.FormattingEnabled = true;
+            this.comboBox_tts_cache.Location = new System.Drawing.Point(38, 75);
+            this.comboBox_tts_cache.Name = "comboBox_tts_cache";
+            this.comboBox_tts_cache.Size = new System.Drawing.Size(384, 27);
+            this.comboBox_tts_cache.TabIndex = 10;
+            this.comboBox_tts_cache.ValueMember = "Code";
             // 
-            // label_TwitterAt
+            // button_tts_clear_cache
             // 
-            this.label_TwitterAt.AutoSize = true;
-            this.label_TwitterAt.Location = new System.Drawing.Point(5, 12);
-            this.label_TwitterAt.Name = "label_TwitterAt";
-            this.label_TwitterAt.Size = new System.Drawing.Size(22, 19);
-            this.label_TwitterAt.TabIndex = 0;
-            this.label_TwitterAt.Text = "@";
+            this.button_tts_clear_cache.AutoSize = true;
+            this.button_tts_clear_cache.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button_tts_clear_cache.Location = new System.Drawing.Point(3, 198);
+            this.button_tts_clear_cache.Name = "button_tts_clear_cache";
+            this.button_tts_clear_cache.Size = new System.Drawing.Size(422, 29);
+            this.button_tts_clear_cache.TabIndex = 9;
+            this.button_tts_clear_cache.Text = "清空缓存";
+            this.button_tts_clear_cache.UseVisualStyleBackColor = true;
+            this.button_tts_clear_cache.Click += new System.EventHandler(this.button_tts_clear_cache_Click);
             // 
-            // checkBox_Twitter
+            // tts_cache
             // 
-            this.checkBox_Twitter.AutoSize = true;
-            this.checkBox_Twitter.Location = new System.Drawing.Point(192, 12);
-            this.checkBox_Twitter.Name = "checkBox_Twitter";
-            this.checkBox_Twitter.Size = new System.Drawing.Size(67, 23);
-            this.checkBox_Twitter.TabIndex = 0;
-            this.checkBox_Twitter.Text = "활성화";
-            this.checkBox_Twitter.UseVisualStyleBackColor = true;
-            this.checkBox_Twitter.CheckedChanged += new System.EventHandler(this.checkBox_Twitter_CheckedChanged);
+            this.tts_cache.AutoSize = true;
+            this.tts_cache.Location = new System.Drawing.Point(6, 53);
+            this.tts_cache.Name = "tts_cache";
+            this.tts_cache.Size = new System.Drawing.Size(61, 19);
+            this.tts_cache.TabIndex = 5;
+            this.tts_cache.Text = "缓存策略";
+            // 
+            // textBox_tts_speed
+            // 
+            this.textBox_tts_speed.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox_tts_speed.Enabled = false;
+            this.textBox_tts_speed.Location = new System.Drawing.Point(10, 25);
+            this.textBox_tts_speed.Name = "textBox_tts_speed";
+            this.textBox_tts_speed.Size = new System.Drawing.Size(66, 25);
+            this.textBox_tts_speed.TabIndex = 4;
+            this.textBox_tts_speed.Text = "4";
+            this.textBox_tts_speed.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tts_speed
+            // 
+            this.tts_speed.AutoSize = true;
+            this.tts_speed.Location = new System.Drawing.Point(6, 3);
+            this.tts_speed.Name = "tts_speed";
+            this.tts_speed.Size = new System.Drawing.Size(61, 19);
+            this.tts_speed.TabIndex = 3;
+            this.tts_speed.Text = "朗读速度";
+            // 
+            // trackBar_tts_speed
+            // 
+            this.trackBar_tts_speed.LargeChange = 1;
+            this.trackBar_tts_speed.Location = new System.Drawing.Point(82, 6);
+            this.trackBar_tts_speed.Maximum = 7;
+            this.trackBar_tts_speed.Minimum = 1;
+            this.trackBar_tts_speed.Name = "trackBar_tts_speed";
+            this.trackBar_tts_speed.Size = new System.Drawing.Size(340, 45);
+            this.trackBar_tts_speed.TabIndex = 0;
+            this.trackBar_tts_speed.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar_tts_speed.Value = 4;
+            this.trackBar_tts_speed.Scroll += new System.EventHandler(this.trackBar_tts_speed_Scroll);
             // 
             // settings_update
             // 
@@ -963,8 +1021,9 @@
             this.settings_basic.PerformLayout();
             this.settings_eureka_tracker.ResumeLayout(false);
             this.settings_eureka_tracker.PerformLayout();
-            this.settings_tweet.ResumeLayout(false);
-            this.settings_tweet.PerformLayout();
+            this.settings_tts.ResumeLayout(false);
+            this.settings_tts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_speed)).EndInit();
             this.settings_update.ResumeLayout(false);
             this.settings_update.PerformLayout();
             this.tabPage_FATE.ResumeLayout(false);
@@ -997,10 +1056,6 @@
         private System.Windows.Forms.CheckBox checkBox_StartupShow;
         private System.Windows.Forms.ComboBox comboBox_Process;
         private System.Windows.Forms.Button button_ResetProcess;
-        private System.Windows.Forms.TextBox textBox_Twitter;
-        private LocalizableLabel label_TwitterAt;
-        private LocalizableLabel label_TwitterAbout;
-        private System.Windows.Forms.CheckBox checkBox_Twitter;
         internal RikTheVeggie.TriStateTreeView triStateTreeView_FATEs;
         private System.Windows.Forms.Panel panel_TopSetting;
         private LocalizableLabel label_Process;
@@ -1051,7 +1106,6 @@
         private System.Windows.Forms.GroupBox groupBox_debug_settings;
         private System.Windows.Forms.TabControl tabControl_Settings;
         private System.Windows.Forms.TabPage settings_basic;
-        private System.Windows.Forms.TabPage settings_tweet;
         private System.Windows.Forms.TabPage settings_update;
         private System.Windows.Forms.ComboBox comboBox_dfaUpdate;
         private LocalizableLabel update_about;
@@ -1063,6 +1117,15 @@
         private System.Windows.Forms.Button button_tracker_open;
         private System.Windows.Forms.CheckBox checkBox_tracker_enabled;
         private System.Windows.Forms.CheckBox checkBox_UpdateCheckBeta;
+        private System.Windows.Forms.TabPage settings_tts;
+        private System.Windows.Forms.ComboBox comboBox_tts_cache;
+        private System.Windows.Forms.Button button_tts_clear_cache;
+        private LocalizableLabel tts_cache;
+        private System.Windows.Forms.TextBox textBox_tts_speed;
+        private LocalizableLabel tts_speed;
+        private System.Windows.Forms.TrackBar trackBar_tts_speed;
+        private System.Windows.Forms.Button button_tts_test;
+        private System.Windows.Forms.CheckBox checkBox_RoulleteTips;
     }
 }
 

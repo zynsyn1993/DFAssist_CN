@@ -11,29 +11,6 @@ namespace App
 {
     internal static class WebApi
     {
-        internal static void Tweet(string key, params object[] args)
-        {
-            Task.Factory.StartNew(() =>
-            {
-                var message = Localization.GetText(key, args);
-                var url = $"{Global.API_ENDPOINT}/tweet?u={Settings.TwitterAccount}&m={HttpUtility.UrlEncode(message)}&h={GetMD5Hash(message)}";
-
-                var resp = Request(url);
-                if (resp == null)
-                {
-                    Log.E("tweet-failed-request");
-                }
-                else if (resp == "1")
-                {
-                    Log.E("tweet-failed");
-                }
-                else if (resp == "0")
-                {
-                    Log.S("tweet-success");
-                }
-            });
-        }
-
         internal static string Request(string urlfmt, params object[] args)
         {
             try
@@ -100,7 +77,7 @@ namespace App
             return ret.Result;
         }
 
-        internal static bool Download(string url, string path, Action callback = null)
+        internal static bool Download(string url, string path, bool overwrite = false, Action callback = null)
         {
             string tempPath = Path.GetDirectoryName(path) + @"\temp";
             Directory.CreateDirectory(tempPath);  //创建临时文件目录
@@ -111,6 +88,17 @@ namespace App
             }
             try
             {
+                if (File.Exists(path))
+                {
+                    if (overwrite)
+                    {
+                        File.Delete(path);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
                 FileStream fs = new FileStream(tempFile, FileMode.Append, FileAccess.Write, FileShare.ReadWrite);
                 // 设置参数
                 HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;

@@ -1,6 +1,6 @@
 ﻿{
   // Version
-  "version": "20181110.1", 
+  "version": "20181118.1", 
 
   // Duty
   "instances": {
@@ -1832,6 +1832,12 @@
 	 "healer": "2",
 	 "dps": "4"
 	},
+	"595": {
+      "name": "Kugane Ohashi",
+      "tank": "2",
+      "healer": "2",
+      "dps": "4"
+    },
 	//大型任务
 	"92": {
 	 "name": "la Tour de Cristal - Dédale antique",

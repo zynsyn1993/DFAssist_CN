@@ -298,32 +298,7 @@ namespace App
                         state = State.IDLE;
                         mainForm.overlayForm.CancelDutyFinder();
                         Log.I("l-queue-entered");
-                        switch (lastCode)
-                        {
-                            case 283:
-                                if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
-                                {
-                                    mainForm.TrackerForm.new_tracker(1);
-                                }
-                                break;
-    
-                            case 581:
-                                if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
-                                {
-                                    mainForm.TrackerForm.new_tracker(2);
-                                }
-                                break;
-
-                            case 598:
-                                if (Settings.TrackerEnabled && Settings.AutoTracker && mainForm.TrackerFormLoaded)
-                                {
-                                    mainForm.TrackerForm.new_tracker(3);
-                                }
-                                break;
-
-                            default:
-                                return;
-                        }
+                        mainForm.overlayForm.instances_callback(lastCode);
                     }
                     else if (status == 4) //글섭에서 매칭 잡혔을 때 출력
                     {
