@@ -75,7 +75,7 @@ namespace App
 
         private void OnDocumentReady(object sender, DocumentReadyEventArgs e)
         {
-            WebView.RunJS("var clearcss = window.document.createElement('style');clearcss.innerHTML = '.logo-brand,.landing-page__container,.__1da0e,.mr-3 div:last-of-type,.export-icons {display:none;!important}';window.document.head.appendChild(clearcss);"); //clearcss
+            WebView.RunJS("var clearcss = window.document.createElement('style');clearcss.innerHTML = '.clock,.time-format-selector,.logo-brand,.landing-page__container,.__1da0e,.mr-3 div:last-of-type,.export-icons {display:none;!important}';window.document.head.appendChild(clearcss);"); //clearcss
             if (ext_js != null)
             {
                 WebView.RunJS(ext_js);

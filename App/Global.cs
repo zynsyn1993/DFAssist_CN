@@ -2,13 +2,13 @@
 {
     internal class Global
     {
-        public const string VERSION = "v20181125.1";
+        public const string VERSION = "v20181204.1";
 
         public const string APPNAME = "DFAssist";
         public const string SETTINGS_FILEPATH = @"config.ini";
         public const string UPDATE_TEMP_DIRPATH = @"Updates\";
 
-        public const int NODE_NEED = 20181110;
+        public const int NODE_NEED = 20181204;
 
         public const string GITHUB_REPO = @"devunt/DFAssist";
 
