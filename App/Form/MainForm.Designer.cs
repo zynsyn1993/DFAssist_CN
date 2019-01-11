@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.button_ResetProcess = new System.Windows.Forms.Button();
             this.comboBox_Process = new System.Windows.Forms.ComboBox();
             this.button_SelectProcess = new System.Windows.Forms.Button();
@@ -58,6 +57,7 @@
             this.checkBox_CheatRoullete = new System.Windows.Forms.CheckBox();
             this.button_ResetOverlayPosition = new System.Windows.Forms.Button();
             this.settings_eureka_tracker = new System.Windows.Forms.TabPage();
+            this.checkBox_tracker_CNmirror = new System.Windows.Forms.CheckBox();
             this.checkBox_tracker_auto = new System.Windows.Forms.CheckBox();
             this.button_tracker_open = new System.Windows.Forms.Button();
             this.checkBox_tracker_enabled = new System.Windows.Forms.CheckBox();
@@ -168,7 +168,7 @@
             // notifyIcon
             // 
             this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Icon = global::App.Properties.Resources.icon;
             this.notifyIcon.Text = "임무/돌발 찾기 도우미";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
@@ -437,6 +437,7 @@
             // settings_eureka_tracker
             // 
             this.settings_eureka_tracker.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_eureka_tracker.Controls.Add(this.checkBox_tracker_CNmirror);
             this.settings_eureka_tracker.Controls.Add(this.checkBox_tracker_auto);
             this.settings_eureka_tracker.Controls.Add(this.button_tracker_open);
             this.settings_eureka_tracker.Controls.Add(this.checkBox_tracker_enabled);
@@ -447,10 +448,21 @@
             this.settings_eureka_tracker.TabIndex = 3;
             this.settings_eureka_tracker.Text = "优雷卡追踪器";
             // 
+            // checkBox_tracker_CNmirror
+            // 
+            this.checkBox_tracker_CNmirror.AutoSize = true;
+            this.checkBox_tracker_CNmirror.Location = new System.Drawing.Point(22, 35);
+            this.checkBox_tracker_CNmirror.Name = "checkBox_tracker_CNmirror";
+            this.checkBox_tracker_CNmirror.Size = new System.Drawing.Size(158, 23);
+            this.checkBox_tracker_CNmirror.TabIndex = 3;
+            this.checkBox_tracker_CNmirror.Text = "使用国内镜像加速访问";
+            this.checkBox_tracker_CNmirror.UseVisualStyleBackColor = true;
+            this.checkBox_tracker_CNmirror.CheckedChanged += new System.EventHandler(this.checkBox_tracker_CNmirror_CheckedChanged);
+            // 
             // checkBox_tracker_auto
             // 
             this.checkBox_tracker_auto.AutoSize = true;
-            this.checkBox_tracker_auto.Location = new System.Drawing.Point(6, 35);
+            this.checkBox_tracker_auto.Location = new System.Drawing.Point(6, 64);
             this.checkBox_tracker_auto.Name = "checkBox_tracker_auto";
             this.checkBox_tracker_auto.Size = new System.Drawing.Size(249, 23);
             this.checkBox_tracker_auto.TabIndex = 2;
@@ -1003,7 +1015,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("微软雅黑", 9.75F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::App.Properties.Resources.icon;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(560, 360);
             this.Name = "MainForm";
@@ -1126,6 +1138,7 @@
         private System.Windows.Forms.TrackBar trackBar_tts_speed;
         private System.Windows.Forms.Button button_tts_test;
         private System.Windows.Forms.CheckBox checkBox_RoulleteTips;
+        private System.Windows.Forms.CheckBox checkBox_tracker_CNmirror;
     }
 }
 

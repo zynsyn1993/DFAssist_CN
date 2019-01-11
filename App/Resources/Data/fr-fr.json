@@ -1,6 +1,6 @@
 ﻿{
   // Version
-  "version": "20181118.1", 
+  "version": "20190112.1", 
 
   // Duty
   "instances": {
@@ -1820,6 +1820,12 @@
 	 "healer": "2",
 	 "dps": "4"
 	},
+	"596": {
+      "name": "le Nid des Lamentations",
+      "tank": "2",
+      "healer": "2",
+      "dps": "4"
+    },
 	"597": {
 	 "name": "le Nid des Lamentations (extrême)",
 	 "tank": "2",

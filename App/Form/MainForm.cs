@@ -15,6 +15,7 @@ namespace App
         internal Process FFXIVProcess;
         internal OverlayForm overlayForm;
         internal TrackerForm TrackerForm;
+        internal TipsForm tipsForm;
         internal List<TreeNode> nodes;
         internal bool TrackerFormLoaded = false;
 
@@ -23,7 +24,6 @@ namespace App
             Settings.Load();
 
             InitializeComponent();
-
             Log.Form = this;
             overlayForm = new OverlayForm(this);
             nodes = new List<TreeNode>();
@@ -42,7 +42,7 @@ namespace App
         private void MainForm_Load(object sender, EventArgs e)
         {
             Localization.Initialize(Settings.Language);
-            Data.Initialize(Settings.Language);
+            Data.Initialize(Settings.Language, this);
             ApplyLanguage();
             overlayForm.Show();
             networkWorker = new Network(this);
@@ -108,6 +108,10 @@ namespace App
             checkBox_AutoOverlayHide.Checked = Settings.AutoOverlayHide;
             checkBox_FlashWindow.Checked = Settings.FlashWindow;
             checkBox_PlaySound.Checked = Settings.PlaySound;
+            if (Settings.TrackerMirror == "cn")
+            {
+                checkBox_tracker_CNmirror.Checked = true;
+            }
             trackBar_tts_speed.Value = int.Parse(Settings.TTSSpeed);
             if (System.IO.File.Exists(Settings.SoundLocation) == false)
             {
@@ -128,17 +132,7 @@ namespace App
             checkBox_tracker_auto.Checked = Settings.AutoTracker;
             checkBox_UpdateCheckBeta.Checked = Settings.CheckBeta;
 
-            foreach (var area in Data.Areas)
-            {
-                triStateTreeView_FATEs.Nodes.Add(area.Key.ToString(), area.Value.Name);
-
-                foreach (var fate in area.Value.FATEs)
-                {
-                    var node = triStateTreeView_FATEs.Nodes[area.Key.ToString()].Nodes.Add(fate.Key.ToString(), fate.Value.Name);
-                    node.Checked = Settings.FATEs.Contains(fate.Key);
-                    nodes.Add(node);
-                }
-            }
+            Update_FATENodes();
 
             Task.Factory.StartNew(() =>
             {
@@ -508,7 +502,7 @@ namespace App
             Settings.Save();
 
             Localization.Initialize(Settings.Language);
-            Data.Initialize(Settings.Language);
+            Data.Initialize(Settings.Language, this);
 
             ApplyLanguage();
 
@@ -573,6 +567,7 @@ namespace App
             checkBox_tracker_enabled.Text = Localization.GetText("ui-settings-tracker-enabled");
             checkBox_tracker_auto.Text = Localization.GetText("ui-settings-tracker-auto");
             button_tracker_open.Text = Localization.GetText("ui-settings-tracker-open");
+            checkBox_tracker_CNmirror.Text= Localization.GetText("ui-settings-tracker-mirror-cn");
             comboBox_dfaUpdate.SelectedValueChanged -= comboBox_dfaUpdate_SelectedValueChanged;
             comboBox_dfaUpdate.DataSource = new[]
             {
@@ -611,6 +606,32 @@ namespace App
             {
                 TrackerForm.ApplyLanguage();
             }
+        }
+
+        internal void Update_FATENodes()
+        {
+            triStateTreeView_FATEs.Nodes.Clear();
+            foreach (var area in Data.Areas)
+            {
+                triStateTreeView_FATEs.Nodes.Add(area.Key.ToString(), area.Value.Name);
+
+                foreach (var fate in area.Value.FATEs)
+                {
+                    var node = triStateTreeView_FATEs.Nodes[area.Key.ToString()].Nodes.Add(fate.Key.ToString(), fate.Value.Name);
+                    node.Checked = Settings.FATEs.Contains(fate.Key);
+                    nodes.Add(node);
+                }
+            }
+        }
+
+        internal void Show_DutyTips(string Roullete, string Instance, string Tip, string Macro = null)
+        {
+            if (tipsForm != null)
+            {
+                tipsForm.Dispose();
+            }
+            tipsForm = new TipsForm(Roullete, Instance, Tip, Macro);
+            tipsForm.Show();
         }
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)
@@ -685,6 +706,12 @@ namespace App
         private void button_tracker_open_Click(object sender, EventArgs e)
         {
             TrackerForm.Display();
+        }
+
+        internal void tracker_disable ()
+        {
+            TrackerFormLoaded = false;
+            checkBox_tracker_enabled.Checked = false;
         }
 
         private void checkBox_tracker_enabled_CheckedChanged(object sender, EventArgs e)
@@ -785,6 +812,19 @@ namespace App
         private void checkBox_RoulleteTips_CheckedChanged(object sender, EventArgs e)
         {
             Settings.RouletteTips = checkBox_RoulleteTips.Checked;
+            Settings.Save();
+        }
+
+        private void checkBox_tracker_CNmirror_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_tracker_CNmirror.Checked)
+            {
+                Settings.TrackerMirror = "cn";
+            }
+            else
+            {
+                Settings.TrackerMirror = "0";
+            }
             Settings.Save();
         }
     }

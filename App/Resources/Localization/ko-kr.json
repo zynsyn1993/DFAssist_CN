@@ -15,6 +15,7 @@
   "notification-uptodate": "{0} 를 업데이트하고 있습니다",
   "notification-update-latest": "최신 버전을 이용중입니다",
   "notification-dll-missing": "Missing components[{0}],downloading",
+  "notification-dll-invalid": "Invalid component[{0}],[{1}] disabled",
 
 
   "tweet-fate-occured": "< {0} > 돌발 발생!",
@@ -87,6 +88,7 @@
   "ui-settings-tracker-enabled": "Enable Eureka-Tracker",
   "ui-settings-tracker-open": "Open Tracker",
   "ui-settings-tracker-auto": "Auto Tracker when in Eureka",
+  "ui-settings-tracker-mirror-cn": "Use CN mirror",
 
   "tracker-title": "DFAssist-Eureka-Tracker",
   "tracker-new-tracker": "New Tracker",

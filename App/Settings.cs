@@ -30,6 +30,7 @@ namespace App
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
         public static bool AutoTracker { get; set; } = true;
         public static bool TrackerEnabled { get; set; } = true;
+        public static string TrackerMirror { get; set; } = "cn";
         public static bool CheckBeta { get; set; } = false;
         public static int NodeVersion = 0;
 
@@ -70,6 +71,7 @@ namespace App
                 DebugLog = iniFile.ReadValue("dev", "debuglog") == "1";
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
                 TrackerEnabled = iniFile.ReadValue("tracker", "trackerenabled") != "0";
+                TrackerMirror = iniFile.ReadValue("tracker", "trackermirror") ?? "cn"; 
                 AutoTracker = iniFile.ReadValue("tracker", "autotracker") != "0";
                 NodeVersion= int.Parse(iniFile.ReadValue("dll", "node") ?? "0");
 
@@ -104,6 +106,7 @@ namespace App
             iniFile.WriteValue("dev", "debuglog", DebugLog ? "1" : "0");
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
             iniFile.WriteValue("tracker", "trackerenabled", TrackerEnabled ? "1" : "0");
+            iniFile.WriteValue("tracker", "trackermirror",TrackerMirror);
             iniFile.WriteValue("tracker", "autotracker", AutoTracker ? "1" : "0");
             iniFile.WriteValue("dll", "node", NodeVersion.ToString());
         }

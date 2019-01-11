@@ -15,6 +15,7 @@
   "notification-uptodate": "Updating to {0}",
   "notification-update-latest": "Already the latest version",
   "notification-dll-missing": "Missing components[{0}],downloading",
+  "notification-dll-invalid": "Invalid component[{0}],[{1}] disabled",
 
 
   "tweet-fate-occured": "< {0} > FATE Occured!",
@@ -88,6 +89,7 @@
   "ui-settings-tracker-enabled": "Enable Eureka-Tracker",
   "ui-settings-tracker-open": "Open Tracker",
   "ui-settings-tracker-auto": "Auto Tracker when in Eureka",
+  "ui-settings-tracker-mirror-cn": "Use CN mirror",
 
   "tracker-title": "DFAssist-Eureka-Tracker",
   "tracker-new-tracker": "New Tracker",

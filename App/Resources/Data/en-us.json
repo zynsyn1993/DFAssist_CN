@@ -1,6 +1,6 @@
 ﻿{
   // Version
-  "version": "20181118.1",
+  "version": "20190112.1",
 
   // Duty
   "instances": {
@@ -1398,6 +1398,12 @@
 	 "healer": "1",
 	 "dps": "2"
 	},
+	"611": {
+      "name": "The Ghimlyt Dark",
+      "tank": "1",
+      "healer": "1",
+      "dps": "2"
+    },
 	//行会令
 	"42": {
 	 "name": "Basic Training: Enemy Parties",
@@ -1820,6 +1826,12 @@
 	 "healer": "2",
 	 "dps": "4"
 	},
+    "596": {
+      "name": "Hells' Kier",
+      "tank": "2",
+      "healer": "2",
+      "dps": "4"
+    },
 	"597": {
 	 "name": "Hells' Kier (Extreme)",
 	 "tank": "2",
@@ -1834,6 +1846,18 @@
 	},
 	"595": {
       "name": "Kugane Ohashi",
+      "tank": "2",
+      "healer": "2",
+      "dps": "4"
+    },
+	"637": {
+      "name": "The Wreath of Snakes",
+      "tank": "2",
+      "healer": "2",
+      "dps": "4"
+    },
+    "638": {
+      "name": "The Wreath of Snakes (Extreme)",
       "tank": "2",
       "healer": "2",
       "dps": "4"
@@ -2133,6 +2157,12 @@
 	 "healer": "2",
 	 "dps": "5"
 	},
+	"636": {
+      "name": "The Orbonne Monastery",
+      "tank": "3",
+      "healer": "6",
+      "dps": "15"
+    },
 	"252": {
 	 "name": "Deltascape V1.0",
 	 "tank": "2",

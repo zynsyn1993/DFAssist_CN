@@ -63,34 +63,37 @@ namespace App.Properties {
         /// <summary>
         ///   查找类似 {
         ///  // Version
-        ///  &quot;version&quot;: &quot;20180922.1&quot;,
+        ///  &quot;version&quot;: &quot;20181118.1&quot;,
         ///
         ///  // Duty
         ///  &quot;instances&quot;: {
-        ///    // 2.0 A Realm Reborn
-        ///    // 2.0 Dungeons
-        ///    &quot;4&quot;: {
-        ///      &quot;name&quot;: &quot;Sastasha&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;8&quot;: {
-        ///      &quot;name&quot;: &quot;Brayflox&apos;s Longstop&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;10&quot;: {
-        ///      &quot;name&quot;: &quot;The Wanderer&apos;s Palace&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;3&quot;: {
-        ///      &quot;name&quot;: &quot;Copperbell Mines&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///     [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	//单人使命 PVP 金碟游乐场
+        ///	&quot;2334&quot;: {
+        ///	 &quot;name&quot;: &quot;Recondition the Anima&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;3088&quot;: {
+        ///	 &quot;name&quot;: &quot;Recall of Duty&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;167&quot;: {
+        ///	 &quot;name&quot;: &quot;a Spectacle for the Ages&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;173&quot;: {
+        ///	 &quot;name&quot;: &quot;a Bloody Reunion&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;179&quot;: {
+        ///	 &quot;name&quot;: &quot;the Aqua [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Data_EN_US {
             get {
@@ -101,33 +104,34 @@ namespace App.Properties {
         /// <summary>
         ///   查找类似 {
         ///  // Version
-        ///  &quot;version&quot;: &quot;20181008.6&quot;, 
+        ///  &quot;version&quot;: &quot;20181118.1&quot;, 
         ///
         ///  // Duty
         ///  &quot;instances&quot;: {
-        ///    // 2.0 A Realm Reborn
-        ///    // 2.0 Dungeons
-        ///    &quot;4&quot;: {
-        ///      &quot;name&quot;: &quot;Sastasha&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;8&quot;: {
-        ///      &quot;name&quot;: &quot;le Bivouac de Brayflox&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;10&quot;: {
-        ///      &quot;name&quot;: &quot;le Palais du Vagabond&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;3&quot;: {
-        ///      &quot;name&quot;: &quot;les Mines de Clochecuivre&quot;,
-        ///      &quot;tan [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	//单人使命 PVP 金碟游乐场
+        ///	&quot;2334&quot;: {
+        ///	 &quot;name&quot;: &quot;Un nouvel épanouissement&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;3088&quot;: {
+        ///	 &quot;name&quot;: &quot;La ballade des réminiscences&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;167&quot;: {
+        ///	 &quot;name&quot;: &quot;La grande manœuvre éorzéenne&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;173&quot;: {
+        ///	 &quot;name&quot;: &quot;Course-poursuite dans le laboratoire&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Data_FR_FR {
             get {
@@ -138,34 +142,39 @@ namespace App.Properties {
         /// <summary>
         ///   查找类似 {
         ///  // Version
-        ///  &quot;version&quot;: &quot;20181008.6&quot;, 
+        ///  &quot;version&quot;: &quot;20181118.1&quot;, 
         ///
         ///  // Duty
         ///  &quot;instances&quot;: {
-        ///    // 2.0 A Realm Reborn
-        ///    // 2.0 Dungeons
-        ///    &quot;4&quot;: {
-        ///      &quot;name&quot;: &quot;天然要害 サスタシャ浸食洞&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;8&quot;: {
-        ///      &quot;name&quot;: &quot;奪還支援 ブレイフロクスの野営地&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;10&quot;: {
-        ///      &quot;name&quot;: &quot;旅神聖域 ワンダラーパレス&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;3&quot;: {
-        ///      &quot;name&quot;: &quot;封鎖坑道 カッパーベル銅山&quot;,
-        ///      &quot;tank&quot;: &quot;1&quot;,
-        ///      &quot;heale [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	//单人使命 PVP 金碟游乐场
+        ///	&quot;2334&quot;: {
+        ///	 &quot;name&quot;: &quot;人造精霊の再調整&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;3088&quot;: {
+        ///	 &quot;name&quot;: &quot;再演の叙事詩&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;167&quot;: {
+        ///	 &quot;name&quot;: &quot;四国合同演習&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;173&quot;: {
+        ///	 &quot;name&quot;: &quot;レグラ・ヴァン・ヒュドルス追撃戦&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;179&quot;: {
+        ///	 &quot;name&quot;: &quot;宝物庫 アクアポリス&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;, [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Data_JA_JP {
             get {
@@ -176,7 +185,7 @@ namespace App.Properties {
         /// <summary>
         ///   查找类似 {
         ///  // 버전
-        ///  &quot;version&quot;: &quot;20181008.6&quot;, 
+        ///  &quot;version&quot;: &quot;20181118.1&quot;,
         ///
         ///  // 임무
         ///  &quot;instances&quot;: {
@@ -204,9 +213,7 @@ namespace App.Properties {
         ///      &quot;name&quot;: &quot;구리종 광산&quot;,
         ///      &quot;tank&quot;: &quot;1&quot;,
         ///      &quot;healer&quot;: &quot;1&quot;,
-        ///      &quot;dps&quot;: &quot;2&quot;
-        ///    },
-        ///    &quot;7&quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///   [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Data_KO_KR {
             get {
@@ -217,40 +224,57 @@ namespace App.Properties {
         /// <summary>
         ///   查找类似 {
         ///  // Version
-        ///  &quot;version&quot;: &quot;20181010.2&quot;, 
+        ///  &quot;version&quot;: &quot;20181204.1&quot;, 
         ///
         ///  // Duty
         ///  &quot;instances&quot;: {
-        ///	// 金碟游乐场
-        ///    &quot;195&quot;: {
-        ///      &quot;name&quot;: &quot;九宫幻卡：幻卡对局室&quot;,
-        ///      &quot;tank&quot;: &quot;0&quot;,
-        ///      &quot;healer&quot;: &quot;0&quot;,
-        ///      &quot;dps&quot;: &quot;0&quot;
-        ///    },
-        ///    &quot;197&quot;: {
-        ///      &quot;name&quot;: &quot;萌宠之王：玩家对战（绩点赛）&quot;,
-        ///      &quot;tank&quot;: &quot;0&quot;,
-        ///      &quot;healer&quot;: &quot;0&quot;,
-        ///      &quot;dps&quot;: &quot;0&quot;
-        ///    },
-        ///    &quot;199&quot;: {
-        ///      &quot;name&quot;: &quot;萌宠之王：玩家对战（无绩点赛）&quot;,
-        ///      &quot;tank&quot;: &quot;0&quot;,
-        ///      &quot;healer&quot;: &quot;0&quot;,
-        ///      &quot;dps&quot;: &quot;0&quot;
-        ///    },
-        ///    &quot;576&quot;: {
-        ///      &quot;name&quot;: &quot;萌宠之王：讨伐级单人战&quot;,
-        ///      &quot;tank&quot;: &quot;0&quot;,
-        ///      &quot;healer&quot;: &quot;0&quot;,
-        ///      &quot;dps&quot;: &quot;0&quot;
-        ///    },
-        ///  [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	//单人使命 PVP 金碟游乐场
+        ///	&quot;2334&quot;: {
+        ///	 &quot;name&quot;: &quot;重新调整人造元灵&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;3088&quot;: {
+        ///	 &quot;name&quot;: &quot;回顾英雄诗篇&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;167&quot;: {
+        ///	 &quot;name&quot;: &quot;四国联合军演&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;173&quot;: {
+        ///	 &quot;name&quot;: &quot;雷古拉·范·休著斯追击战&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;179&quot;: {
+        ///	 &quot;name&quot;: &quot;水城宝物库&quot;,
+        ///	 &quot;tank&quot;: &quot;0&quot;,
+        ///	 &quot;healer&quot;: &quot;0&quot;,
+        ///	 &quot;dps&quot;: &quot;0&quot;
+        ///	},
+        ///	&quot;181&quot;: {
+        ///	 &quot;name&quot;: [字符串的其余部... 的本地化字符串。
         /// </summary>
         internal static string Data_ZH_CN {
             get {
                 return ResourceManager.GetString("Data_ZH_CN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon icon {
+            get {
+                object obj = ResourceManager.GetObject("icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -268,14 +292,10 @@ namespace App.Properties {
         ///
         ///  &quot;notification-app-updated&quot;: &quot;Version {0} Updated&quot;,
         ///  &quot;notification-queue-matched&quot;: &quot;&lt; {0} &gt; Matched!&quot;,
-        ///
-        ///
-        ///  &quot;tweet-fate-occured&quot;: &quot;&lt; {0} &gt; FATE Occured!&quot;,
-        ///  &quot;tweet-queue-matched&quot;: &quot;&lt; {0} &gt; Matched!&quot;,
-        ///
-        ///
-        ///  &quot;fate-preset-animus-SkyfireI&quot;: &quot;Book of Skyfire I&quot;,
-        ///  &quot;fate-prese [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &quot;notification-update-enabled&quot;: &quot;Updateable to {0}&quot;,
+        ///  &quot;notification-uptodate&quot;: &quot;Updating to {0}&quot;,
+        ///  &quot;notification-update-latest&quot;: &quot;Already the latest version&quot;,
+        ///  &quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Localization_EN_US {
             get {
@@ -297,13 +317,9 @@ namespace App.Properties {
         ///
         ///  &quot;notification-app-updated&quot;: &quot;Mise à jour version {0}&quot;,
         ///  &quot;notification-queue-matched&quot;: &quot;&lt; {0} &gt; disponible!&quot;,
-        ///
-        ///
-        ///  &quot;tweet-fate-occured&quot;: &quot;ALEA &lt; {0} &gt; en cours!&quot;,
-        ///  &quot;tweet-queue-matched&quot;: &quot;&lt; {0} &gt; disponible!&quot;,
-        ///
-        ///
-        ///  &quot;fate-preset-animus-SkyfireI&quot;: &quot;Bo [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &quot;notification-update-enabled&quot;: &quot;mises à la {0}&quot;,
+        ///  &quot;notification-uptodate&quot;: &quot;la mise à jour de la {0}&quot;,
+        ///  &quot;notification-update-latest&quot;:  [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Localization_FR_FR {
             get {
@@ -325,15 +341,10 @@ namespace App.Properties {
         ///
         ///  &quot;notification-app-updated&quot;: &quot;バージョン {0} に更新されました&quot;,
         ///  &quot;notification-queue-matched&quot;: &quot;&lt; {0} &gt; 突入準備完了!&quot;,
-        ///
-        ///
-        ///  &quot;tweet-fate-occured&quot;: &quot;&lt; {0} &gt; FATE発生!&quot;,
-        ///  &quot;tweet-queue-matched&quot;: &quot;&lt; {0} &gt; 突入準備完了!&quot;,
-        ///
-        ///
-        ///  &quot;fate-preset-animus-SkyfireI&quot;: &quot;炎天一巻&quot;,
-        ///  &quot;fate-preset-animus-SkyfireII&quot;: &quot;炎天二巻&quot;,
-        ///  &quot;fate-preset-a [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &quot;notification-update-enabled&quot;: &quot;Updateable to {0}&quot;,
+        ///  &quot;notification-uptodate&quot;: &quot;Updating to {0}&quot;,
+        ///  &quot;notification-update-latest&quot;: &quot;Already the latest version&quot;,
+        ///  &quot;notification-dll-missing&quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Localization_JA_JP {
             get {
@@ -355,14 +366,10 @@ namespace App.Properties {
         ///
         ///  &quot;notification-app-updated&quot;: &quot;버전 {0} 업데이트됨&quot;,
         ///  &quot;notification-queue-matched&quot;: &quot;&lt; {0} &gt; 매칭!&quot;,
-        ///
-        ///
-        ///  &quot;tweet-fate-occured&quot;: &quot;&lt; {0} &gt; 돌발 발생!&quot;,
-        ///  &quot;tweet-queue-matched&quot;: &quot;&lt; {0} &gt; 매칭!&quot;,
-        ///
-        ///  &quot;fate-preset-animus-SkyfireI&quot;: &quot;불의 서 1권&quot;,
-        ///  &quot;fate-preset-animus-SkyfireII&quot;: &quot;불의 서 2권&quot;,
-        ///  &quot;fate-preset-animus-N [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &quot;notification-update-enabled&quot;: &quot;{0} 까지 업데이트할 수 있어요&quot;,
+        ///  &quot;notification-uptodate&quot;: &quot;{0} 를 업데이트하고 있습니다&quot;,
+        ///  &quot;notification-update-latest&quot;: &quot;최신 버전을 이용중입니다&quot;,
+        ///  &quot;notification-dll-missing&quot;: &quot;Missing compon [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Localization_KO_KR {
             get {
@@ -384,16 +391,11 @@ namespace App.Properties {
         ///
         ///  &quot;notification-app-updated&quot;: &quot;已更新至版本 {0} &quot;,
         ///  &quot;notification-queue-matched&quot;: &quot;&lt; {0} &gt; 匹配完成！&quot;,
-        ///
-        ///
-        ///  &quot;tweet-fate-occured&quot;: &quot;FATE &lt; {0} &gt; 出现！&quot;,
-        ///  &quot;tweet-queue-matched&quot;: &quot;匹配到 &lt; {0} &gt;&quot;,
-        ///
-        ///
-        ///  &quot;fate-preset-animus-SkyfireI&quot;: &quot;炎天一卷&quot;,
-        ///  &quot;fate-preset-animus-SkyfireII&quot;: &quot;炎天二卷&quot;,
-        ///  &quot;fate-preset-animus-NetherfireI&quot;: &quot;炎狱一卷&quot;,
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &quot;notification-update-enabled&quot;: &quot;可更新至新版本 {0}&quot;,
+        ///  &quot;notification-uptodate&quot;: &quot;正在更新至版本 {0}&quot;,
+        ///  &quot;notification-update-latest&quot;: &quot;更新检查完成，暂无更新&quot;,
+        ///  &quot;notification-dll-missing&quot;: &quot;缺失组件[{0}]，正在联网获取&quot;,
+        ///  &quot;notification-dll-invalid&quot; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string Localization_ZH_CN {
             get {

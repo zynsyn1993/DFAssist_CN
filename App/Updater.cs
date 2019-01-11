@@ -167,7 +167,7 @@ namespace App
                     try
                     {
                         var json = WebApi.Request($"http://ffxiv.diemoe.net/DFA/Data/{Settings.Language}.json");
-                        Data.Fill(json);
+                        Data.Fill(json, mainForm);
                     }
                     catch (Exception ex)
                     {

@@ -15,6 +15,7 @@
   "notification-uptodate": "正在更新至版本 {0}",
   "notification-update-latest": "更新检查完成，暂无更新",
   "notification-dll-missing": "缺失组件[{0}]，正在联网获取",
+  "notification-dll-invalid": "由于依赖组件[{0}]是无效的，[{1}]功能已禁用",
 
 
   "tweet-fate-occured": "FATE < {0} > 出现！",
@@ -88,6 +89,7 @@
   "ui-settings-tracker-enabled": "启用优雷卡追踪器",
   "ui-settings-tracker-open": "打开追踪器",
   "ui-settings-tracker-auto": "进入禁地优雷卡区域时自动记录追踪器",
+  "ui-settings-tracker-mirror-cn": "使用国内镜像加速访问",
 
   "tracker-title": "DFA：优雷卡追踪器",
   "tracker-new-tracker": "新建追踪器",

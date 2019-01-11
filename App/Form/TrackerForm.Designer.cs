@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrackerForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_NT = new System.Windows.Forms.ToolStripDropDownButton();
@@ -74,7 +73,6 @@
             this.anemosToolStripMenuItem,
             this.pagosToolStripMenuItem,
             this.pyrosToolStripMenuItem});
-            this.toolStripButton_NT.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_NT.Image")));
             this.toolStripButton_NT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_NT.Name = "toolStripButton_NT";
             this.toolStripButton_NT.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
@@ -110,7 +108,6 @@
             // tsbtnMain
             // 
             this.tsbtnMain.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.tsbtnMain.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnMain.Image")));
             this.tsbtnMain.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnMain.Name = "tsbtnMain";
             this.tsbtnMain.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
@@ -127,7 +124,6 @@
             // 
             this.toolStripButton_Go.AutoToolTip = false;
             this.toolStripButton_Go.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton_Go.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Go.Image")));
             this.toolStripButton_Go.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_Go.Name = "toolStripButton_Go";
             this.toolStripButton_Go.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
@@ -142,7 +138,7 @@
             this.ClientSize = new System.Drawing.Size(1104, 659);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(Properties.Resources.icon));
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "TrackerForm";
             this.Opacity = 0D;

@@ -407,18 +407,9 @@ namespace App
                 {
                     var instance = Data.GetInstance(code);
                     var roulette = Data.GetRoulette(queueCode);
-                    if (instance.Tips != null && instance.Macro != null)
+                    if (instance.Tips != null)
                     {
-                        var respond = LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，现在展示该副本简易攻略。\n{instance.Tips}\n--------\n该副本有可用的宏，是否复制到剪切板？", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
-                        //Clipboard.SetData(DataFormats.UnicodeText, instance.Macro);
-                        if (respond == DialogResult.Yes)
-                        {
-                            this.Invoke(() => { Clipboard.SetDataObject(instance.Macro, true); });
-                        }
-                    }
-                    else if (instance.Tips != null)
-                    {
-                        LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，现在展示该副本简易攻略。\n{instance.Tips}", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+                        mainForm.Show_DutyTips(roulette.Name, instance.Name, instance.Tips, instance.Macro);
                     }
                     else if (instance.Macro != null)
                     {

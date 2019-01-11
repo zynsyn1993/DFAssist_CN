@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,8 +33,41 @@ namespace App
         {
             Loaded = true;
             ApplyLanguage();
-            if (!WebView.Bind(pictureBox1))
+            try
             {
+                if (!WebView.Bind(pictureBox1))
+                {
+                    return;
+                }
+            }
+            catch (Exception)
+            {
+                if (File.Exists("node.dll"))
+                {
+                    File.Delete("node.dll");
+                }
+                if (File.Exists($@"{Environment.GetEnvironmentVariable("windir")}\node.dll"))
+                {
+                    File.Delete($@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
+                }
+                Log.Debug("Debug：删除已过期组件 node.dll");
+                if (File.Exists($"node_{Global.NODE_NEED}.dll"))
+                {
+                    File.Move($"node_{Global.NODE_NEED}.dll", $@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
+                    Settings.NodeVersion = Global.NODE_NEED;
+                }
+                else if (File.Exists($@"{Environment.GetEnvironmentVariable("windir")}\node_{Global.NODE_NEED}.dll"))
+                {
+                    File.Move($@"{Environment.GetEnvironmentVariable("windir")}\node_{Global.NODE_NEED}.dll", $@"{Environment.GetEnvironmentVariable("windir")}\node.dll");
+                    Settings.NodeVersion = Global.NODE_NEED;
+                }
+                else
+                {
+                    Settings.NodeVersion = 0;
+                }
+                Settings.Save();
+                mainForm.tracker_disable();
+                mainForm.ShowNotification("notification-dll-invalid", "node.dll", Localization.GetText("ui-settings-tracker"));
                 return;
             }
             WebView.OnDocumentReady += OnDocumentReady;
@@ -56,7 +90,7 @@ namespace App
 
         private void OnURLChange(object sender, UrlChangeEventArgs e)
         {
-            if(e.URL!= $"https://ffxiv-eureka.com/{Tracker_Id}")
+            if(e.URL!= $"{_TrackerHost()}{Tracker_Id}")
             {
                 WebView.GoBack();
             }
@@ -68,7 +102,7 @@ namespace App
             {
                 this.Tracker_Id = Tracker_Id;
                 toolStripTextBox_Tracker_Id.Text = Tracker_Id;
-                WebView.LoadURL($@"https://ffxiv-eureka.com/{Tracker_Id}");
+                WebView.LoadURL($@"{_TrackerHost()}{Tracker_Id}");
             });
         }
 
@@ -379,7 +413,7 @@ namespace App
                 this.Invoke(() =>
                 {
                     Show();
-                    var resp = WebApi.Post(@"https://ffxiv-eureka.com/api/instances", "{\"data\":{\"attributes\":{\"copy-from\":null,\"data-center-id\":null,\"instance-id\":null,\"created-at\":null,\"updated-at\":null,\"zone-id\":\"" + type.ToString() + "\"},\"type\":\"instances\"}}");
+                    var resp = WebApi.Post($@"{_TrackerHost()}api/instances", "{\"data\":{\"attributes\":{\"copy-from\":null,\"data-center-id\":null,\"instance-id\":null,\"created-at\":null,\"updated-at\":null,\"zone-id\":\"" + type.ToString() + "\"},\"type\":\"instances\"}}");
                     var json = JsonConvert.DeserializeObject<dynamic>(resp);
                     if (json.data.id != null)
                     {
@@ -399,6 +433,22 @@ namespace App
         {
             Hide();
             Opacity = 1;
+        }
+
+        private string _TrackerHost()
+        {
+            string host;
+            switch (Settings.TrackerMirror)
+            {
+                case "cn":
+                    host = @"https://eureka.bluefissure.com/";
+                    break;
+
+                default:
+                    host = @"https://ffxiv-eureka.com/";
+                    break;
+            }
+            return host;
         }
 
         internal void Display()

@@ -93,6 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form\TipsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TipsForm.Designer.cs">
+      <DependentUpon>TipsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\TrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,21 +167,6 @@
     <Compile Include="Updater.cs" />
     <Compile Include="Api\WinApi.cs" />
     <Compile Include="Util\ZipStorer.cs" />
-    <EmbeddedResource Include="Form\TrackerForm.resx">
-      <DependentUpon>TrackerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\OverlayFormMove.resx">
-      <DependentUpon>OverlayFormMove.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\UpdaterForm.resx">
-      <DependentUpon>UpdaterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\OverlayForm.resx">
-      <DependentUpon>OverlayForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -216,6 +207,7 @@
   <ItemGroup>
     <Content Include="App.ico" />
     <Content Include="ILMergeOrder.txt" />
+    <None Include="Resources\icon.bmp" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">
