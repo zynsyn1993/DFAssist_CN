@@ -128,6 +128,7 @@ namespace App
 
             checkBox_TTS.Checked = Settings.TTS;
             checkBox_DevMode.Checked = Settings.DebugLog;
+            checkBox_netFilter.Checked = Settings.NetFilter;
             checkBox_tracker_enabled.Checked = Settings.TrackerEnabled;
             checkBox_tracker_auto.Checked = Settings.AutoTracker;
             checkBox_UpdateCheckBeta.Checked = Settings.CheckBeta;
@@ -525,6 +526,7 @@ namespace App
             tabPage_Info.Text = Localization.GetText("ui-tabcontrol-info");
             settings_basic.Text = Localization.GetText("ui-settings-title");
             groupBox_debug_settings.Text = Localization.GetText("ui-settings-debug");
+            groupBox_network_settings.Text = Localization.GetText("ui-settings-network");
             checkBox_Overlay.Text = Localization.GetText("ui-settings-overlay-use");
             toolTip.SetToolTip(checkBox_Overlay, Localization.GetText("ui-settings-overlay-tooltip"));
             button_ResetOverlayPosition.Text = Localization.GetText("ui-settings-overlay-reset");
@@ -534,6 +536,7 @@ namespace App
             checkBox_PlaySound.Text = Localization.GetText("ui-settings-playsound");
             checkBox_TTS.Text = Localization.GetText("ui-settings-tts");
             checkBox_DevMode.Text = Localization.GetText("ui-settings-debuglog");
+            checkBox_netFilter.Text = Localization.GetText("ui-settings-netfilter");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
             checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
             checkBox_RoulleteTips.Text = Localization.GetText("ui-settings-roulettetips");
@@ -826,6 +829,15 @@ namespace App
                 Settings.TrackerMirror = "0";
             }
             Settings.Save();
+        }
+
+        private void checkBox_netFilter_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.NetFilter = checkBox_netFilter.Checked;
+            Settings.Save();
+            networkWorker.StopCapture();
+            FFXIVProcess = null;
+            FindFFXIVProcess();
         }
     }
 }

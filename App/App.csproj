@@ -207,7 +207,6 @@
   <ItemGroup>
     <Content Include="App.ico" />
     <Content Include="ILMergeOrder.txt" />
-    <None Include="Resources\icon.bmp" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="NetFwTypeLib">

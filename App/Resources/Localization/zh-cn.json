@@ -50,6 +50,7 @@
 
   "ui-settings-title": "基础设置",
   "ui-settings-debug": "调试选项",
+  "ui-settings-network": "网络选项",
   "ui-settings-overlay-use": "使用悬浮窗",
   "ui-settings-overlay-tooltip": "拖拽悬浮窗左侧色条以改变位置。",
   "ui-settings-overlay-reset": "重置",
@@ -70,6 +71,7 @@
   "ui-settings-tts-cache-force": "始终使用缓存，不管是否需要更新",
   "ui-settings-tts-cache-nouse": "强制更新缓存，每次朗读都重新生成缓存（不推荐）",
   "ui-settings-debuglog": "在日志中输出额外的Debug信息",
+  "ui-settings-netfilter": "过滤网络连接（屏蔽第三方工具的互相影响）",
   "ui-settings-tweet-title": "Twitter提醒",
   "ui-settings-tweet-activate": "启用",
   "ui-settings-tweet-about": "当匹配到任务/FATE时，\n发送一条推文提醒指定推特账户。\n输入不含@符号的推特账户名。",

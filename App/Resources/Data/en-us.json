@@ -1,10 +1,10 @@
 ﻿{
   // Version
-  "version": "20190112.1",
+  "version": "20190112.2",
 
   // Duty
   "instances": {
-	//单人使命 PVP 金碟游乐场
+  	//单人使命 PVP 金碟游乐场
 	"2334": {
 	 "name": "Recondition the Anima",
 	 "tank": "0",
@@ -641,6 +641,24 @@
 	 "healer": "0",
 	 "dps": "0"
 	},
+	"640": {
+	 "name": "Air Force One",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"641": {
+	 "name": "Air Force One",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"642": {
+	 "name": "Air Force One",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
 	"199": {
 	 "name": "LoVM: Player Battle (Non-RP)",
 	 "tank": "0",
@@ -679,6 +697,30 @@
 	},
 	"579": {
 	 "name": "LoVM: Master Tournament",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"643": {
+	 "name": "Novice Mahjong (Ranked)",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"644": {
+	 "name": "Advanced Mahjong (Ranked)",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"645": {
+	 "name": "Four-player Mahjong (Kuitan Enabled)",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"650": {
+	 "name": "Four-player Mahjong (Kuitan Disabled)",
 	 "tank": "0",
 	 "healer": "0",
 	 "dps": "0"
@@ -871,6 +913,156 @@
 	},
 	"277": {
 	 "name": "Astragalos",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"610": {
+	 "name": "All's Well That Starts Well",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"612": {
+	 "name": "Much Ado About Pudding",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"613": {
+	 "name": "Waiting for Golem",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"614": {
+	 "name": "Gentlemen Prefer Swords",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"615": {
+	 "name": "The Threepenny Turtles",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"616": {
+	 "name": "Eye Society",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"617": {
+	 "name": "A Chorus Slime",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"618": {
+	 "name": "Bomb-edy of Errors",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"619": {
+	 "name": "To Kill a Mockingslime",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"620": {
+	 "name": "A Little Knight Music",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"621": {
+	 "name": "Some Like It Excruciatingly Hot",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"622": {
+	 "name": "The Plant-om of the Opera",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"623": {
+	 "name": "Beauty and a Beast",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"624": {
+	 "name": "Blobs in the Woods",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"625": {
+	 "name": "The Me Nobody Nodes",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"626": {
+	 "name": "Sunset Bull-evard",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"627": {
+	 "name": "The Sword of Music",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"628": {
+	 "name": "Midsummer Night's Explosion",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"629": {
+	 "name": "On a Clear Day You Can Smell Forever",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"630": {
+	 "name": "Miss Typhon",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"631": {
+	 "name": "Chimera on a Hot Tin Roof",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"632": {
+	 "name": "Here Comes the Boom",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"633": {
+	 "name": "Behemoths and Broomsticks",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"634": {
+	 "name": "Amazing Technicolor Pit Fiends",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"635": {
+	 "name": "Dirty Rotten Azulmagia",
 	 "tank": "0",
 	 "healer": "0",
 	 "dps": "0"
@@ -1100,15 +1292,15 @@
 	},
 	"15": {
 	 "name": "Castrum Meridianum",
-     "tank": "2",
-     "healer": "2",
-     "dps": "4"
+	 "tank": "2",
+	 "healer": "2",
+	 "dps": "4"
 	},
 	"16": {
 	 "name": "the Praetorium",
-     "tank": "2",
-     "healer": "2",
-     "dps": "4"
+	 "tank": "2",
+	 "healer": "2",
+	 "dps": "4"
 	},
 	"14": {
 	 "name": "Amdapor Keep",
@@ -1399,11 +1591,11 @@
 	 "dps": "2"
 	},
 	"611": {
-      "name": "The Ghimlyt Dark",
-      "tank": "1",
-      "healer": "1",
-      "dps": "2"
-    },
+	 "name": "the Ghimlyt Dark",
+	 "tank": "1",
+	 "healer": "1",
+	 "dps": "2"
+	},
 	//行会令
 	"42": {
 	 "name": "Basic Training: Enemy Parties",
@@ -1790,6 +1982,18 @@
 	 "healer": "2",
 	 "dps": "4"
 	},
+	"637": {
+	 "name": "the Wreath of Snakes",
+	 "tank": "2",
+	 "healer": "2",
+	 "dps": "4"
+	},
+	"595": {
+	 "name": "Kugane Ohashi",
+	 "tank": "2",
+	 "healer": "2",
+	 "dps": "4"
+	},
 	"244": {
 	 "name": "the Pool of Tribute (Extreme)",
 	 "tank": "2",
@@ -1826,14 +2030,14 @@
 	 "healer": "2",
 	 "dps": "4"
 	},
-    "596": {
-      "name": "Hells' Kier",
-      "tank": "2",
-      "healer": "2",
-      "dps": "4"
-    },
 	"597": {
 	 "name": "Hells' Kier (Extreme)",
+	 "tank": "2",
+	 "healer": "2",
+	 "dps": "4"
+	},
+	"638": {
+	 "name": "the Wreath of Snakes (Extreme)",
 	 "tank": "2",
 	 "healer": "2",
 	 "dps": "4"
@@ -1844,42 +2048,24 @@
 	 "healer": "2",
 	 "dps": "4"
 	},
-	"595": {
-      "name": "Kugane Ohashi",
-      "tank": "2",
-      "healer": "2",
-      "dps": "4"
-    },
-	"637": {
-      "name": "The Wreath of Snakes",
-      "tank": "2",
-      "healer": "2",
-      "dps": "4"
-    },
-    "638": {
-      "name": "The Wreath of Snakes (Extreme)",
-      "tank": "2",
-      "healer": "2",
-      "dps": "4"
-    },
 	//大型任务
 	"92": {
 	 "name": "the Labyrinth of the Ancients",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"102": {
 	 "name": "Syrcus Tower",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"111": {
 	 "name": "the World of Darkness",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"93": {
 	 "name": "the Binding Coil of Bahamut - Turn 1",
@@ -1985,21 +2171,21 @@
 	},
 	"120": {
 	 "name": "the Void Ark",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"168": {
 	 "name": "the Weeping City of Mhach",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"220": {
 	 "name": "Dun Scaith",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"112": {
 	 "name": "Alexander - The Fist of the Father",
@@ -2147,22 +2333,22 @@
 	},
 	"281": {
 	 "name": "the Royal City of Rabanastre",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"550": {
 	 "name": "the Ridorana Lighthouse",
-	 "tank": "1",
-	 "healer": "2",
-	 "dps": "5"
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
 	},
 	"636": {
-      "name": "The Orbonne Monastery",
-      "tank": "3",
-      "healer": "6",
-      "dps": "15"
-    },
+	 "name": "the Orbonne Monastery",
+	 "tank": "3",
+	 "healer": "6",
+	 "dps": "15"
+	},
 	"252": {
 	 "name": "Deltascape V1.0",
 	 "tank": "2",
@@ -2514,11 +2700,12 @@
 	 "dps": "0"
 	},
 	"598": {
-     "name": "The Forbidden Land, Eureka Pyros",
-     "tank": "0",
-     "healer": "0",
-     "dps": "0"
-    }
+	 "name": "the Forbidden Land, Eureka Pyros",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+
   },
 
   // Duty Roulette

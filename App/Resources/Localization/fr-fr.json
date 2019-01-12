@@ -50,6 +50,7 @@
 
   "ui-settings-title": "Paramètres de base",
   "ui-settings-debug": "Options de débogage",
+  "ui-settings-network": "Network",
   "ui-settings-overlay-use": "Utiliser l'overlay",
   "ui-settings-overlay-tooltip": "Bouger l'overlay avec la barre gauche",
   "ui-settings-overlay-reset": "Rétablir",
@@ -70,6 +71,7 @@
   "ui-settings-tts-cache-force": "Force the cache as long as the cache exists",
   "ui-settings-tts-cache-nouse": "Force update cache every time (Not recommended)",
   "ui-settings-debuglog": "Afficher le journal de débogage",
+  "ui-settings-netfilter": "Filter local network connections",
   "ui-settings-tweet-title": "Rappel Twiter",
   "ui-settings-tweet-activate": "Activer",
   "ui-settings-tweet-about": "Lorsqu'un ALEA choisi se produir, \nenvoyer un tweet avec mention au compte sélectionné.\nEntrez le nom du compte Twitter sans @.",
@@ -118,8 +120,8 @@
 
   "ui-clipboard-copied": "Copié dans le presse-papiers.",
 
-  "ui-cheat-roulette-confirm": "This function is disabled by default to prevent abuse.\nPlease refrain from deliberately rejecting a specific dislike duty.\n\nDo you still want to enable it?",
-  "ui-cheat-roulette-enabled": "Enabled.\nPlease DON'T deliberately reject a specific dislike duty.",
+  "ui-cheat-roulette-confirm": "Cette fonction est désactivée par défaut pour éviter les abus.\nVeuillez vous abstenir de rejeter délibérément un devoir spécifique mission.\n\nVoulez-vous toujours l'activer?",
+  "ui-cheat-roulette-enabled": "Activée.\nS'il vous plaît, ne rejetez pas délibérément un devoir spécifique mission.",
 
   "ui-clear-log-confirm": "Vider les logs?",
 

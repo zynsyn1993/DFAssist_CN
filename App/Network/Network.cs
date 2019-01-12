@@ -370,7 +370,7 @@ namespace App
                             {
                                 var local = new IPEndPoint(row.localAddr, (ushort)IPAddress.NetworkToHostOrder((short)row.localPort));
                                 var remote = new IPEndPoint(row.remoteAddr, (ushort)IPAddress.NetworkToHostOrder((short)row.remotePort));
-                                if (!remote.Address.Equals(IPAddress.Parse("127.0.0.1")))
+                                if (!Settings.NetFilter||remote.Address!=local.Address)//if (!remote.Address.Equals(IPAddress.Parse("127.0.0.1")))
                                     connections.Add(new Connection() { localEndPoint = local, remoteEndPoint = remote });
                             }
 

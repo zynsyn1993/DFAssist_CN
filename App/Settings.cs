@@ -26,6 +26,7 @@ namespace App
         public static string TTSCache { get; set; } = "1";
         public static string TTSSpeed { get; set; } = "4";
         public static bool DebugLog { get; set; } = false;
+        public static bool NetFilter { get; set; } = false;
         public static string SoundLocation { get; set; } = "";
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
         public static bool AutoTracker { get; set; } = true;
@@ -69,6 +70,7 @@ namespace App
                 TTSCache = iniFile.ReadValue("notification", "ttscache") ?? "1";
                 TTSSpeed = iniFile.ReadValue("notification", "ttsspeed") ?? "4";
                 DebugLog = iniFile.ReadValue("dev", "debuglog") == "1";
+                NetFilter = iniFile.ReadValue("dev", "netfilter") == "1";
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
                 TrackerEnabled = iniFile.ReadValue("tracker", "trackerenabled") != "0";
                 TrackerMirror = iniFile.ReadValue("tracker", "trackermirror") ?? "cn"; 
@@ -104,6 +106,7 @@ namespace App
             iniFile.WriteValue("notification", "ttscache", TTSCache);
             iniFile.WriteValue("notification", "ttsspeed", TTSSpeed);
             iniFile.WriteValue("dev", "debuglog", DebugLog ? "1" : "0");
+            iniFile.WriteValue("dev", "netfilter", NetFilter ? "1" : "0");
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
             iniFile.WriteValue("tracker", "trackerenabled", TrackerEnabled ? "1" : "0");
             iniFile.WriteValue("tracker", "trackermirror",TrackerMirror);

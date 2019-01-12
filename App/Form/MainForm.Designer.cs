@@ -106,6 +106,8 @@
             this.toolStripMenuItem_LogCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_LogClear = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage_devmode = new System.Windows.Forms.TabPage();
+            this.groupBox_network_settings = new System.Windows.Forms.GroupBox();
+            this.checkBox_netFilter = new System.Windows.Forms.CheckBox();
             this.groupBox_debug_settings = new System.Windows.Forms.GroupBox();
             this.checkBox_DevMode = new System.Windows.Forms.CheckBox();
             this.tabPage_Info = new System.Windows.Forms.TabPage();
@@ -128,6 +130,7 @@
             this.panel_LogCover.SuspendLayout();
             this.menuStrip_LogTab.SuspendLayout();
             this.tabPage_devmode.SuspendLayout();
+            this.groupBox_network_settings.SuspendLayout();
             this.groupBox_debug_settings.SuspendLayout();
             this.tabPage_Info.SuspendLayout();
             this.SuspendLayout();
@@ -922,6 +925,7 @@
             // 
             this.tabPage_devmode.AutoScroll = true;
             this.tabPage_devmode.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage_devmode.Controls.Add(this.groupBox_network_settings);
             this.tabPage_devmode.Controls.Add(this.groupBox_debug_settings);
             this.tabPage_devmode.Location = new System.Drawing.Point(114, 4);
             this.tabPage_devmode.Name = "tabPage_devmode";
@@ -929,6 +933,29 @@
             this.tabPage_devmode.Size = new System.Drawing.Size(436, 262);
             this.tabPage_devmode.TabIndex = 4;
             this.tabPage_devmode.Text = "개발자 모드";
+            // 
+            // groupBox_network_settings
+            // 
+            this.groupBox_network_settings.Controls.Add(this.checkBox_netFilter);
+            this.groupBox_network_settings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox_network_settings.Location = new System.Drawing.Point(3, 74);
+            this.groupBox_network_settings.Name = "groupBox_network_settings";
+            this.groupBox_network_settings.Size = new System.Drawing.Size(430, 71);
+            this.groupBox_network_settings.TabIndex = 10;
+            this.groupBox_network_settings.TabStop = false;
+            this.groupBox_network_settings.Text = "网络";
+            // 
+            // checkBox_netFilter
+            // 
+            this.checkBox_netFilter.AutoSize = true;
+            this.checkBox_netFilter.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.checkBox_netFilter.Location = new System.Drawing.Point(19, 24);
+            this.checkBox_netFilter.Name = "checkBox_netFilter";
+            this.checkBox_netFilter.Size = new System.Drawing.Size(291, 21);
+            this.checkBox_netFilter.TabIndex = 8;
+            this.checkBox_netFilter.Text = "过滤网络连接（屏蔽部分第三方工具的互相影响）";
+            this.checkBox_netFilter.UseVisualStyleBackColor = true;
+            this.checkBox_netFilter.CheckedChanged += new System.EventHandler(this.checkBox_netFilter_CheckedChanged);
             // 
             // groupBox_debug_settings
             // 
@@ -1048,6 +1075,8 @@
             this.menuStrip_LogTab.ResumeLayout(false);
             this.menuStrip_LogTab.PerformLayout();
             this.tabPage_devmode.ResumeLayout(false);
+            this.groupBox_network_settings.ResumeLayout(false);
+            this.groupBox_network_settings.PerformLayout();
             this.groupBox_debug_settings.ResumeLayout(false);
             this.groupBox_debug_settings.PerformLayout();
             this.tabPage_Info.ResumeLayout(false);
@@ -1139,6 +1168,8 @@
         private System.Windows.Forms.Button button_tts_test;
         private System.Windows.Forms.CheckBox checkBox_RoulleteTips;
         private System.Windows.Forms.CheckBox checkBox_tracker_CNmirror;
+        private System.Windows.Forms.GroupBox groupBox_network_settings;
+        private System.Windows.Forms.CheckBox checkBox_netFilter;
     }
 }
 

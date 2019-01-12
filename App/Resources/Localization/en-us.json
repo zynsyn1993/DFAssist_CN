@@ -50,6 +50,7 @@
 
   "ui-settings-title": "Basic Setting",
   "ui-settings-debug": "Debug",
+  "ui-settings-network": "Network",
   "ui-settings-overlay-use": "Use Overlay",
   "ui-settings-overlay-tooltip": "Move Overlay by Draging Left bar.",
   "ui-settings-overlay-reset": "Reset",
@@ -70,6 +71,7 @@
   "ui-settings-tts-cache-force": "Force the cache as long as the cache exists",
   "ui-settings-tts-cache-nouse": "Force update cache every time (Not recommended)",
   "ui-settings-debuglog": "Display debug logs",
+  "ui-settings-netfilter": "Filter local network connections",
   "ui-settings-tweet-title": "Twitter Alarm",
   "ui-settings-tweet-activate": "Activate",
   "ui-settings-tweet-about": "When matched or FATE occurs, \nsend a Tweet with mention to the entered Twitter account.\nEnter the Twitter Account except the preceding symbol @.",
