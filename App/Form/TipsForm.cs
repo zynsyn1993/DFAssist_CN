@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace App
@@ -20,13 +14,15 @@ namespace App
         {
             this.Roullete = Roullete;
             this.Instance = Instance;
-            this.Tip = Tip;
+            this.Tip = Tip.Replace("\r\n","\n").Replace("\n", Environment.NewLine);
             this.Macro = Macro;
             InitializeComponent();
         }
 
         private void TipsForm_Load(object sender, EventArgs e)
         {
+            textBox1.SelectionStart = 0;
+            textBox1.SelectionLength = 0;
             textBox1.Text = Tip;
             if (Macro == null)
             {

@@ -113,14 +113,14 @@ namespace App
                 checkBox_tracker_CNmirror.Checked = true;
             }
             trackBar_tts_speed.Value = int.Parse(Settings.TTSSpeed);
-            if (System.IO.File.Exists(Settings.SoundLocation) == false)
+            if (File.Exists(Settings.SoundLocation) == false)
             {
                 checkBox_PlaySound.Checked = false;
                 label_SoundLocation.Text = "";
             }
             else
             {
-                label_SoundLocation.Text = System.IO.Path.GetFileName(Settings.SoundLocation);
+                label_SoundLocation.Text = Path.GetFileName(Settings.SoundLocation);
             }
             if (checkBox_PlaySound.Checked == false) { button_SoundLocation.Enabled = false; }
             SetCheatRoulleteCheckBox(Settings.CheatRoulette);
@@ -655,7 +655,7 @@ namespace App
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                label_SoundLocation.Text = System.IO.Path.GetFileName(openFileDialog1.FileName);
+                label_SoundLocation.Text = Path.GetFileName(openFileDialog1.FileName);
                 Settings.SoundLocation = openFileDialog1.FileName;
                 Settings.Save();
             }
@@ -838,6 +838,11 @@ namespace App
             networkWorker.StopCapture();
             FFXIVProcess = null;
             FindFFXIVProcess();
+        }
+
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            triStateTreeView_FATEs.Nodes.Find(toolStripTextBox1.Text, true);
         }
     }
 }

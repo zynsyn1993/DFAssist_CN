@@ -413,7 +413,7 @@ namespace System.IO.Compression
 
             try
             {
-                var tempZip = ZipStorer.Create(tempZipName, string.Empty);
+                var tempZip = Create(tempZipName, string.Empty);
 
                 foreach (var zfe in fullList)
                 {

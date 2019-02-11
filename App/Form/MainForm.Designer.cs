@@ -99,6 +99,7 @@
             this.IxionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TamamoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_SelectApply = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.tabPage_Log = new System.Windows.Forms.TabPage();
             this.panel_LogCover = new System.Windows.Forms.Panel();
             this.richTextBox_Log = new System.Windows.Forms.RichTextBox();
@@ -698,7 +699,7 @@
             this.triStateTreeView_FATEs.Dock = System.Windows.Forms.DockStyle.Top;
             this.triStateTreeView_FATEs.FullRowSelect = true;
             this.triStateTreeView_FATEs.HotTracking = true;
-            this.triStateTreeView_FATEs.Location = new System.Drawing.Point(0, 25);
+            this.triStateTreeView_FATEs.Location = new System.Drawing.Point(0, 27);
             this.triStateTreeView_FATEs.Name = "triStateTreeView_FATEs";
             this.triStateTreeView_FATEs.Size = new System.Drawing.Size(436, 203);
             this.triStateTreeView_FATEs.TabIndex = 0;
@@ -711,24 +712,25 @@
             this.toolStripMenuItem_SelectAll,
             this.toolStripMenuItem_UnSelectAll,
             this.presetToolStripMenuItem,
-            this.toolStripMenuItem_SelectApply});
+            this.toolStripMenuItem_SelectApply,
+            this.toolStripTextBox1});
             this.menuStrip_FATETab.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_FATETab.Name = "menuStrip_FATETab";
-            this.menuStrip_FATETab.Size = new System.Drawing.Size(436, 25);
+            this.menuStrip_FATETab.Size = new System.Drawing.Size(436, 27);
             this.menuStrip_FATETab.TabIndex = 0;
             this.menuStrip_FATETab.Text = "menuStrip1";
             // 
             // toolStripMenuItem_SelectAll
             // 
             this.toolStripMenuItem_SelectAll.Name = "toolStripMenuItem_SelectAll";
-            this.toolStripMenuItem_SelectAll.Size = new System.Drawing.Size(72, 21);
+            this.toolStripMenuItem_SelectAll.Size = new System.Drawing.Size(72, 23);
             this.toolStripMenuItem_SelectAll.Text = "모두 선택";
             this.toolStripMenuItem_SelectAll.Click += new System.EventHandler(this.toolStripMenuItem_SelectAll_Click);
             // 
             // toolStripMenuItem_UnSelectAll
             // 
             this.toolStripMenuItem_UnSelectAll.Name = "toolStripMenuItem_UnSelectAll";
-            this.toolStripMenuItem_UnSelectAll.Size = new System.Drawing.Size(72, 21);
+            this.toolStripMenuItem_UnSelectAll.Size = new System.Drawing.Size(72, 23);
             this.toolStripMenuItem_UnSelectAll.Text = "모두 해제";
             this.toolStripMenuItem_UnSelectAll.Click += new System.EventHandler(this.toolStripMenuItem_UnSelectAll_Click);
             // 
@@ -751,7 +753,7 @@
             this.IxionToolStripMenuItem,
             this.TamamoToolStripMenuItem});
             this.presetToolStripMenuItem.Name = "presetToolStripMenuItem";
-            this.presetToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
+            this.presetToolStripMenuItem.Size = new System.Drawing.Size(56, 23);
             this.presetToolStripMenuItem.Text = "프리셋";
             // 
             // bookOfSkyfireIToolStripMenuItem
@@ -855,9 +857,15 @@
             // 
             this.toolStripMenuItem_SelectApply.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripMenuItem_SelectApply.Name = "toolStripMenuItem_SelectApply";
-            this.toolStripMenuItem_SelectApply.Size = new System.Drawing.Size(67, 21);
+            this.toolStripMenuItem_SelectApply.Size = new System.Drawing.Size(67, 23);
             this.toolStripMenuItem_SelectApply.Text = "적용하기";
             this.toolStripMenuItem_SelectApply.Click += new System.EventHandler(this.toolStripMenuItem_SelectApply_Click);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
             // tabPage_Log
             // 
@@ -885,7 +893,7 @@
             this.richTextBox_Log.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox_Log.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox_Log.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_Log.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.richTextBox_Log.Font = new System.Drawing.Font("微软雅黑", 8.25F);
             this.richTextBox_Log.Location = new System.Drawing.Point(0, 0);
             this.richTextBox_Log.Name = "richTextBox_Log";
             this.richTextBox_Log.ReadOnly = true;
@@ -1170,6 +1178,7 @@
         private System.Windows.Forms.CheckBox checkBox_tracker_CNmirror;
         private System.Windows.Forms.GroupBox groupBox_network_settings;
         private System.Windows.Forms.CheckBox checkBox_netFilter;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
 
