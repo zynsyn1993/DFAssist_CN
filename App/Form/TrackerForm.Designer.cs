@@ -34,6 +34,7 @@
             this.anemosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pyrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hydatostoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnMain = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox_Tracker_Id = new System.Windows.Forms.ToolStripTextBox();
@@ -72,7 +73,8 @@
             this.toolStripButton_NT.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.anemosToolStripMenuItem,
             this.pagosToolStripMenuItem,
-            this.pyrosToolStripMenuItem});
+            this.pyrosToolStripMenuItem,
+            this.hydatostoolStripMenuItem});
             this.toolStripButton_NT.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_NT.Name = "toolStripButton_NT";
             this.toolStripButton_NT.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
@@ -99,6 +101,13 @@
             this.pyrosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pyrosToolStripMenuItem.Text = "Pyros";
             this.pyrosToolStripMenuItem.Click += new System.EventHandler(this.pyrosToolStripMenuItem_Click);
+            // 
+            // hydatostoolStripMenuItem
+            // 
+            this.hydatostoolStripMenuItem.Name = "hydatostoolStripMenuItem";
+            this.hydatostoolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hydatostoolStripMenuItem.Text = "Hydatos";
+            this.hydatostoolStripMenuItem.Click += new System.EventHandler(this.hydatostoolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -138,7 +147,7 @@
             this.ClientSize = new System.Drawing.Size(1104, 659);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip1);
-            this.Icon = ((System.Drawing.Icon)(Properties.Resources.icon));
+            this.Icon = global::App.Properties.Resources.icon;
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "TrackerForm";
             this.Opacity = 0D;
@@ -167,5 +176,6 @@
         private System.Windows.Forms.ToolStripMenuItem anemosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pyrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hydatostoolStripMenuItem;
     }
 }

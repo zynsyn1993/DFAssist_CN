@@ -98,6 +98,7 @@
   "tracker-anemos": "Anemos",
   "tracker-pagos": "Pagos",
   "tracker-pyros": "Pyros",
+  "tracker-hydatos": "Hydatos",
   
   "ui-new-tracker-error": "An error occurred while creating a new tracker. Please try again later.",
 

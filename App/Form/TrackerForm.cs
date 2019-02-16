@@ -346,6 +346,51 @@ namespace App
                     nmid = "16";
                     break;
 
+                //Hydatos
+                case 1412:
+                    nmid = "0";
+                    break;
+
+                case 1413:
+                    nmid = "1";
+                    break;
+
+                case 1414:
+                    nmid = "2";
+                    break;
+
+                case 1415:
+                    nmid = "3";
+                    break;
+
+                case 1416:
+                    nmid = "4";
+                    break;
+
+                case 1417:
+                    nmid = "5";
+                    break;
+
+                case 1418:
+                    nmid = "6";
+                    break;
+
+                case 1419:
+                    nmid = "7";
+                    break;
+
+                case 1420:
+                    nmid = "8";
+                    break;
+
+                case 1421:
+                    nmid = "9";
+                    break;
+
+                case 1423:
+                    nmid = "10";
+                    break;
+
                 default:
                     return;
             }
@@ -368,6 +413,7 @@ namespace App
                 anemosToolStripMenuItem.Text = Localization.GetText("tracker-anemos");
                 pagosToolStripMenuItem.Text = Localization.GetText("tracker-pagos");
                 pyrosToolStripMenuItem.Text = Localization.GetText("tracker-pyros");
+                hydatostoolStripMenuItem.Text = Localization.GetText("tracker-hydatos");
             });
         }
 
@@ -398,6 +444,11 @@ namespace App
         private void pyrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new_tracker(3);
+        }
+
+        private void hydatostoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new_tracker(4);
         }
 
         internal void new_tracker(int type)
