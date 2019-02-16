@@ -1,10 +1,10 @@
 ﻿{
   // Version
-  "version": "20190112.2", 
+  "version": "20190216.1", 
 
   // Duty
   "instances": {
-  	//单人使命 PVP 金碟游乐场
+	//单人使命 PVP 金碟游乐场
 	"2334": {
 	 "name": "Un nouvel épanouissement",
 	 "tank": "0",
@@ -917,6 +917,12 @@
 	 "healer": "0",
 	 "dps": "0"
 	},
+	"599": {
+	 "name": "Gorge dérobée (machinerie)",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
 	"610": {
 	 "name": "Début du spectacle",
 	 "tank": "0",
@@ -1200,13 +1206,13 @@
 	 "dps": "0"
 	},
 	"582": {
-	 "name": "「暁」の少年",
+	 "name": "Voyage en terre hostile",
 	 "tank": "0",
 	 "healer": "0",
 	 "dps": "0"
 	},
 	"609": {
-	 "name": "楔石の虚",
+	 "name": "Ralliement dans la steppe",
 	 "tank": "0",
 	 "healer": "0",
 	 "dps": "0"
@@ -2701,6 +2707,12 @@
 	},
 	"598": {
 	 "name": "Eurêka Pyros",
+	 "tank": "0",
+	 "healer": "0",
+	 "dps": "0"
+	},
+	"639": {
+	 "name": "Eurêka Hydatos",
 	 "tank": "0",
 	 "healer": "0",
 	 "dps": "0"
