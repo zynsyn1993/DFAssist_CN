@@ -9,6 +9,7 @@ namespace App
     {
         private static INIFile iniFile;
 
+        public static bool Crack { get; set; } = false;
         public static string dfaUpdate { get; set; } = "1";
         public static string dataUpdate { get; set; } = "1";
         public static string Language { get; set; } = "zh-cn";
@@ -31,7 +32,7 @@ namespace App
         public static HashSet<int> FATEs { get; set; } = new HashSet<int>();
         public static bool AutoTracker { get; set; } = true;
         public static bool TrackerEnabled { get; set; } = true;
-        public static string TrackerMirror { get; set; } = "cn";
+        public static string TrackerMirror { get; set; } = "0";
         public static bool CheckBeta { get; set; } = false;
         public static int NodeVersion = 0;
 
@@ -52,6 +53,7 @@ namespace App
             }
             else
             {
+                Crack = iniFile.ReadValue("crack", "crack") == "1";
                 StartupShowMainForm = iniFile.ReadValue("startup", "show") != "0";
                 ShowOverlay = iniFile.ReadValue("overlay", "show") != "0";
                 AutoOverlayHide = iniFile.ReadValue("overlay", "autohide") != "0";
@@ -87,6 +89,7 @@ namespace App
 
         public static void Save()
         {
+            iniFile.WriteValue("crack", "crack", Crack ? "1" : "0");
             iniFile.WriteValue("startup", "show", StartupShowMainForm ? "1" : "0");
             iniFile.WriteValue("overlay", "show", ShowOverlay ? "1" : "0");
             iniFile.WriteValue("overlay", "autohide", AutoOverlayHide ? "1" : "0");

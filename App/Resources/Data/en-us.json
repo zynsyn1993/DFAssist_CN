@@ -1,7 +1,6 @@
 ﻿{
   // Version
-  "version": "20190216.1",
-
+  "version": "20190528.1",
   // Duty
   "instances": {
  	//单人使命 PVP 金碟游乐场
@@ -3892,7 +3891,8 @@
         "1384": "Counter-void Training: Soul of Destruction",
         "1386": "Counter-fiend Training: Less Is Morbol",
         "1405": "Counter-imperial Training: A Pinch of Assault",
-        "1406": "Counter-fiend Training: Less Is Morbol"
+        "1406": "Counter-fiend Training: Less Is Morbol",
+		"1409": "Like Clockwork"
       }
     }
   }

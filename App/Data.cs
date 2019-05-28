@@ -98,7 +98,7 @@ namespace App
         {
             if (Instances.TryGetValue(code, out var instance))
             {
-                Log.Debug($"Debug：副本[ID.{code}:{instance.Name}, T:{instance.Tank} / H:{instance.Healer} / D:{instance.DPS}]");
+                if (Settings.CheatRoulette) Log.Debug($"Debug：副本[ID.{code}:{instance.Name}, T:{instance.Tank} / H:{instance.Healer} / D:{instance.DPS}]");
                 return instance;
             }
 

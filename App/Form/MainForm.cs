@@ -46,8 +46,24 @@ namespace App
             ApplyLanguage();
             overlayForm.Show();
             networkWorker = new Network(this);
-
             label_AboutTitle.Text = $@"DFA {Global.VERSION}_CN";
+            if (Settings.Updated)
+            {
+                if (Settings.CheatRoulette)
+                {
+                    Settings.Crack = true;
+                }
+                Settings.Updated = false;
+                Settings.Save();
+                Log.S("notification-app-updated", Global.VERSION);
+                ShowNotification("notification-app-updated", Global.VERSION);
+            }
+            if (Settings.Crack)
+            {
+                this.Text += " 至尊无敌豪华SVIP高级功能破解版";
+                label_AboutTitle.Text += "_Crack";
+                checkBox_CheatRoullete.Enabled = true;
+            }
             FindFFXIVProcess();
             
             if (Settings.NodeVersion < Global.NODE_NEED)
@@ -164,13 +180,6 @@ namespace App
             });
             Log.Echo("DFAssist_CN 中文支持版，开发：<中国区> 呆萌@红玉海。");
             Log.Echo("本程序永久免费，请勿用于商业用途。");
-            if (Settings.Updated)
-            {
-                Settings.Updated = false;
-                Settings.Save();
-                Log.S("notification-app-updated", Global.VERSION);
-                ShowNotification("notification-app-updated", Global.VERSION);
-            }
         }
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {

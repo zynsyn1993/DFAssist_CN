@@ -356,6 +356,14 @@ namespace App
                     var dps = data[6];
                     var healer = data[7];
 
+                    if (status == 0 && tank == 0 && healer == 0 && dps == 0) // 4.5版本兼容性
+                    {
+                        status = data[8];
+                        tank = data[9];
+                        dps = data[10];
+                        healer = data[11];
+                    }
+
                     var instance = Data.GetInstance(code);
 
                     if (status == 1)

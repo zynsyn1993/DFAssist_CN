@@ -417,6 +417,7 @@
             // checkBox_CheatRoullete
             // 
             this.checkBox_CheatRoullete.AutoSize = true;
+            this.checkBox_CheatRoullete.Enabled = false;
             this.checkBox_CheatRoullete.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.checkBox_CheatRoullete.Location = new System.Drawing.Point(6, 109);
             this.checkBox_CheatRoullete.Name = "checkBox_CheatRoullete";

@@ -1,6 +1,6 @@
 ﻿{
   // 버전
-  "version": "20190112.1",
+  "version": "20190518.1",
 
   // 임무
   "instances": {
@@ -1256,13 +1256,13 @@
 
     //4.36 토벌전
     "474": {
-      "name": "리오레우스 토벌전",
+      "name": "리오레우스 수렵전",
       "tank": "2",
       "healer": "2",
       "dps": "4"
     },
     "475": {
-      "name": "극 리오레우스 토벌전",
+      "name": "극 리오레우스 수렵전",
       "tank": "1",
       "healer": "1",
       "dps": "2"
@@ -1272,7 +1272,7 @@
     // 4.4 광란의 전주곡
     // 4.4 던전
     "585": {
-      "name": "더 번",
+      "name": "영구 초토지대",
       "tank": "1",
       "healer": "1",
       "dps": "2"
@@ -1350,12 +1350,9 @@
     },
 
     // 4.45
-    // 真ヨウジンボウ討滅戦 일본판으로는 신 요우진보 토벌전이라는데
-    // 일단 게임 이스케이프에 자료가 없어서 탱딜힐 숫자 기본인 8명으로 맞춰둠
-    // 추후 정보가 생겨서 수정할 점이 생기면 수정할 것. 정식 번역 명칭 나오면 수정할 것.
 
     "595": {
-      "name": "Kugane Ohashi",
+      "name": "진 요우진보 토벌전",
       "tank": "2",
       "healer": "2",
       "dps": "4"
@@ -1477,6 +1474,162 @@
       "healer": "2",
       "dps": "4"
     },
+
+
+    // 4.5 청마도사
+    "610": {
+      "name": "All's Well That Starts Well",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "612": {
+      "name": "Much Ado About Pudding",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "613": {
+      "name": "Waiting for Golem",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "614": {
+      "name": "Gentlemen Prefer Swords",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "615": {
+      "name": "The Threepenny Turtles",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "616": {
+      "name": "Eye Society",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "617": {
+      "name": "A Chorus Slime",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "618": {
+      "name": "Bomb-edy of Errors",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "619": {
+      "name": "To Kill a Mockingslime",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "620": {
+      "name": "A Little Knight Music",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "621": {
+      "name": "Some Like It Excruciatingly Hot",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "622": {
+      "name": "The Plant-om of the Opera",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "623": {
+      "name": "Beauty and a Beast",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "624": {
+      "name": "Blobs in the Woods",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "625": {
+      "name": "The Me Nobody Nodes",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "626": {
+      "name": "Sunset Bull-evard",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "627": {
+      "name": "The Sword of Music",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "628": {
+      "name": "Midsummer Night's Explosion",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "629": {
+      "name": "On a Clear Day You Can Smell Forever",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "630": {
+      "name": "Miss Typhon",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "631": {
+      "name": "Chimera on a Hot Tin Roof",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "632": {
+      "name": "Here Comes the Boom",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "633": {
+      "name": "Behemoths and Broomsticks",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "634": {
+      "name": "Amazing Technicolor Pit Fiends",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "635": {
+      "name": "Dirty Rotten Azulmagia",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+
+
+    // 4.5x 이후 청마도사
 
 
     // 초보자의 집
@@ -1872,7 +2025,13 @@
       "dps": "0"
     },
     "598": {
-      "name": "금단의 땅 에우레카 : 파이로스",
+      "name": "금단의 땅 에우레카 : 피로스",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "639": {
+      "name": "금단의 땅 에우레카 : 히다토스",
       "tank": "0",
       "healer": "0",
       "dps": "0"
@@ -1886,6 +2045,57 @@
       "healer": "0",
       "dps": "0"
     },
+    "608": {
+      "name": "뛰어라! 점핑 운동회",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "640": {
+      "name": "출격! 에어포스 조종사",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "641": {
+      "name": "출격! 에어포스 조종사",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "642": {
+      "name": "출격! 에어포스 조종사",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+
+    // 한섭에는 심의상 마작 안 나올 가능성이 크지만 일단 추가 : 작패유희
+    "643": {
+      "name": "Novice Mahjong (Ranked)",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "644": {
+      "name": "Advanced Mahjong (Ranked)",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "645": {
+      "name": "Four-player Mahjong (Kuitan Enabled)",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+    "650": {
+      "name": "Four-player Mahjong (Kuitan Disabled)",
+      "tank": "0",
+      "healer": "0",
+      "dps": "0"
+    },
+
 
     //이벤트 인스턴스
     "181": {
@@ -2490,6 +2700,17 @@
     "399": {
       "name": "저지 드라바니아",
       "fates": {
+        "756": "악마의 기계",
+        "757": "보복자들",
+        "758": "전면 개조형 기체",
+        "759": "왕대모벌의 습격",
+        "760": "야성의 충돌",
+        "761": "왕눈이 마물 소",
+        "762": "도서관 청소",
+        "763": "꽃가루 전선 이상 있다",
+        "764": "피 빠는 부유초",
+        "766": "고브고브 전쟁",
+        "767": "숙련된 전투 지휘관",
         "768": "꼬리를 세워라!",
         "769": "야수의 가장",
         "770": "서방 전격전",
@@ -2507,18 +2728,7 @@
         "783": "주인을 기다리는 자",
         "784": "물고기 포식자",
         "785": "누에굴",
-        "786": "실 뽑는 전문가",
-        "756": "악마의 기계",
-        "757": "보복자들",
-        "758": "전면 개조형 기체",
-        "759": "왕대모벌의 습격",
-        "760": "야성의 충돌",
-        "761": "왕눈이 마물 소",
-        "762": "도서관 청소",
-        "763": "꽃가루 전선 이상 있다",
-        "764": "피 빠는 부유초",
-        "766": "고브고브 전쟁",
-        "767": "숙련된 전투 지휘관"
+        "786": "실 뽑는 전문가"
       }
     },
     "400": {
@@ -2645,50 +2855,69 @@
     "998": {
       "name": "에우레카 파고스",
       "fates": {
-        "1351": "Eternity",
-        "1352": "Cows for Concern",
-        "1353": "Ash the Magic Dragon",
-        "1354": "Conqueror Worm",
-        "1355": "Melting Point",
-        "1356": "Disorder in the Court",
-        "1357": "Does It Have to Be a Snowman",
-        "1358": "Brothers",
-        "1359": "Eye of Horus",
-        "1360": "Morte Arthro",
-        "1361": "Apocalypse Cow",
-        "1362": "Third Impact",
-        "1363": "Eye Scream for Ice Cream",
-        "1364": "Louhi on Ice",
-        "1365": "Cassie and the Copycats",
-        "1366": "The Wobbler in Darkness",
-        "1367": "Down the Rabbit Hole",
-        "1368": "Curiouser and Curiouser",
-        "1369": "Cairn Blight 451"
+        "1351": "하얀 지배자",
+        "1352": "가축의 어머니",
+        "1353": "잿빛 비늘왕",
+        "1354": "지각 변동의 수수께끼",
+        "1355": "해빙의 화신",
+        "1356": "단단한 병마",
+        "1357": "움직이는 눈 동굴",
+        "1358": "순망치한",
+        "1359": "태양의 사자",
+        "1360": "원탁의 안개왕",
+        "1361": "야생 소의 구세주",
+        "1362": "번개구름의 마수",
+        "1363": "암안왕",
+        "1364": "푸른 얼음 칼날",
+        "1365": "모방범",
+        "1366": "오행안의 주인",
+        "1367": "눈 위의 행운토끼",
+        "1368": "보석을 노리는 행운토끼",
+        "1369": "부패한 독서가"
       }
     },
 
     "997": {
-      "name": "에우레카 파이로스",
+      "name": "에우레카 피로스",
       "fates": {
-        "1388": "Medias Res",
-        "1389": "High Voltage",
-        "1390": "On the Non-existent",
-        "1391": "Creepy Doll",
-        "1392": "Quiet, Please",
-        "1393": "Up and Batym",
-        "1394": "Rondo Aetolus",
-        "1395": "Scorchpion King",
-        "1396": "Burning Hunger",
-        "1397": "Dry Iris",
-        "1398": "Thirty Whacks",
-        "1399": "Put Up Your Dux",
-        "1400": "You Do Know Jack",
-        "1401": "Mister Bright-eyes",
-        "1402": "Haunter of the Dark",
-        "1403": "Heavens' Warg",
-        "1404": "Lost Epic",
-        "1407": "We're All Mad Here",
-        "1408": "Uncommon Nonsense"
+        "1388": "하얀 외침",
+        "1389": "사나운 번개야수",
+        "1390": "요마 변론가",
+        "1391": "공포의 인형",
+        "1392": "책의 수호자",
+        "1393": "심연의 대공",
+        "1394": "번개의 지휘자",
+        "1395": "작열하는 검",
+        "1396": "염열의 거인",
+        "1397": "눈물 흘리는 갈매기",
+        "1398": "기적의 생환자",
+        "1399": "전광의 사령관",
+        "1400": "럼버잭 사투",
+        "1401": "지혜와 전쟁의 어머니",
+        "1402": "전혀 다른 쌍둥이",
+        "1403": "비웃는 달의 늑대",
+        "1404": "불나비 여왕",
+        "1407": "산호를 노리는 행운토끼",
+        "1408": "바위에 갇힌 행운토끼"
+      }
+    },
+    "1004": {
+      "name": "에우레카 히다토스",
+      "fates": {
+        "1412": "I Ink, Therefore I Am",
+        "1413": "From Tusk till Dawn",
+        "1414": "Bullheaded Berserker",
+        "1415": "Mad, Bad, and Fabulous to Know",
+        "1416": "Fearful Symmetry",
+        "1417": "Crawling Chaos",
+        "1418": "Duty-free",
+        "1419": "Leukewarm Reception",
+        "1420": "Robber Barong",
+        "1421": "Stone-cold Killer",
+        "1423": "Crystalline Provenance",
+        "1422": "The Baldesion Arsenal: Expedition Support",
+        "1424": "I Don't Want to Believe",
+        "1425": "Drink Me"
       }
     },
 
@@ -3079,17 +3308,31 @@
         "1330": "세 가희의 길거리 공연",
         "1349": "세 가희의 길거리 공연",
         "1350": "세 가희의 길거리 공연",
-        "1370": "Counter-void Training: A Giant Undertaking",
-        "1372": "Counter-void Training: Toothsome Terrors",
-        "1375": "Counter-imperial Training: A Pinch of Assault",
-        "1376": "Counter-imperial Training: Strike Out",
-        "1378": "Counter-void Training: Free-for-Ul'dah",
-        "1381": "Counter-void Training: Blood from Stone",
-        "1382": "Counter-void Training: Undead Ahead",
-        "1384": "Counter-void Training: Soul of Destruction",
-        "1386": "Counter-fiend Training: Less Is Morbol",
-        "1405": "Counter-imperial Training: A Pinch of Assault",
-        "1406": "Counter-fiend Training: Less Is Morbol"
+        "1370": "요마 퇴치 훈련 베난도너 출현",
+        "1371": "요마 퇴치 훈련 오거 강습",
+        "1372": "요마 퇴치 훈련 달다구리 삼인분",
+        "1373": "시가전 훈련 총력 결전",
+        "1374": "제국군 퇴치 훈련 뱅가드 섬멸",
+        "1375": "제국군 퇴치 훈련 강습부대 요격",
+        "1376": "제국군 퇴치 훈련 타격부대 요격",
+        "1377": "제국군 퇴치 훈련 타격부대 요격",
+        "1378": "시가전 훈련 울다하 소동",
+        "1379": "요마 퇴치 훈련 우울한 눈 출현",
+        "1380": "요마 퇴치 훈련 학살자의 공격",
+        "1381": "요마 퇴치 훈련 바르카얄 처치",
+        "1382": "요마 퇴치 훈련 언데드 소탕",
+        "1383": "합동 훈련 언데드 요격",
+        "1384": "요마 퇴치 훈련 영혼 정화",
+        "1385": "요마 퇴치 훈련 깊은 보이드 총력전",
+        "1386": "마물 퇴치 훈련 크리스텔 침입",
+        "1405": "제국군 퇴치 훈련 강습 부대 요격",
+        "1406": "마물 퇴치 훈련 크리스텔 침입"
+      }
+    },
+    "1005": {
+      "name": "이벤트",
+      "fates": {
+        "1409": "FF15 콜라보"
       }
     }
   }
