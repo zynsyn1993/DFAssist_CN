@@ -8,10 +8,12 @@ namespace App
 {
     internal partial class Network
     {
+        private bool NetCompatibility;
         private State state = State.IDLE;
         private int lastMember = 0;
         private ushort lastCode = 0;
-        
+        private byte rouletteCode;
+
         private void AnalyseFFXIVPacket(byte[] payload)
         {
             try {
@@ -134,7 +136,7 @@ namespace App
                 mainForm.overlayForm.SetStatus(true);
 
                 var opcode = BitConverter.ToUInt16(message, 18);
-
+                //Log.Debug("Debug：opcode" + opcode.ToString());
 #if !DEBUG
                 if (opcode != 0x0078 &&
                     opcode != 0x0079 &&
@@ -242,9 +244,9 @@ namespace App
 
                     if (status == 0)
                     {
+                        NetCompatibility = false;
                         state = State.QUEUED;
-
-                        var rouletteCode = data[20];
+                        rouletteCode = data[20];
 
                         if (rouletteCode != 0 && (data[15] == 0 || data[15] == 64)) //무작위 임무 신청, 한국서버/글로벌 서버
                         {
@@ -255,6 +257,7 @@ namespace App
                         }
                         else //특정 임무 신청
                         {
+                            rouletteCode = 0;
                             var instances = new List<Instance>();
 
                             for (int i = 0; i < 5; i++)
@@ -351,19 +354,39 @@ namespace App
                 else if (opcode == 0x0079)
                 {
                     var code = BitConverter.ToUInt16(data, 0);
-                    var status = data[4];
-                    var tank = data[5];
-                    var dps = data[6];
-                    var healer = data[7];
-
-                    if (status == 0 && tank == 0 && healer == 0 && dps == 0) // 4.5版本兼容性
+                    byte status = 0;
+                    byte tank = 0;
+                    byte dps = 0;
+                    byte healer = 0;
+                    byte order = 255;
+                    if (NetCompatibility)
                     {
+                        order = data[4];
+                        order--;
                         status = data[8];
                         tank = data[9];
                         dps = data[10];
                         healer = data[11];
                     }
+                    else
+                    {
+                        order = data[5];
+                        status = data[4];
+                        tank = data[5];
+                        dps = data[6];
+                        healer = data[7];
+                    }
 
+                    if (status == 0 && tank == 0 && healer == 0 && dps == 0) // 4.5版本兼容性
+                    {
+                        Log.Debug("Debug：Patch V4.5 NetCompatibility Enabled");
+                        NetCompatibility = true;
+                        order = 255;
+                        status = data[8];
+                        tank = data[9];
+                        dps = data[10];
+                        healer = data[11];
+                    }
                     var instance = Data.GetInstance(code);
 
                     if (status == 1)
@@ -383,11 +406,25 @@ namespace App
                             // 프로그램이 매칭 중간에 켜짐
                             state = State.QUEUED;
                             mainForm.overlayForm.SetDutyCount(-1); // 알 수 없음으로 설정함 (TODO: 알아낼 방법 있으면 정확히 나오게 수정하기)
-                            mainForm.overlayForm.SetDutyStatus(instance, tank, dps, healer);
+                            if (NetCompatibility && rouletteCode > 0)
+                            {
+                                mainForm.overlayForm.SetDutyStatus(instance, order, dps, healer);
+                            }
+                            else
+                            {
+                                mainForm.overlayForm.SetDutyStatus(instance, tank, dps, healer);
+                            }
                         }
                         else if (state == State.QUEUED)
                         {
-                            mainForm.overlayForm.SetDutyStatus(instance, tank, dps, healer);
+                            if (NetCompatibility && rouletteCode > 0)
+                            {
+                                mainForm.overlayForm.SetDutyStatus(instance, order, dps, healer);
+                            }
+                            else
+                            {
+                                mainForm.overlayForm.SetDutyStatus(instance, tank, dps, healer);
+                            }
                         }
 
                         lastMember = member;
