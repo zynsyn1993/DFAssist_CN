@@ -46,6 +46,7 @@
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.tabControl_Settings = new System.Windows.Forms.TabControl();
             this.settings_basic = new System.Windows.Forms.TabPage();
+            this.button_Sound_Stop = new System.Windows.Forms.Button();
             this.checkBox_RoulleteTips = new System.Windows.Forms.CheckBox();
             this.checkBox_TTS = new System.Windows.Forms.CheckBox();
             this.checkBox_StartupShow = new System.Windows.Forms.CheckBox();
@@ -55,7 +56,7 @@
             this.checkBox_FlashWindow = new System.Windows.Forms.CheckBox();
             this.checkBox_PlaySound = new System.Windows.Forms.CheckBox();
             this.button_ResetOverlayPosition = new System.Windows.Forms.Button();
-            this.settings_svip = new System.Windows.Forms.TabPage();
+            this.settings_advanced = new System.Windows.Forms.TabPage();
             this.checkBox_HeartBeatLock = new System.Windows.Forms.CheckBox();
             this.checkBox_CheatRoullete = new System.Windows.Forms.CheckBox();
             this.settings_eureka_tracker = new System.Windows.Forms.TabPage();
@@ -64,6 +65,9 @@
             this.button_tracker_open = new System.Windows.Forms.Button();
             this.checkBox_tracker_enabled = new System.Windows.Forms.CheckBox();
             this.settings_tts = new System.Windows.Forms.TabPage();
+            this.textBox_tts_vol = new System.Windows.Forms.TextBox();
+            this.tts_vol = new App.LocalizableLabel();
+            this.trackBar_tts_vol = new System.Windows.Forms.TrackBar();
             this.button_tts_test = new System.Windows.Forms.Button();
             this.comboBox_tts_cache = new System.Windows.Forms.ComboBox();
             this.button_tts_clear_cache = new System.Windows.Forms.Button();
@@ -123,9 +127,10 @@
             this.tabPage_Settings.SuspendLayout();
             this.tabControl_Settings.SuspendLayout();
             this.settings_basic.SuspendLayout();
-            this.settings_svip.SuspendLayout();
+            this.settings_advanced.SuspendLayout();
             this.settings_eureka_tracker.SuspendLayout();
             this.settings_tts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_vol)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_speed)).BeginInit();
             this.settings_update.SuspendLayout();
             this.tabPage_FATE.SuspendLayout();
@@ -258,10 +263,6 @@
             this.checkBox_Overlay.UseVisualStyleBackColor = true;
             this.checkBox_Overlay.CheckedChanged += new System.EventHandler(this.checkBox_Overlay_CheckedChanged);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // tabControl
             // 
             this.tabControl.Alignment = System.Windows.Forms.TabAlignment.Left;
@@ -293,7 +294,7 @@
             // tabControl_Settings
             // 
             this.tabControl_Settings.Controls.Add(this.settings_basic);
-            this.tabControl_Settings.Controls.Add(this.settings_svip);
+            this.tabControl_Settings.Controls.Add(this.settings_advanced);
             this.tabControl_Settings.Controls.Add(this.settings_eureka_tracker);
             this.tabControl_Settings.Controls.Add(this.settings_tts);
             this.tabControl_Settings.Controls.Add(this.settings_update);
@@ -308,6 +309,7 @@
             // settings_basic
             // 
             this.settings_basic.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_basic.Controls.Add(this.button_Sound_Stop);
             this.settings_basic.Controls.Add(this.checkBox_RoulleteTips);
             this.settings_basic.Controls.Add(this.checkBox_Overlay);
             this.settings_basic.Controls.Add(this.checkBox_TTS);
@@ -325,11 +327,23 @@
             this.settings_basic.TabIndex = 0;
             this.settings_basic.Text = "基础设置";
             // 
+            // button_Sound_Stop
+            // 
+            this.button_Sound_Stop.AutoSize = true;
+            this.button_Sound_Stop.Font = new System.Drawing.Font("微软雅黑", 8F);
+            this.button_Sound_Stop.Location = new System.Drawing.Point(309, 193);
+            this.button_Sound_Stop.Name = "button_Sound_Stop";
+            this.button_Sound_Stop.Size = new System.Drawing.Size(113, 26);
+            this.button_Sound_Stop.TabIndex = 8;
+            this.button_Sound_Stop.Text = "停止播放";
+            this.button_Sound_Stop.UseVisualStyleBackColor = true;
+            this.button_Sound_Stop.Click += new System.EventHandler(this.button_Sound_Stop_Click);
+            // 
             // checkBox_RoulleteTips
             // 
             this.checkBox_RoulleteTips.AutoSize = true;
             this.checkBox_RoulleteTips.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_RoulleteTips.Location = new System.Drawing.Point(6, 109);
+            this.checkBox_RoulleteTips.Location = new System.Drawing.Point(6, 112);
             this.checkBox_RoulleteTips.Name = "checkBox_RoulleteTips";
             this.checkBox_RoulleteTips.Size = new System.Drawing.Size(351, 21);
             this.checkBox_RoulleteTips.TabIndex = 7;
@@ -341,7 +355,7 @@
             // 
             this.checkBox_TTS.AutoSize = true;
             this.checkBox_TTS.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_TTS.Location = new System.Drawing.Point(6, 136);
+            this.checkBox_TTS.Location = new System.Drawing.Point(6, 139);
             this.checkBox_TTS.Name = "checkBox_TTS";
             this.checkBox_TTS.Size = new System.Drawing.Size(91, 21);
             this.checkBox_TTS.TabIndex = 6;
@@ -364,7 +378,7 @@
             // label_SoundLocation
             // 
             this.label_SoundLocation.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.label_SoundLocation.Location = new System.Drawing.Point(6, 214);
+            this.label_SoundLocation.Location = new System.Drawing.Point(6, 190);
             this.label_SoundLocation.Name = "label_SoundLocation";
             this.label_SoundLocation.Size = new System.Drawing.Size(225, 13);
             this.label_SoundLocation.TabIndex = 1;
@@ -385,9 +399,9 @@
             // 
             this.button_SoundLocation.AutoSize = true;
             this.button_SoundLocation.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.button_SoundLocation.Location = new System.Drawing.Point(340, 160);
+            this.button_SoundLocation.Location = new System.Drawing.Point(309, 161);
             this.button_SoundLocation.Name = "button_SoundLocation";
-            this.button_SoundLocation.Size = new System.Drawing.Size(82, 26);
+            this.button_SoundLocation.Size = new System.Drawing.Size(113, 26);
             this.button_SoundLocation.TabIndex = 5;
             this.button_SoundLocation.Text = "사운드 선택";
             this.button_SoundLocation.UseVisualStyleBackColor = true;
@@ -397,7 +411,7 @@
             // 
             this.checkBox_FlashWindow.AutoSize = true;
             this.checkBox_FlashWindow.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_FlashWindow.Location = new System.Drawing.Point(6, 82);
+            this.checkBox_FlashWindow.Location = new System.Drawing.Point(6, 85);
             this.checkBox_FlashWindow.Name = "checkBox_FlashWindow";
             this.checkBox_FlashWindow.Size = new System.Drawing.Size(370, 21);
             this.checkBox_FlashWindow.TabIndex = 2;
@@ -409,7 +423,7 @@
             // 
             this.checkBox_PlaySound.AutoSize = true;
             this.checkBox_PlaySound.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_PlaySound.Location = new System.Drawing.Point(6, 163);
+            this.checkBox_PlaySound.Location = new System.Drawing.Point(6, 166);
             this.checkBox_PlaySound.Name = "checkBox_PlaySound";
             this.checkBox_PlaySound.Size = new System.Drawing.Size(91, 21);
             this.checkBox_PlaySound.TabIndex = 4;
@@ -421,25 +435,25 @@
             // 
             this.button_ResetOverlayPosition.AutoSize = true;
             this.button_ResetOverlayPosition.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.button_ResetOverlayPosition.Location = new System.Drawing.Point(346, 3);
+            this.button_ResetOverlayPosition.Location = new System.Drawing.Point(309, 3);
             this.button_ResetOverlayPosition.Name = "button_ResetOverlayPosition";
-            this.button_ResetOverlayPosition.Size = new System.Drawing.Size(77, 26);
+            this.button_ResetOverlayPosition.Size = new System.Drawing.Size(114, 26);
             this.button_ResetOverlayPosition.TabIndex = 0;
             this.button_ResetOverlayPosition.Text = "위치 초기화";
             this.button_ResetOverlayPosition.UseVisualStyleBackColor = true;
             this.button_ResetOverlayPosition.Click += new System.EventHandler(this.button_ResetOverlayPosition_Click);
             // 
-            // settings_svip
+            // settings_advanced
             // 
-            this.settings_svip.BackColor = System.Drawing.SystemColors.Control;
-            this.settings_svip.Controls.Add(this.checkBox_HeartBeatLock);
-            this.settings_svip.Controls.Add(this.checkBox_CheatRoullete);
-            this.settings_svip.Location = new System.Drawing.Point(4, 28);
-            this.settings_svip.Name = "settings_svip";
-            this.settings_svip.Padding = new System.Windows.Forms.Padding(3);
-            this.settings_svip.Size = new System.Drawing.Size(428, 230);
-            this.settings_svip.TabIndex = 4;
-            this.settings_svip.Text = "高级功能";
+            this.settings_advanced.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_advanced.Controls.Add(this.checkBox_HeartBeatLock);
+            this.settings_advanced.Controls.Add(this.checkBox_CheatRoullete);
+            this.settings_advanced.Location = new System.Drawing.Point(4, 28);
+            this.settings_advanced.Name = "settings_advanced";
+            this.settings_advanced.Padding = new System.Windows.Forms.Padding(3);
+            this.settings_advanced.Size = new System.Drawing.Size(428, 230);
+            this.settings_advanced.TabIndex = 4;
+            this.settings_advanced.Text = "高级功能";
             // 
             // checkBox_HeartBeatLock
             // 
@@ -506,9 +520,9 @@
             this.button_tracker_open.AutoSize = true;
             this.button_tracker_open.Enabled = false;
             this.button_tracker_open.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.button_tracker_open.Location = new System.Drawing.Point(346, 3);
+            this.button_tracker_open.Location = new System.Drawing.Point(319, 3);
             this.button_tracker_open.Name = "button_tracker_open";
-            this.button_tracker_open.Size = new System.Drawing.Size(76, 26);
+            this.button_tracker_open.Size = new System.Drawing.Size(103, 26);
             this.button_tracker_open.TabIndex = 1;
             this.button_tracker_open.Text = "打开追踪器";
             this.button_tracker_open.UseVisualStyleBackColor = true;
@@ -528,6 +542,9 @@
             // settings_tts
             // 
             this.settings_tts.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_tts.Controls.Add(this.textBox_tts_vol);
+            this.settings_tts.Controls.Add(this.tts_vol);
+            this.settings_tts.Controls.Add(this.trackBar_tts_vol);
             this.settings_tts.Controls.Add(this.button_tts_test);
             this.settings_tts.Controls.Add(this.comboBox_tts_cache);
             this.settings_tts.Controls.Add(this.button_tts_clear_cache);
@@ -541,6 +558,38 @@
             this.settings_tts.Size = new System.Drawing.Size(428, 230);
             this.settings_tts.TabIndex = 1;
             this.settings_tts.Text = "TTS设置";
+            // 
+            // textBox_tts_vol
+            // 
+            this.textBox_tts_vol.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox_tts_vol.Enabled = false;
+            this.textBox_tts_vol.Location = new System.Drawing.Point(10, 76);
+            this.textBox_tts_vol.Name = "textBox_tts_vol";
+            this.textBox_tts_vol.Size = new System.Drawing.Size(66, 25);
+            this.textBox_tts_vol.TabIndex = 14;
+            this.textBox_tts_vol.Text = "100";
+            this.textBox_tts_vol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tts_vol
+            // 
+            this.tts_vol.AutoSize = true;
+            this.tts_vol.Location = new System.Drawing.Point(6, 54);
+            this.tts_vol.Name = "tts_vol";
+            this.tts_vol.Size = new System.Drawing.Size(61, 19);
+            this.tts_vol.TabIndex = 13;
+            this.tts_vol.Text = "朗读音量";
+            // 
+            // trackBar_tts_vol
+            // 
+            this.trackBar_tts_vol.Location = new System.Drawing.Point(82, 57);
+            this.trackBar_tts_vol.Maximum = 100;
+            this.trackBar_tts_vol.Name = "trackBar_tts_vol";
+            this.trackBar_tts_vol.Size = new System.Drawing.Size(340, 45);
+            this.trackBar_tts_vol.TabIndex = 12;
+            this.trackBar_tts_vol.TickFrequency = 25;
+            this.trackBar_tts_vol.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar_tts_vol.Value = 100;
+            this.trackBar_tts_vol.Scroll += new System.EventHandler(this.trackBar_tts_vol_Scroll);
             // 
             // button_tts_test
             // 
@@ -559,7 +608,7 @@
             this.comboBox_tts_cache.DisplayMember = "Code";
             this.comboBox_tts_cache.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tts_cache.FormattingEnabled = true;
-            this.comboBox_tts_cache.Location = new System.Drawing.Point(38, 75);
+            this.comboBox_tts_cache.Location = new System.Drawing.Point(38, 136);
             this.comboBox_tts_cache.Name = "comboBox_tts_cache";
             this.comboBox_tts_cache.Size = new System.Drawing.Size(384, 27);
             this.comboBox_tts_cache.TabIndex = 10;
@@ -580,7 +629,7 @@
             // tts_cache
             // 
             this.tts_cache.AutoSize = true;
-            this.tts_cache.Location = new System.Drawing.Point(6, 53);
+            this.tts_cache.Location = new System.Drawing.Point(6, 114);
             this.tts_cache.Name = "tts_cache";
             this.tts_cache.Size = new System.Drawing.Size(61, 19);
             this.tts_cache.TabIndex = 5;
@@ -1093,12 +1142,13 @@
             this.tabControl_Settings.ResumeLayout(false);
             this.settings_basic.ResumeLayout(false);
             this.settings_basic.PerformLayout();
-            this.settings_svip.ResumeLayout(false);
-            this.settings_svip.PerformLayout();
+            this.settings_advanced.ResumeLayout(false);
+            this.settings_advanced.PerformLayout();
             this.settings_eureka_tracker.ResumeLayout(false);
             this.settings_eureka_tracker.PerformLayout();
             this.settings_tts.ResumeLayout(false);
             this.settings_tts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_vol)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_speed)).EndInit();
             this.settings_update.ResumeLayout(false);
             this.settings_update.PerformLayout();
@@ -1207,9 +1257,13 @@
         private System.Windows.Forms.GroupBox groupBox_network_settings;
         private System.Windows.Forms.CheckBox checkBox_netFilter;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.TabPage settings_svip;
+        private System.Windows.Forms.TabPage settings_advanced;
         private System.Windows.Forms.CheckBox checkBox_CheatRoullete;
         private System.Windows.Forms.CheckBox checkBox_HeartBeatLock;
+        private System.Windows.Forms.TextBox textBox_tts_vol;
+        private LocalizableLabel tts_vol;
+        private System.Windows.Forms.TrackBar trackBar_tts_vol;
+        private System.Windows.Forms.Button button_Sound_Stop;
     }
 }
 

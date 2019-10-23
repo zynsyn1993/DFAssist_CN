@@ -218,8 +218,9 @@ namespace App
 
                 if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
                 {
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
-                    player.Play();
+                    Sound_Helper.Play(Settings.SoundLocation,"sound_alert");
+                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
+                    //player.Play();
                 }
 
                 if (!Settings.ShowOverlay)
@@ -279,8 +280,9 @@ namespace App
 
                 if (Settings.PlaySound && Settings.SoundLocation != "" && System.IO.File.Exists(Settings.SoundLocation))
                 {
-                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
-                    player.Play();
+                    Sound_Helper.Play(Settings.SoundLocation, "sound_alert");
+                    //System.Media.SoundPlayer player = new System.Media.SoundPlayer(Settings.SoundLocation);
+                    //player.Play();
                 }
 
                 if (!Settings.ShowOverlay)

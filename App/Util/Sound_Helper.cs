@@ -6,11 +6,19 @@ namespace App
 {
     internal static class Sound_Helper
     {
-        internal static void Play(string FilePath)
+        internal static void Play(string FilePath, string Alias = "media",int Volume = 1000)
         {
-            mciSendString("close all", "", 0, 0);
-            mciSendString("open " + FilePath + " alias media", "", 0, 0);
-            mciSendString("play media", "", 0, 0);
+            try
+            {
+                mciSendString($"close {Alias}", "", 0, 0);
+                mciSendString($"open {FilePath} alias {Alias}", "", 0, 0);
+                mciSendString($"setaudio {Alias} volume to {Volume}", "", 0, 0);
+                mciSendString($"play {Alias}", "", 0, 0);
+            }
+            catch (Exception ex)
+            {
+                Log.Ex(ex, "l-soundhelper-error-general");
+            }
         }
         internal static void TTS_ClearCache()
         {
@@ -18,7 +26,7 @@ namespace App
             {
                 if (Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Global.APPNAME, "tts_cache")))
                 {
-                    Stop();
+                    Stop("TTS");
                     Directory.Delete(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Global.APPNAME, "tts_cache"), true);
                 }
             }
@@ -30,7 +38,6 @@ namespace App
 
         internal static void TTS(string text, string localization="zh")
         {
-            Stop();
             string tts = System.Web.HttpUtility.UrlEncode(text, System.Text.Encoding.UTF8);
             string tmp = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Global.APPNAME, "tts_cache", $"{localization}_{tts}.mp3");
             if (File.Exists(tmp) && Settings.TTSCache=="0")
@@ -41,22 +48,17 @@ namespace App
             {
                 WebApi.Download($"https://fanyi.baidu.com/gettts?lan={localization}&text={tts}&spd={Settings.TTSSpeed}&source=web", tmp);
             }
-            Play(tmp);
-        }
-        
-        internal static void play_callback(string FilePath)
-        {
-            Play(FilePath);
+            Play(tmp,"TTS",Settings.TTSVol * 10);
         }
 
-        internal static void Pause()
+        internal static void Pause(string Alias = "media")
         {
-            mciSendString("pause media", "", 0, 0);
+            mciSendString($"pause {Alias}", "", 0, 0);
         }
         
-        internal static void Stop()
+        internal static void Stop(string Alias = "media")
         {
-            mciSendString("close media", "", 0, 0);
+            mciSendString($"close {Alias}", "", 0, 0);
         }
         
         [DllImport("winmm.dll", EntryPoint = "mciSendString", CharSet = CharSet.Auto)]

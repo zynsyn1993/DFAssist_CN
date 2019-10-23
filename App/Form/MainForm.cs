@@ -66,8 +66,7 @@ namespace App
             {
                 this.Text += " 至尊无敌豪华SVIP高级功能破解版";
                 label_AboutTitle.Text += "_Crack";
-                checkBox_CheatRoullete.Enabled = true;
-                checkBox_HeartBeatLock.Enabled = true;
+                checkBox_CheatRoullete.Enabled = checkBox_HeartBeatLock.Enabled = true;
             }
             FindFFXIVProcess();
             
@@ -138,6 +137,9 @@ namespace App
                 checkBox_tracker_CNmirror.Checked = true;
             }
             trackBar_tts_speed.Value = int.Parse(Settings.TTSSpeed);
+            textBox_tts_speed.Text = Settings.TTSSpeed;
+            trackBar_tts_vol.Value = Settings.TTSVol;
+            textBox_tts_vol.Text = Settings.TTSVol.ToString();
             if (File.Exists(Settings.SoundLocation) == false)
             {
                 checkBox_PlaySound.Checked = false;
@@ -147,7 +149,7 @@ namespace App
             {
                 label_SoundLocation.Text = Path.GetFileName(Settings.SoundLocation);
             }
-            if (checkBox_PlaySound.Checked == false) { button_SoundLocation.Enabled = false; }
+            if (checkBox_PlaySound.Checked == false) { button_SoundLocation.Enabled = button_Sound_Stop.Enabled = false; }
             SetCheatRoulleteCheckBox(Settings.CheatRoulette);
             checkBox_HeartBeatLock.Checked = Settings.HeartBeatLock;
             checkBox_HeartBeatLock.CheckedChanged += checkBox_HeartBeatLock_CheckedChanged;
@@ -573,14 +575,18 @@ namespace App
             checkBox_DevMode.Text = Localization.GetText("ui-settings-debuglog");
             checkBox_netFilter.Text = Localization.GetText("ui-settings-netfilter");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
+            button_Sound_Stop.Text = Localization.GetText("ui-settings-soundlocation-stop");
             checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
             checkBox_HeartBeatLock.Text = Localization.GetText("ui-settings-heartbeatlock");
             checkBox_RoulleteTips.Text = Localization.GetText("ui-settings-roulettetips");
             tts_speed.SetLocalizedText("ui-settings-tts-speed");
+            tts_vol.SetLocalizedText("ui-settings-tts-vol");
             tts_cache.SetLocalizedText("ui-settings-tts-cache");
             button_tts_clear_cache.Text = Localization.GetText("ui-settings-tts-cache-clear");
             button_tts_test.Text = Localization.GetText("ui-settings-tts-test");
+            button_update.Text = Localization.GetText("ui-settings-update-manual");
             settings_tts.Text = Localization.GetText("ui-settings-tts-title");
+            settings_advanced.Text = Localization.GetText("ui-settings-advanced-title");
             toolStripMenuItem_SelectAll.Text = Localization.GetText("ui-fate-selectall");
             toolStripMenuItem_UnSelectAll.Text = Localization.GetText("ui-fate-unselectall");
             presetToolStripMenuItem.Text = Localization.GetText("ui-fate-preset");
@@ -678,9 +684,10 @@ namespace App
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)
         {
-            button_SoundLocation.Enabled = checkBox_PlaySound.Checked;
+            button_SoundLocation.Enabled = button_Sound_Stop.Enabled = checkBox_PlaySound.Checked;
             if (button_SoundLocation.Enabled == false)
             {
+                Sound_Helper.Stop("sound_alert");
                 label_SoundLocation.Text = "";
                 Settings.SoundLocation = "";
             }
@@ -690,7 +697,7 @@ namespace App
 
         private void button_SoundLocation_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "WAVE Files|*.wav";
+            openFileDialog1.Filter = "WAVE / MP3 Files|*.wav;*.mp3";
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -882,6 +889,19 @@ namespace App
         private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
         {
             triStateTreeView_FATEs.Nodes.Find(toolStripTextBox1.Text, true);
+        }
+
+        private void trackBar_tts_vol_Scroll(object sender, EventArgs e)
+        {
+            var TTSVol = trackBar_tts_vol.Value;
+            Settings.TTSVol = TTSVol;
+            Settings.Save();
+            textBox_tts_vol.Text = TTSVol.ToString();
+        }
+
+        private void button_Sound_Stop_Click(object sender, EventArgs e)
+        {
+            Sound_Helper.Stop("sound_alert");
         }
     }
 }

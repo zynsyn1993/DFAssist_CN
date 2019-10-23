@@ -28,6 +28,7 @@ namespace App
         public static bool TTS { get; set; } = false;
         public static string TTSCache { get; set; } = "1";
         public static string TTSSpeed { get; set; } = "4";
+        public static int TTSVol { get; set; } = 100;
         public static bool DebugLog { get; set; } = false;
         public static bool NetFilter { get; set; } = false;
         public static string SoundLocation { get; set; } = "";
@@ -75,6 +76,7 @@ namespace App
                 TTS = iniFile.ReadValue("notification", "tts") == "1";
                 TTSCache = iniFile.ReadValue("notification", "ttscache") ?? "1";
                 TTSSpeed = iniFile.ReadValue("notification", "ttsspeed") ?? "4";
+                TTSVol = int.Parse(iniFile.ReadValue("notification", "ttsvol") ?? "100");
                 DebugLog = iniFile.ReadValue("dev", "debuglog") == "1";
                 NetFilter = iniFile.ReadValue("dev", "netfilter") == "1";
                 SoundLocation = iniFile.ReadValue("notification", "soundlocation") ?? "";
@@ -114,6 +116,7 @@ namespace App
             iniFile.WriteValue("notification", "tts", TTS ? "1" : "0");
             iniFile.WriteValue("notification", "ttscache", TTSCache);
             iniFile.WriteValue("notification", "ttsspeed", TTSSpeed);
+            iniFile.WriteValue("notification", "ttsvol", TTSVol.ToString());
             iniFile.WriteValue("dev", "debuglog", DebugLog ? "1" : "0");
             iniFile.WriteValue("dev", "netfilter", NetFilter ? "1" : "0");
             iniFile.WriteValue("notification", "soundlocation", SoundLocation);
