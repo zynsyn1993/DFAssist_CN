@@ -58,6 +58,7 @@
   "ui-settings-autohide": "无数据时自动隐藏悬浮窗",
   "ui-settings-iconflash": "当匹配到任务/FATE时让FFXIV图标闪烁",
   "ui-settings-cheatroulette": "随机任务匹配时显示实际匹配到的任务信息",
+  "ui-settings-heartbeatlock": "当玩家在30分钟内没有进行任何操作时，将不会自动被系统登出游戏",
   "ui-settings-roulettetips": "通过随机任务匹配进入副本时显示简易副本攻略（如果支持）",
   "ui-settings-playsound": "播放声音提醒",
   "ui-settings-soundlocation": "选择文件",
@@ -123,6 +124,9 @@
 
   "ui-cheat-roulette-confirm": "默认情况下禁用此功能以防止滥用。\n请不要故意拒绝不喜欢的任务。\n是否仍然要启用它？",
   "ui-cheat-roulette-enabled": "已启用。\n请不要故意拒绝不喜欢的任务。",
+  
+  "ui-heart-beat-lock-confirm": "该功能处于测试阶段。\n此功能通过发送极少数人正常使用的F24按键到游戏中产生HeartBeat防止被游戏踢下线。\n如果启用后您无法正常使用键位设置功能，请关闭它。",
+  "ui-heart-beat-lock-enabled": "已启用。\n如果启用后您无法正常使用键位设置功能，请关闭它。",
 
   "ui-clear-log-confirm": "确认要清空日志吗？",
 

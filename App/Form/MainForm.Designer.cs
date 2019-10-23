@@ -54,8 +54,10 @@
             this.button_SoundLocation = new System.Windows.Forms.Button();
             this.checkBox_FlashWindow = new System.Windows.Forms.CheckBox();
             this.checkBox_PlaySound = new System.Windows.Forms.CheckBox();
-            this.checkBox_CheatRoullete = new System.Windows.Forms.CheckBox();
             this.button_ResetOverlayPosition = new System.Windows.Forms.Button();
+            this.settings_svip = new System.Windows.Forms.TabPage();
+            this.checkBox_HeartBeatLock = new System.Windows.Forms.CheckBox();
+            this.checkBox_CheatRoullete = new System.Windows.Forms.CheckBox();
             this.settings_eureka_tracker = new System.Windows.Forms.TabPage();
             this.checkBox_tracker_CNmirror = new System.Windows.Forms.CheckBox();
             this.checkBox_tracker_auto = new System.Windows.Forms.CheckBox();
@@ -121,6 +123,7 @@
             this.tabPage_Settings.SuspendLayout();
             this.tabControl_Settings.SuspendLayout();
             this.settings_basic.SuspendLayout();
+            this.settings_svip.SuspendLayout();
             this.settings_eureka_tracker.SuspendLayout();
             this.settings_tts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_tts_speed)).BeginInit();
@@ -290,6 +293,7 @@
             // tabControl_Settings
             // 
             this.tabControl_Settings.Controls.Add(this.settings_basic);
+            this.tabControl_Settings.Controls.Add(this.settings_svip);
             this.tabControl_Settings.Controls.Add(this.settings_eureka_tracker);
             this.tabControl_Settings.Controls.Add(this.settings_tts);
             this.tabControl_Settings.Controls.Add(this.settings_update);
@@ -313,7 +317,6 @@
             this.settings_basic.Controls.Add(this.button_SoundLocation);
             this.settings_basic.Controls.Add(this.checkBox_FlashWindow);
             this.settings_basic.Controls.Add(this.checkBox_PlaySound);
-            this.settings_basic.Controls.Add(this.checkBox_CheatRoullete);
             this.settings_basic.Controls.Add(this.button_ResetOverlayPosition);
             this.settings_basic.Location = new System.Drawing.Point(4, 28);
             this.settings_basic.Name = "settings_basic";
@@ -326,7 +329,7 @@
             // 
             this.checkBox_RoulleteTips.AutoSize = true;
             this.checkBox_RoulleteTips.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_RoulleteTips.Location = new System.Drawing.Point(6, 136);
+            this.checkBox_RoulleteTips.Location = new System.Drawing.Point(6, 109);
             this.checkBox_RoulleteTips.Name = "checkBox_RoulleteTips";
             this.checkBox_RoulleteTips.Size = new System.Drawing.Size(351, 21);
             this.checkBox_RoulleteTips.TabIndex = 7;
@@ -338,7 +341,7 @@
             // 
             this.checkBox_TTS.AutoSize = true;
             this.checkBox_TTS.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_TTS.Location = new System.Drawing.Point(6, 163);
+            this.checkBox_TTS.Location = new System.Drawing.Point(6, 136);
             this.checkBox_TTS.Name = "checkBox_TTS";
             this.checkBox_TTS.Size = new System.Drawing.Size(91, 21);
             this.checkBox_TTS.TabIndex = 6;
@@ -382,7 +385,7 @@
             // 
             this.button_SoundLocation.AutoSize = true;
             this.button_SoundLocation.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.button_SoundLocation.Location = new System.Drawing.Point(340, 187);
+            this.button_SoundLocation.Location = new System.Drawing.Point(340, 160);
             this.button_SoundLocation.Name = "button_SoundLocation";
             this.button_SoundLocation.Size = new System.Drawing.Size(82, 26);
             this.button_SoundLocation.TabIndex = 5;
@@ -406,26 +409,13 @@
             // 
             this.checkBox_PlaySound.AutoSize = true;
             this.checkBox_PlaySound.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_PlaySound.Location = new System.Drawing.Point(6, 190);
+            this.checkBox_PlaySound.Location = new System.Drawing.Point(6, 163);
             this.checkBox_PlaySound.Name = "checkBox_PlaySound";
             this.checkBox_PlaySound.Size = new System.Drawing.Size(91, 21);
             this.checkBox_PlaySound.TabIndex = 4;
             this.checkBox_PlaySound.Text = "사운드 재생";
             this.checkBox_PlaySound.UseVisualStyleBackColor = true;
             this.checkBox_PlaySound.CheckedChanged += new System.EventHandler(this.checkBox_PlaySound_CheckedChanged);
-            // 
-            // checkBox_CheatRoullete
-            // 
-            this.checkBox_CheatRoullete.AutoSize = true;
-            this.checkBox_CheatRoullete.Enabled = false;
-            this.checkBox_CheatRoullete.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.checkBox_CheatRoullete.Location = new System.Drawing.Point(6, 109);
-            this.checkBox_CheatRoullete.Name = "checkBox_CheatRoullete";
-            this.checkBox_CheatRoullete.Size = new System.Drawing.Size(303, 21);
-            this.checkBox_CheatRoullete.TabIndex = 3;
-            this.checkBox_CheatRoullete.Text = "무작위 임무일 경우에도 실제 매칭된 임무 보여주기";
-            this.checkBox_CheatRoullete.UseVisualStyleBackColor = true;
-            this.checkBox_CheatRoullete.CheckedChanged += new System.EventHandler(this.checkBox_CheatRoullete_CheckedChanged);
             // 
             // button_ResetOverlayPosition
             // 
@@ -438,6 +428,42 @@
             this.button_ResetOverlayPosition.Text = "위치 초기화";
             this.button_ResetOverlayPosition.UseVisualStyleBackColor = true;
             this.button_ResetOverlayPosition.Click += new System.EventHandler(this.button_ResetOverlayPosition_Click);
+            // 
+            // settings_svip
+            // 
+            this.settings_svip.BackColor = System.Drawing.SystemColors.Control;
+            this.settings_svip.Controls.Add(this.checkBox_HeartBeatLock);
+            this.settings_svip.Controls.Add(this.checkBox_CheatRoullete);
+            this.settings_svip.Location = new System.Drawing.Point(4, 28);
+            this.settings_svip.Name = "settings_svip";
+            this.settings_svip.Padding = new System.Windows.Forms.Padding(3);
+            this.settings_svip.Size = new System.Drawing.Size(428, 230);
+            this.settings_svip.TabIndex = 4;
+            this.settings_svip.Text = "高级功能";
+            // 
+            // checkBox_HeartBeatLock
+            // 
+            this.checkBox_HeartBeatLock.AutoSize = true;
+            this.checkBox_HeartBeatLock.Enabled = false;
+            this.checkBox_HeartBeatLock.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.checkBox_HeartBeatLock.Location = new System.Drawing.Point(6, 33);
+            this.checkBox_HeartBeatLock.Name = "checkBox_HeartBeatLock";
+            this.checkBox_HeartBeatLock.Size = new System.Drawing.Size(389, 21);
+            this.checkBox_HeartBeatLock.TabIndex = 8;
+            this.checkBox_HeartBeatLock.Text = "当玩家在30分钟内没有进行任何操作时，将不会自动被系统登出游戏";
+            this.checkBox_HeartBeatLock.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_CheatRoullete
+            // 
+            this.checkBox_CheatRoullete.AutoSize = true;
+            this.checkBox_CheatRoullete.Enabled = false;
+            this.checkBox_CheatRoullete.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.checkBox_CheatRoullete.Location = new System.Drawing.Point(6, 6);
+            this.checkBox_CheatRoullete.Name = "checkBox_CheatRoullete";
+            this.checkBox_CheatRoullete.Size = new System.Drawing.Size(303, 21);
+            this.checkBox_CheatRoullete.TabIndex = 4;
+            this.checkBox_CheatRoullete.Text = "무작위 임무일 경우에도 실제 매칭된 임무 보여주기";
+            this.checkBox_CheatRoullete.UseVisualStyleBackColor = true;
             // 
             // settings_eureka_tracker
             // 
@@ -1067,6 +1093,8 @@
             this.tabControl_Settings.ResumeLayout(false);
             this.settings_basic.ResumeLayout(false);
             this.settings_basic.PerformLayout();
+            this.settings_svip.ResumeLayout(false);
+            this.settings_svip.PerformLayout();
             this.settings_eureka_tracker.ResumeLayout(false);
             this.settings_eureka_tracker.PerformLayout();
             this.settings_tts.ResumeLayout(false);
@@ -1127,7 +1155,6 @@
         private System.Windows.Forms.CheckBox checkBox_AutoOverlayHide;
         internal System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.CheckBox checkBox_FlashWindow;
-        private System.Windows.Forms.CheckBox checkBox_CheatRoullete;
         private System.Windows.Forms.ToolStripMenuItem presetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookOfSkyfireIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookOfSkyfireIIToolStripMenuItem;
@@ -1180,6 +1207,9 @@
         private System.Windows.Forms.GroupBox groupBox_network_settings;
         private System.Windows.Forms.CheckBox checkBox_netFilter;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.TabPage settings_svip;
+        private System.Windows.Forms.CheckBox checkBox_CheatRoullete;
+        private System.Windows.Forms.CheckBox checkBox_HeartBeatLock;
     }
 }
 

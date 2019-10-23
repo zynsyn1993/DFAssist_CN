@@ -53,7 +53,6 @@ namespace App
         internal OverlayForm(MainForm mainForm)
         {
             InitializeComponent();
-
             this.m_hookProc = new WinEventDelegate(this.WinEventProc);
             this.m_overlay = new OverlayFormMove(this);
 
@@ -410,23 +409,20 @@ namespace App
             }
             if (isRoulette && Settings.RouletteTips)
             {
-                Task.Factory.StartNew(() =>
+                var instance = Data.GetInstance(code);
+                var roulette = Data.GetRoulette(queueCode);
+                if (instance.Tips != null)
                 {
-                    var instance = Data.GetInstance(code);
-                    var roulette = Data.GetRoulette(queueCode);
-                    if (instance.Tips != null)
+                    mainForm.Show_DutyTips(roulette.Name, instance.Name, instance.Tips, instance.Macro);
+                }
+                else if (instance.Macro != null)
+                {
+                    var respond = LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，是否复制该副本可用的宏？", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
+                    if (respond == DialogResult.Yes)
                     {
-                        mainForm.Show_DutyTips(roulette.Name, instance.Name, instance.Tips, instance.Macro);
+                        this.Invoke(() => { Clipboard.SetDataObject(instance.Macro, true); });
                     }
-                    else if (instance.Macro != null)
-                    {
-                        var respond = LMessageBox.Dialog($"已通过[{roulette.Name}]进入<{instance.Name}>副本区域，是否复制该副本可用的宏？", $"DFA：<{instance.Name}> 简易攻略", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
-                        if (respond == DialogResult.Yes)
-                        {
-                            this.Invoke(() => { Clipboard.SetDataObject(instance.Macro, true); });
-                        }
-                    }
-                });
+                }
             }
         }
 

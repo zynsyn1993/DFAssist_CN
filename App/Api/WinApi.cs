@@ -7,6 +7,9 @@ namespace App
     internal class WinApi
     {
         [DllImport("user32.dll")]
+        public static extern bool PostMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
+
+        [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool FlashWindowEx(ref FLASHWINFO pwfi);
 
@@ -34,6 +37,12 @@ namespace App
             pwfi.dwTimeout = 0;
 
             FlashWindowEx(ref pwfi);
+        }
+
+        internal static void PostF24(Process process)
+        {
+            PostMessage(process.MainWindowHandle, 0x0100, 0x87, 0);
+            PostMessage(process.MainWindowHandle, 0x0101, 0x87, 0);
         }
     }
 }

@@ -22,7 +22,11 @@ namespace App
         public MainForm()
         {
             Settings.Load();
-
+            if (Settings.FirstRun)
+            {
+                LMessageBox.Alert("本软件完全免费，仅供学习交流使用，禁止倒卖。\n如果您是通过闲鱼、拼多多、淘宝等平台购买到本软件，请立即退货并差评！\nDFAssist_CN 中文支持版唯一指定官网 http://ffxiv.diemoe.net/");
+                Settings.FirstRun = false;
+            }
             InitializeComponent();
             Log.Form = this;
             overlayForm = new OverlayForm(this);
@@ -63,6 +67,7 @@ namespace App
                 this.Text += " 至尊无敌豪华SVIP高级功能破解版";
                 label_AboutTitle.Text += "_Crack";
                 checkBox_CheatRoullete.Enabled = true;
+                checkBox_HeartBeatLock.Enabled = true;
             }
             FindFFXIVProcess();
             
@@ -100,7 +105,11 @@ namespace App
                 while (true)
                 {
                     Updater.CheckNewVersion(this);
-                    Thread.Sleep(30 * 60 * 1000);
+                    if (Settings.HeartBeatLock)
+                    {
+                        WinApi.PostF24(FFXIVProcess);
+                    }
+                    Thread.Sleep(15 * 60 * 1000);
                 }
             });
 
@@ -140,6 +149,8 @@ namespace App
             }
             if (checkBox_PlaySound.Checked == false) { button_SoundLocation.Enabled = false; }
             SetCheatRoulleteCheckBox(Settings.CheatRoulette);
+            checkBox_HeartBeatLock.Checked = Settings.HeartBeatLock;
+            checkBox_HeartBeatLock.CheckedChanged += checkBox_HeartBeatLock_CheckedChanged;
             checkBox_RoulleteTips.Checked = Settings.RouletteTips;
 
             checkBox_TTS.Checked = Settings.TTS;
@@ -288,6 +299,21 @@ namespace App
             }
 
             Settings.CheatRoulette = checkBox_CheatRoullete.Checked;
+            Settings.Save();
+        }
+
+        private void checkBox_HeartBeatLock_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_HeartBeatLock.Checked)
+            {
+                var respond = LMessageBox.W("ui-heart-beat-lock-confirm", MessageBoxButtons.YesNo, MessageBoxDefaultButton.Button2);
+                if (respond == DialogResult.Yes)
+                {
+                    LMessageBox.I("ui-heart-beat-lock-enabled");
+                }
+            }
+
+            Settings.HeartBeatLock = checkBox_HeartBeatLock.Checked;
             Settings.Save();
         }
 
@@ -548,6 +574,7 @@ namespace App
             checkBox_netFilter.Text = Localization.GetText("ui-settings-netfilter");
             button_SoundLocation.Text = Localization.GetText("ui-settings-soundlocation");
             checkBox_CheatRoullete.Text = Localization.GetText("ui-settings-cheatroulette");
+            checkBox_HeartBeatLock.Text = Localization.GetText("ui-settings-heartbeatlock");
             checkBox_RoulleteTips.Text = Localization.GetText("ui-settings-roulettetips");
             tts_speed.SetLocalizedText("ui-settings-tts-speed");
             tts_cache.SetLocalizedText("ui-settings-tts-cache");
@@ -638,12 +665,15 @@ namespace App
 
         internal void Show_DutyTips(string Roullete, string Instance, string Tip, string Macro = null)
         {
-            if (tipsForm != null)
+            this.Invoke(() =>
             {
-                tipsForm.Dispose();
-            }
-            tipsForm = new TipsForm(Roullete, Instance, Tip, Macro);
-            tipsForm.Show();
+                if (tipsForm != null)
+                {
+                    tipsForm.Dispose();
+                }
+                tipsForm = new TipsForm(Roullete, Instance, Tip, Macro);
+                tipsForm.Show();
+            });
         }
 
         private void checkBox_PlaySound_CheckedChanged(object sender, EventArgs e)

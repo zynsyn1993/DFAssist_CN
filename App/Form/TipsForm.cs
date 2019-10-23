@@ -21,9 +21,6 @@ namespace App
 
         private void TipsForm_Load(object sender, EventArgs e)
         {
-            textBox1.SelectionStart = 0;
-            textBox1.SelectionLength = 0;
-            textBox1.Text = Tip;
             if (Macro == null)
             {
                 panel_macro.Hide();
@@ -37,6 +34,9 @@ namespace App
 
         private void TipsForm_Shown(object sender, EventArgs e)
         {
+            textBox1.SelectionStart = 0;
+            textBox1.SelectionLength = 0;
+            textBox1.Text = Tip;
             TopMost = false;
         }
     }

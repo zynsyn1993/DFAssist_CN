@@ -8,7 +8,6 @@ namespace App
 {
     internal partial class Network
     {
-        private bool NetCompatibility;
         private State state = State.IDLE;
         private int lastMember = 0;
         private ushort lastCode = 0;
@@ -25,7 +24,6 @@ namespace App
                     }
 
                     var type = BitConverter.ToUInt16(payload, 0);
-
                     if (type == 0x0000 || type == 0x5252)
                     {
                         if (payload.Length < 28)
@@ -244,7 +242,6 @@ namespace App
 
                     if (status == 0)
                     {
-                        NetCompatibility = false;
                         state = State.QUEUED;
                         rouletteCode = data[20];
 
@@ -354,39 +351,13 @@ namespace App
                 else if (opcode == 0x0079)
                 {
                     var code = BitConverter.ToUInt16(data, 0);
-                    byte status = 0;
-                    byte tank = 0;
-                    byte dps = 0;
-                    byte healer = 0;
-                    byte order = 255;
-                    if (NetCompatibility)
-                    {
-                        order = data[4];
-                        order--;
-                        status = data[8];
-                        tank = data[9];
-                        dps = data[10];
-                        healer = data[11];
-                    }
-                    else
-                    {
-                        order = data[5];
-                        status = data[4];
-                        tank = data[5];
-                        dps = data[6];
-                        healer = data[7];
-                    }
-
-                    if (status == 0 && tank == 0 && healer == 0 && dps == 0) // 4.5版本兼容性
-                    {
-                        Log.Debug("Debug：Patch V4.5 NetCompatibility Enabled");
-                        NetCompatibility = true;
-                        order = 255;
-                        status = data[8];
-                        tank = data[9];
-                        dps = data[10];
-                        healer = data[11];
-                    }
+                    byte order = data[4];
+                    order--;
+                    byte status = data[8];
+                    byte tank = data[9];
+                    byte dps = data[10];
+                    byte healer = data[11];
+                        
                     var instance = Data.GetInstance(code);
 
                     if (status == 1)
@@ -406,7 +377,7 @@ namespace App
                             // 프로그램이 매칭 중간에 켜짐
                             state = State.QUEUED;
                             mainForm.overlayForm.SetDutyCount(-1); // 알 수 없음으로 설정함 (TODO: 알아낼 방법 있으면 정확히 나오게 수정하기)
-                            if (NetCompatibility && rouletteCode > 0)
+                            if (rouletteCode > 0)
                             {
                                 mainForm.overlayForm.SetDutyStatus(instance, order, dps, healer);
                             }
@@ -417,7 +388,7 @@ namespace App
                         }
                         else if (state == State.QUEUED)
                         {
-                            if (NetCompatibility && rouletteCode > 0)
+                            if (rouletteCode > 0)
                             {
                                 mainForm.overlayForm.SetDutyStatus(instance, order, dps, healer);
                             }
@@ -442,8 +413,17 @@ namespace App
                         mainForm.overlayForm.SetConfirmStatus(instance, tank, dps, healer);
                     }
                     lastCode = code;
-                    Log.I("l-queue-updated", instance.Name, status, tank, instance.Tank, healer, instance.Healer, dps,
-                        instance.DPS);
+                    if (Settings.CheatRoulette && rouletteCode > 0)
+                    {
+                        Log.I("l-queue-updated", instance.Name, status, tank, instance.Tank, healer, instance.Healer, dps,instance.DPS);
+                    }else if(rouletteCode > 0)
+                    {
+                        Log.I("l-queue-updated", Data.GetRoulette(rouletteCode).Name, status, 0, 0, 0, 0, 0, 0);
+                    }
+                    else
+                    {
+                        Log.I("l-queue-updated", instance.Name, status, tank, instance.Tank, healer, instance.Healer, dps, instance.DPS);
+                    }
                 }
                 else if (opcode == 0x0080)
                 {

@@ -10,6 +10,7 @@ namespace App
         private static INIFile iniFile;
 
         public static bool Crack { get; set; } = false;
+        public static bool FirstRun { get; set; } = true;
         public static string dfaUpdate { get; set; } = "1";
         public static string dataUpdate { get; set; } = "1";
         public static string Language { get; set; } = "zh-cn";
@@ -20,6 +21,7 @@ namespace App
         public static bool AutoOverlayHide { get; set; } = true;
         public static bool FlashWindow { get; set; } = true;
         public static bool CheatRoulette { get; set; } = false;
+        public static bool HeartBeatLock { get; set; } = false;
         public static bool RouletteTips { get; set; } = true;
         public static bool Updated { get; set; } = true;
         public static bool PlaySound { get; set; } = false;
@@ -54,6 +56,7 @@ namespace App
             else
             {
                 Crack = iniFile.ReadValue("crack", "crack") == "1";
+                FirstRun = iniFile.ReadValue("internal", "firstrun") != "0";
                 StartupShowMainForm = iniFile.ReadValue("startup", "show") != "0";
                 ShowOverlay = iniFile.ReadValue("overlay", "show") != "0";
                 AutoOverlayHide = iniFile.ReadValue("overlay", "autohide") != "0";
@@ -61,6 +64,7 @@ namespace App
                 OverlayY = int.Parse(iniFile.ReadValue("overlay", "y") ?? "0");
                 FlashWindow = iniFile.ReadValue("notification", "flashwindow") != "0";
                 CheatRoulette = iniFile.ReadValue("misc", "cheatroulette") == "1";
+                HeartBeatLock = iniFile.ReadValue("misc", "heartbeatlock") == "1";
                 RouletteTips = iniFile.ReadValue("misc", "roulettetips") != "0";
                 Language = iniFile.ReadValue("misc", "language") ?? "zh-cn";
                 dfaUpdate = iniFile.ReadValue("update", "dfaupdate") ?? "1";
@@ -90,6 +94,7 @@ namespace App
         public static void Save()
         {
             iniFile.WriteValue("crack", "crack", Crack ? "1" : "0");
+            iniFile.WriteValue("internal", "firstrun", FirstRun ? "1" : "0");
             iniFile.WriteValue("startup", "show", StartupShowMainForm ? "1" : "0");
             iniFile.WriteValue("overlay", "show", ShowOverlay ? "1" : "0");
             iniFile.WriteValue("overlay", "autohide", AutoOverlayHide ? "1" : "0");
@@ -97,6 +102,7 @@ namespace App
             iniFile.WriteValue("overlay", "y", OverlayY.ToString());
             iniFile.WriteValue("notification", "flashwindow", FlashWindow ? "1" : "0");
             iniFile.WriteValue("misc", "cheatroulette", CheatRoulette ? "1" : "0");
+            iniFile.WriteValue("misc", "heartbeatlock", HeartBeatLock ? "1" : "0");
             iniFile.WriteValue("misc", "roulettetips", RouletteTips ? "1" : "0");
             iniFile.WriteValue("misc", "language", Language);
             iniFile.WriteValue("update", "dfaupdate", dfaUpdate);
