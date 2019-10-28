@@ -102,7 +102,7 @@ namespace App
                 return instance;
             }
 
-            if (code != 0)
+            if (code != 1)
             {
                 Log.Debug($"Debug：未知的副本[ID.{code}]");
                 //var @event = new SentryEvent("Missing instance code");
@@ -121,7 +121,7 @@ namespace App
                 return roulette;
             }
 
-            if (code != 0)
+            if (code != 1)
             {
                 Log.Debug($"Debug：未知的随机任务[ID.{code}]");
                 //var @event = new SentryEvent("Missing Roulette code");
@@ -141,7 +141,7 @@ namespace App
                 return area;
             }
 
-            if (code != 0)
+            if (code != 1)
             {
                 Log.Debug($"Debug：未知的区域[ID.{code}]");
                 //var @event = new SentryEvent("Missing area code");
@@ -161,7 +161,7 @@ namespace App
                 return FATEs[code];
             }
 
-            if (code != 0)
+            if (code != 1)
             {
                 Log.Debug($"Debug：未知的FATE[ID.{code}]");
                 //var @event = new SentryEvent("Missing FATE code");
